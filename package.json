@@ -3,13 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "yarn collect && next dev",
+    "now-build": "yarn collect && next build",
+    "post": "node scripts/create.js",
+    "collect": "node scripts/collect-meta.js"
   },
   "dependencies": {
+    "@zeit-ui/react": "^0.0.1-alpha.7",
+    "ms": "^2.1.2",
     "next": "9.2.2",
     "react": "16.13.0",
-    "react-dom": "16.13.0"
+    "react-dom": "16.13.0",
+    "react-hooks-responsive": "^0.2.1"
+  },
+  "devDependencies": {
+    "@mapbox/rehype-prism": "^0.4.0",
+    "@mdx-js/loader": "^1.5.7",
+    "@next/mdx": "^9.2.2",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@zeit/next-css": "^1.0.1",
+    "chalk": "^3.0.0",
+    "extract-mdx-metadata": "^1.0.0",
+    "fs-extra": "^8.1.0",
+    "prompt-sync": "^4.2.0",
+    "styled-jsx": "^3.2.4"
   }
 }
