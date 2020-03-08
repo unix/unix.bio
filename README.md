@@ -1,30 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+## unix.bio
 
-## Getting Started
+> Modern static blog template.
 
-First, run the development server:
+<br />
 
-```bash
-npm run dev
-# or
-yarn dev
+### How to use
+
+This is the source code of my [blog](https://unix.bio).
+
+You can also use this project to build your own blog.
+
+Click <kbd>Use this template</kbd> button on GitHub.
+
+<br />
+
+### Write & Deploy
+
+1. In project, run `yarn post` to create your post.
+
+2. run `yarn dev` to browse development page.
+
+3. run `now` to deploy. (Default deployment to [now](https://now.sh/))
+
+<br />
+
+### Features
+
+#### High optimization
+
+  - High performance optimization thanks to [next.js](http://nextjs.com/)
+  - Perfect SEO support
+  - High readability
+  - Your just need to `write`
+
+<img width="600" src="https://user-images.githubusercontent.com/11304944/76160335-3dd1b980-6164-11ea-8e84-535353f5811b.png">
+
+#### English & Chinese
+
+You can **switch languages** in the configuration file
+
+#### Write on MDXJS
+
+  - Full markdown support
+  - React Components support
+  - More customization possibilities
+
+<img width="600" src="https://user-images.githubusercontent.com/11304944/76159776-b33a8b80-615e-11ea-9752-19827e5c900d.png">
+
+
+#### Dark mode
+
+<img width="600" src="https://user-images.githubusercontent.com/11304944/76160332-3ad6c900-6164-11ea-9c2b-d8e810d72bfc.png">
+
+<img width="600" src="https://user-images.githubusercontent.com/11304944/76160333-3ca08c80-6164-11ea-965c-9852ba147d6a.png">
+
+#### Mobile
+
+<img width="600" src="https://user-images.githubusercontent.com/11304944/76160334-3d392300-6164-11ea-93fb-0527e2eba68a.png">
+
+
+<br />
+
+### Configuration
+
+**First, do not rename any directories！** You can start your writing in the `posts` folder.
+
+In the **root directory** of the project, you can change the configuration for your blog:
+
+```js
+const BLOG = {
+  anthor: 'Witt',               // article anthor, used on `Meta`
+  title: 'Witt - unix.bio',     // website title
+  description: 'Witt\'s blog',  // used on `Meta`
+  summary: '',                  // one sentence introduction, show on home page
+  language: 'en-us',            // 'en-us' or 'zh-cn'
+  latestLimit: 5,               // number of home display lists
+  
+  labels: {                     // label text
+    default: 'default',
+    latest: 'latest',
+    list: 'all list',
+  },
+  
+  email: '',                    // about social
+  github: 'unix',
+  twitter: 'echo_witt',
+  domain: 'unix.bio',           // your domain name
+  
+  googleAnalytics: 'UA-x',
+  cn: true,                     // chinese translation of some characters
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br />
 
-## Learn More
+### How to migrate
 
-To learn more about Next.js, take a look at the following resources:
+1. click <kbd>Use this template</kbd> button on GitHub
+2. create new project
+3. copy folder `posts` & `fixed` to your new project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br />
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+### LICENSE
 
-## Deploy on ZEIT Now
+[MIT](./LICENSE)
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
