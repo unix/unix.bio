@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import dynamic from 'next/dynamic'
 import { Spacer, Text, useTheme } from '@zeit-ui/react'
 import Profile from './profile'
-import Contacts from './contacts'
 import { msToString } from '../date-transform'
+
+const ContactsWithNoSSR = dynamic(
+  () => import('./contacts'),
+  { ssr: false }
+)
 
 const getDate = date => {
   const d = new Date(date)
@@ -13,7 +18,8 @@ const getDate = date => {
 
 const Layout = ({ children, meta }) => {
   const theme = useTheme()
-  const inDetailPage = meta && meta.title
+  const inDetailPage = useMemo(() => meta && meta.title, [])
+  const date = useMemo(() => getDate((meta || {}).date), [])
   
   return (
     <section>
@@ -22,10 +28,10 @@ const Layout = ({ children, meta }) => {
         <Profile />
         {inDetailPage && <Spacer y={1} />}
         {inDetailPage && <Text h1>{meta.title}</Text>}
-        {inDetailPage && <Text p className="date">{getDate(meta.date)}</Text>}
+        {inDetailPage && <Text p className="date">{date}</Text>}
         {inDetailPage && <Spacer y={1} />}
         {children}
-        <Contacts />
+        <ContactsWithNoSSR />
       </div>
       
 
