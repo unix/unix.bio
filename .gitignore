@@ -28,4 +28,4 @@ yarn-error.log*
 
 /.next
 
-/lib/data
+/lib/data/
