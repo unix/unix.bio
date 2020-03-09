@@ -8,7 +8,8 @@ export const meta = {
 }
 
 
-对于存放在 Github / Gitlab 的开源项目，视项目大小与功用也有不同的发布方式、发布内容与自动化工程化解决方案。这里以包含 `package.json` 的项目为例，介绍各种不同的发布方法。
+对于存放在 Github / Gitlab 的开源项目，视项目大小与功用也有不同的发布方式、发布内容与自动化工程化解决方案。
+这里以包含 `package.json` 的项目为例，介绍各种不同的发布方法。
 
 <Spacer y={2} />
 
@@ -34,14 +35,15 @@ export const meta = {
     <p><Dot type="success"><b>pre-release</b></Dot> 先行版本</p>
   </ul>
 
-每次 Release 新版本时参考所有的修改内容决定下个版本号，再进行修改。如果你不小心修改错了，则需要发布一个新的版本来修复这个错误。当然这只是约定，如果你觉得这很繁琐不知道该怎么办可以看下文。
+每次 Release 新版本时参考所有的修改内容决定下个版本号，再进行修改。如果你不小心修改错了，
+则需要发布一个新的版本来修复这个错误。当然这只是约定，如果你觉得这很繁琐不知道该怎么办可以看下文。
 
 <Spacer />
 
 ### 3. 在遵循语义化版本的基础上自动更改
 自动 release 工具可以分为 本地 / CI / 机器人不同类型，本地工具大多是 CLI (也有可视化)，通过命令手动帮助你改动文件与 release git tag，
-CI 工具则是在你每次的 PR / PUSH / 本地 Hook 触发后通过相应的规则检查，通过后自动升级版本，机器人模式在 github 很常见，通常是运行一个服务端来监听
-Git 事件，在合适的时机向你发起一个 PR 升级版本。(有关 robot 你可以关注我的项目 <Link rel="nofollow" href="https://github.com/unix/cobot">cobot.gitlab</Link>）
+CI 工具则是在你每次的 PR / PUSH / 本地 Hook 触发后通过相应的规则检查，通过后自动升级版本，机器人模式在 github 很常见，
+通常是运行一个服务端来监听 Git 事件，在合适的时机向你发起一个 PR 升级版本。(有关 robot 你可以关注我的项目 <Link rel="nofollow" href="https://github.com/unix/cobot">cobot.gitlab</Link>）
 
 <Display caption={<p><code>cobot.gitlab</code> 以语义化的接口完成 <b>Bot</b> 开发</p>}>
 
@@ -55,8 +57,9 @@ bot.on(BotEvents.MergeRequest, async(context) => {
 
 </Display>
 
-对于本地升级版本的方式你可以试试 <Link color rel="nofollow" href="https://github.com/unix/done">DONE</Link>，它可以帮助你生成一个标准化的版本，在发布时自动修改 `package.json`，同时
-也支持对版本的发布信息做 hook 补充。也就是说，当你正在使用 `done` 时，可以不用考虑任何事情，通过一行命令发布一个版本并生成一个 Git Tag:
+对于本地升级版本的方式你可以试试 <Link color rel="nofollow" href="https://github.com/unix/done">DONE</Link>，
+它可以帮助你生成一个标准化的版本，在发布时自动修改 `package.json`，同时也支持对版本的发布信息做 hook 补充。
+也就是说，当你正在使用 `done` 时，可以不用考虑任何事情，通过一行命令发布一个版本并生成一个 Git Tag:
 
 <Link rel="nofollow" href="https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner">什么是 NPX?</Link>
 
@@ -112,8 +115,8 @@ bot.on(BotEvents.MergeRequest, async(context) => {
 
 ### 3. 手动发布编译后包
 
-在有些需要编译的项目中我们常会先压缩或是执行一些编译脚本，并且排除掉对生产无用的文件才发布，因为包的大小会影响用户的下载时间与使用体验。现在我们尝试在本地发布一个执行脚本后的包。
-以包含 `package.json` 文件的项目为例：
+在有些需要编译的项目中我们常会先压缩或是执行一些编译脚本，并且排除掉对生产无用的文件才发布，因为包的大小会影响用户的下载时间与使用体验。
+现在我们尝试在本地发布一个执行脚本后的包。以包含 `package.json` 文件的项目为例：
 
   - 你需要在升级版本后在本地手动执行一次 Build 脚本，或是在 `scripts.prepublish` 中指定 Build 语句。
 
