@@ -31,6 +31,7 @@ const Layout = ({ children, meta }) => {
         {inDetailPage && <Text p className="date">{date}</Text>}
         {inDetailPage && <Spacer y={1} />}
         {children}
+        <Spacer y={5} />
         <ContactsWithNoSSR />
       </div>
       

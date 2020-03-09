@@ -31,7 +31,6 @@ const Contacts = () => {
   
   return (
     <>
-      <Spacer y={5.5} />
       <div className="contacts">
         {isDark && <Sun onClick={switchTheme} />}
         {!isDark && <Moon onClick={switchTheme} />}
