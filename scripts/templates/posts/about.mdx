@@ -1,0 +1,13 @@
+import Layout from 'lib/components/layout'
+import { Button } from '@zeit-ui/react'
+
+export const meta = {
+  title: 'Hello World',
+  date: '2019-06-03T11:38:04.563Z',
+  description: '',
+}
+
+Welcome to `unix.bio`, run `npm run post` to create your first post.
+
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
