@@ -5763,10 +5763,10 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-join-line@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/rehype-join-line/-/rehype-join-line-1.0.0.tgz#c6103aa095e53293a51be3f42c550d3c431b502b"
-  integrity sha512-FgpNXskPLZJ73swUyZDOMluFnq1ymWS2iP+Zt274Oxgpq7jwjz6h/IuxHyP3q5O/MjG1losUvN1ZAodUlpuPUA==
+rehype-join-line@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/rehype-join-line/-/rehype-join-line-1.0.2.tgz#8cdd082b9d4918fa7e258c7573abc702fa84293a"
+  integrity sha512-1TEWzUsTOCiuWu0zE9/jTlcE4IW0p6rfiHNVTT4yb+8SCtxanbp20B94deTyuIXLbWl3tPyeWPwEZ9h60/Xr6w==
   dependencies:
     unist-util-visit "^2.0.2"
 
