@@ -14,7 +14,7 @@ const getDNSPrefetchValue = domain => {
 const Application = ({ Component, pageProps }) => {
   const theme = useTheme()
   
-  const [themeType, setThemeType] = useState(theme.type)
+  const [themeType, setThemeType] = useState('light')
   const changeHandle = useCallback(isDark => {
     const next = isDark ? 'light' : 'dark'
     setThemeType(next)

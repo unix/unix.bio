@@ -13,8 +13,7 @@
     "ms": "^2.1.2",
     "next": "9.2.2",
     "react": "16.13.0",
-    "react-dom": "16.13.0",
-    "react-hooks-responsive": "^0.2.1"
+    "react-dom": "16.13.0"
   },
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
@@ -27,6 +26,7 @@
     "extract-mdx-metadata": "^1.0.0",
     "fs-extra": "^8.1.0",
     "prompt-sync": "^4.2.0",
+    "rehype-join-line": "^1.0.0",
     "styled-jsx": "^3.2.4"
   }
 }
