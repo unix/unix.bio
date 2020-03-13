@@ -20,6 +20,7 @@ const BLOG = {
   
   googleAnalytics: 'UA-110371817-3',
   cn: true,
+  enableViews: true,
 }
 
 export default BLOG

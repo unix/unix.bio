@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react'
 import dynamic from 'next/dynamic'
-import { Spacer, Text, useTheme } from '@zeit-ui/react'
+import { useRouter } from 'next/router'
+import { Spacer, Text, useTheme, Image } from '@zeit-ui/react'
 import Profile from './profile'
 import { msToString } from '../date-transform'
+import BLOG from '../../blog.config'
 
 const ContactsWithNoSSR = dynamic(
   () => import('./contacts'),
@@ -18,8 +20,14 @@ const getDate = date => {
 
 const Layout = ({ children, meta }) => {
   const theme = useTheme()
+  const { asPath } = useRouter()
   const inDetailPage = useMemo(() => meta && meta.title, [])
   const date = useMemo(() => getDate((meta || {}).date), [])
+  const url = useMemo(() => {
+    const suffix = BLOG.cn ? ' 阅读' : ' views'
+    return `https://views.show/svg?key=${asPath}&fill=666666&suffix=${encodeURI(suffix)}&size=13`
+  }, [asPath])
+  const showViews = useMemo(() => BLOG.enableViews, [])
   
   return (
     <section>
@@ -28,7 +36,12 @@ const Layout = ({ children, meta }) => {
         <Profile />
         {inDetailPage && <Spacer y={1} />}
         {inDetailPage && <Text h1>{meta.title}</Text>}
-        {inDetailPage && <Text p className="date">{date}</Text>}
+        {inDetailPage && (
+          <div className="date-box">
+            <Text p className="date">{date}</Text>
+            {showViews && <Image width={100} height={24} src={url} />}
+          </div>
+        )}
         {inDetailPage && <Spacer y={1} />}
         {children}
         <Spacer y={5} />
@@ -70,10 +83,22 @@ const Layout = ({ children, meta }) => {
           font-size: 1.2rem;
         }
         
-        .container>:global(.date) {
+        .date-box {
+          display: inline-flex;
+          align-items: center;
+          height: 30px;
+          margin: -.5rem 0 0 0;
+        }
+        
+        .date-box>:global(.date) {
           color: ${theme.palette.accents_5};
           font-size: .85rem;
-          margin: -.5rem 0 0 0;
+        }
+        
+        .date-box :global(.image) {
+          display: inline-flex;
+          align-items: center;
+          margin: 0 0 0 10px;
         }
         
         @media only screen and (max-width: 767px) {
