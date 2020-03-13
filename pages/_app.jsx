@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useCallback, useState, useEffect, useMemo } from 'react'
-import { CSSBaseline, ThemeProvider, useTheme } from '@zeit-ui/react'
+import { ThemeProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
 import ThemeConfigProvider from 'lib/components/theme-config-provider'
 import BLOG from '../blog.config'
 
@@ -13,7 +13,6 @@ const getDNSPrefetchValue = domain => {
 
 const Application = ({ Component, pageProps }) => {
   const theme = useTheme()
-  
   const [themeType, setThemeType] = useState('light')
   const changeHandle = useCallback(isDark => {
     const next = isDark ? 'light' : 'dark'
@@ -26,32 +25,34 @@ const Application = ({ Component, pageProps }) => {
     if (!['light', 'dark'].includes(localType)) return null
     setThemeType(localType)
   }, [])
-  
+
   useEffect(() => {
     localStorage.setItem('theme', themeType)
   }, [themeType])
-  
+
   const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
-  
+
   return (
+    <>
+    <Head>
+      <title>{BLOG.title}</title>
+      {domain && <link rel="dns-prefetch" href={domain} />}
+      <meta name="google" value="notranslate" />
+      <meta name="referrer" content="strict-origin" />
+      <meta name="description" content={BLOG.description} />
+      <meta property="og:title" content={BLOG.title} />
+      <meta property="og:type" content="website" />
+      <meta name="generator" content="unix.bio" />
+      <meta name="author" content={BLOG.anthor} />
+      <meta property="og:url" content={BLOG.domain} />
+      <meta name="viewport" content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
+    </Head>
     <ThemeProvider theme={{ type: themeType }}>
-      <CSSBaseline />
+      <CSSBaseline>
       <ThemeConfigProvider onChange={changeHandle}>
-        <Head>
-          <title>{BLOG.title}</title>
-          {domain && <link rel="dns-prefetch" href={domain} />}
-          <meta name="google" value="notranslate" />
-          <meta name="referrer" content="strict-origin" />
-          <meta name="description" content={BLOG.description} />
-          <meta property="og:title" content={BLOG.title} />
-          <meta property="og:type" content="website" />
-          <meta name="generator" content="unix.bio" />
-          <meta name="author" content={BLOG.anthor} />
-          <meta property="og:url" content={BLOG.domain} />
-          <meta name="viewport" content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
-        </Head>
         <Component {...pageProps} />
       </ThemeConfigProvider>
+      </CSSBaseline>
       <style global jsx>{`
         .tag {
           color: ${theme.palette.accents_5};
@@ -96,6 +97,7 @@ const Application = ({ Component, pageProps }) => {
         }
       `}</style>
     </ThemeProvider>
+    </>
   )
 }
 
