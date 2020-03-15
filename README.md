@@ -2,6 +2,9 @@
 
 > Modern static blog template.
 
+
+[中文文档](./README_CN.md)
+
 <br />
 
 ### How to use
@@ -16,11 +19,17 @@ Click <kbd>Use this template</kbd> button on GitHub.
 
 ### Write & Deploy
 
-1. In project, run `yarn post` to create your post.
+First, Please make sure your [NodeJS](https://nodejs.org/en/) is in the latest version.
 
-2. run `yarn dev` to browse development page.
+If you have [yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#alternatives-stable) installed, use the command starting with `yarn`, otherwise use `npm`.
 
-3. run `now` to deploy. (Default deployment to [now](https://now.sh/))
+1. In project, run `yarn` or `npm i` to download dependents.
+
+2. run `yarn post` or `npm run post` to create your post.
+
+2. run `yarn dev` or `npm run dev` to browse development page.
+
+3. run `npm i -g now && now` to deploy. (Default deployment to [now](https://now.sh/))
 
 <br />
 
@@ -54,7 +63,7 @@ You can **switch languages** in the configuration file
 <p align="center">
 <img width="600" src="https://user-images.githubusercontent.com/11304944/76159776-b33a8b80-615e-11ea-9752-19827e5c900d.png">
 </p>
-  
+
 <br />
 
 #### Dark mode
@@ -113,7 +122,7 @@ const BLOG = {
 
 1. click <kbd>Use this template</kbd> button on GitHub
 2. create new project
-3. copy folder `posts` & `fixed` to your new project
+3. copy folder `posts` & `fixed` & `blog.config.js` to your new project
 
 <br />
 
