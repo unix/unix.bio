@@ -90,6 +90,10 @@ const Application = ({ Component, pageProps }) => {
           color: ${theme.palette.accents_3};
         }
         
+        html, body {
+          overflow-x: hidden;
+        }
+        
         @media only screen and (max-width: 767px) {
           html {
             font-size: 14px;
