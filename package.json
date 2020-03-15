@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn collect && next dev",
-    "now-build": "yarn collect && next build",
+    "dev": "npm run collect && next dev",
+    "now-build": "npm run collect && next build",
     "post": "node scripts/create.js",
     "collect": "node scripts/collect-meta.js"
   },
