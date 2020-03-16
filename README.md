@@ -13,7 +13,7 @@ This is the source code of my [blog](https://unix.bio).
 
 You can also use this project to build your own blog.
 
-Click <kbd>Use this template</kbd> button on GitHub.
+ Run `npm init unix-bio` or `yarn create unix-bio` to initialize.
 
 <br />
 
@@ -21,13 +21,11 @@ Click <kbd>Use this template</kbd> button on GitHub.
 
 First, Please make sure your [NodeJS](https://nodejs.org/en/) is in the latest version.
 
-If you have [yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#alternatives-stable) installed, use the command starting with `yarn`, otherwise use `npm`.
+1. In project, run `npm i` to download dependents.
 
-1. In project, run `yarn` or `npm i` to download dependents.
+2. run `npm run post` to create your post.
 
-2. run `yarn post` or `npm run post` to create your post.
-
-2. run `yarn dev` or `npm run dev` to browse development page.
+2. run `npm run dev` to browse development page.
 
 3. run `npm i -g now && now` to deploy. (Default deployment to [now](https://now.sh/))
 
@@ -120,9 +118,11 @@ const BLOG = {
 
 ### How to migrate
 
-1. click <kbd>Use this template</kbd> button on GitHub
-2. create new project
-3. copy folder `posts` & `fixed` & `blog.config.js` to your new project
+Fortunately, we have a easy to use migrate tool, just run:
+
+```shell
+npx unix-bio migrate
+```
 
 <br />
 

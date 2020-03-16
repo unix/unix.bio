@@ -10,7 +10,7 @@
 
 你也可以使用此项目来构建属于自己的博客。
 
-在项目上方点击 <kbd>Use this template</kbd> 按钮即可。
+运行 `npm init unix-bio` 或 `yarn create unix-bio` 即可初始化你的博客。
 
 <br />
 
@@ -18,13 +18,11 @@
 
 首先，请确保你有最新版本的 [NodeJS](https://nodejs.org/en/)。
 
-如果你有包管理器 [yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#alternatives-stable)，请使用 `yarn` 开头的命令，否则使用 `npm`。
+1. 在项目种，运行 `npm i` 安装依赖。
 
-1. 在项目种，运行 `yarn` 或是 `npm i` 安装依赖。
+2. 运行 `npm run post` 创建你的第一篇文章。
 
-2. 运行 `yarn post` 或是 `npm run post` 创建你的第一篇文章。
-
-2. 运行 `yarn dev` 或是 `npm run dev` 在本地预览页面。
+2. 运行 `npm run dev` 在本地预览页面。
 
 3. 运行 `npm i -g now && now` 命令开始部署。 (默认会部署到 [now](https://now.sh/))
 
@@ -117,9 +115,11 @@ const BLOG = {
 
 ### 如何迁移
 
-1. 点击 <kbd>Use this template</kbd> 按钮。
-2. 创建新的项目。
-3. 赋值文件夹 `posts` 与 `fixed`，还有 `blog.config.js` 到新项目中即可。
+不必担心，我们现在可以只运行一个简单的命令就完成迁移，更新所有文件到最新版本：
+
+```shell
+npx unix-bio migrate
+```
 
 <br />
 
