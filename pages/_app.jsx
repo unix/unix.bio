@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useCallback, useState, useEffect, useMemo } from 'react'
-import { ThemeProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
+import { ZEITUIProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
 import ThemeConfigProvider from 'lib/components/theme-config-provider'
 import BLOG from '../blog.config'
 
@@ -47,7 +47,7 @@ const Application = ({ Component, pageProps }) => {
       <meta property="og:url" content={BLOG.domain} />
       <meta name="viewport" content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
     </Head>
-    <ThemeProvider theme={{ type: themeType }}>
+    <ZEITUIProvider theme={{ type: themeType }}>
       <CSSBaseline>
       <ThemeConfigProvider onChange={changeHandle}>
         <Component {...pageProps} />
@@ -100,7 +100,7 @@ const Application = ({ Component, pageProps }) => {
           }
         }
       `}</style>
-    </ThemeProvider>
+    </ZEITUIProvider>
     </>
   )
 }
