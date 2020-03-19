@@ -123,6 +123,11 @@ const Layout = ({ children, meta = {} }) => {
           .container>:global(.date) {
             text-align: center;
           }
+          
+          .date-box {
+            justify-content: center;
+            padding-left: 30px;
+          }
         }
       `}</style>
     </section>
