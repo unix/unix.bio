@@ -41,7 +41,7 @@ First, Please make sure your [NodeJS](https://nodejs.org/en/) is in the latest v
   - Your just need to `write`
 
 <p align="center">
-<img width="600" align="center" src="https://user-images.githubusercontent.com/11304944/76160335-3dd1b980-6164-11ea-8e84-535353f5811b.png">
+<img width="500" align="center" src="https://user-images.githubusercontent.com/11304944/77065913-1bba2000-6a1d-11ea-868c-8e96dd09ddd5.png">
 </p>
 
 <br />
@@ -67,9 +67,10 @@ You can **switch languages** in the configuration file
 #### Dark mode
 
 <p align="center">
-<img width="600" src="https://user-images.githubusercontent.com/11304944/76160332-3ad6c900-6164-11ea-9c2b-d8e810d72bfc.png">
-
-<img width="600" src="https://user-images.githubusercontent.com/11304944/76160333-3ca08c80-6164-11ea-965c-9852ba147d6a.png">
+<img width="500" src="https://user-images.githubusercontent.com/11304944/77065795-eca3ae80-6a1c-11ea-9ee8-d143e37a6e44.png">
+</p>
+<p align="center">
+<img width="500" src="https://user-images.githubusercontent.com/11304944/77065706-c1b95a80-6a1c-11ea-83cc-a19ea6c615dd.png">
 </p>
 
 <br />
@@ -78,6 +79,14 @@ You can **switch languages** in the configuration file
 
 <p align="center">
 <img width="600" src="https://user-images.githubusercontent.com/11304944/76160334-3d392300-6164-11ea-93fb-0527e2eba68a.png">
+</p>
+
+<br />
+
+#### Social experience
+
+<p align="center">
+<img width="450" src="https://user-images.githubusercontent.com/11304944/77065600-93d41600-6a1c-11ea-9916-562ec1132026.png">
 </p>
 
 <br />
@@ -110,6 +119,7 @@ const BLOG = {
   
   googleAnalytics: 'UA-x',
   cn: true,                     // chinese translation of some characters
+  enableViews: false,           // refer to https://docs.views.show
 }
 ```
 
