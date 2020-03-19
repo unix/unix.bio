@@ -21,7 +21,6 @@
     "@next/mdx": "^9.2.2",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
-    "@zeit/next-css": "^1.0.1",
     "chalk": "^3.0.0",
     "extract-mdx-metadata": "^1.0.0",
     "fs-extra": "^8.1.0",
