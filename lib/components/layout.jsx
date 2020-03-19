@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Spacer, Text, useTheme, Image } from '@zeit-ui/react'
 import Profile from './profile'
@@ -18,7 +19,7 @@ const getDate = date => {
   return `${d.toLocaleString()} - ${msToString(time)}`
 }
 
-const Layout = ({ children, meta }) => {
+const Layout = ({ children, meta = {} }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
   const inDetailPage = useMemo(() => meta && meta.title, [])
@@ -31,6 +32,12 @@ const Layout = ({ children, meta }) => {
   
   return (
     <section>
+      <Head>
+        {meta.title && <title>{meta.title} - {BLOG.title}</title>}
+        {meta.description && <meta property="og:description" content={meta.description} />}
+        {meta.title && <meta property="og:title" content={meta.title} />}
+        {meta.image && <meta property="og:image" content={meta.image} />}
+      </Head>
       <div className="container">
         {inDetailPage && <Spacer />}
         <Profile />
