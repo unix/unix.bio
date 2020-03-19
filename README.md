@@ -78,7 +78,10 @@ You can **switch languages** in the configuration file
 #### Mobile
 
 <p align="center">
-<img width="600" src="https://user-images.githubusercontent.com/11304944/76160334-3d392300-6164-11ea-93fb-0527e2eba68a.png">
+<img width="500" src="https://user-images.githubusercontent.com/11304944/77067355-cc292380-6a1f-11ea-8736-fb25c3563b16.png">
+</p>
+<p align="center">
+<img width="500" src="https://user-images.githubusercontent.com/11304944/77067349-c9c6c980-6a1f-11ea-99a6-b4f2f7daf40b.png">
 </p>
 
 <br />
