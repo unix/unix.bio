@@ -35,6 +35,12 @@ const sortPosts = (data) => {
         console.error(`[missing metadata]: ${post.url}`)
         return post
       }
+  
+      if (!post.meta.title) {
+        console.error(`[metadata]: missing key "title" in (${post.name}) ${post.url}`)
+        console.error('> Please make sure that each post has a [title].')
+      }
+      
       if (!post.meta.date) {
         console.error(`[metadata]: missing key "date" in (${post.name}) ${post.url}`)
         console.error('> Try to run "new Date().toUTCString()" in console to get "date".')
