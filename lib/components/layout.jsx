@@ -34,9 +34,11 @@ const Layout = ({ children, meta = {} }) => {
     <section>
       <Head>
         {meta.title && <title>{meta.title} - {BLOG.title}</title>}
+        {meta.description && <meta name="description" content={meta.description} />}
         {meta.description && <meta property="og:description" content={meta.description} />}
         {meta.title && <meta property="og:title" content={meta.title} />}
         {meta.image && <meta property="og:image" content={meta.image} />}
+        {meta.image && <meta property="twitter:image" content={meta.image} />}
       </Head>
       <div className="container">
         {inDetailPage && <Spacer />}

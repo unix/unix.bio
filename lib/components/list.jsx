@@ -24,7 +24,6 @@ const makeLink = (post) => {
         <Link href={post.url}>
           <a className="text">{post.name} <span className="date">({time(post.meta.date)})</span></a>
         </Link>
-        {post.meta.description && <Text className="desc" p>&nbsp;&nbsp;&nbsp;&nbsp;{post.meta.description}</Text>}
       </Col>
     </Row>
   )
@@ -73,13 +72,6 @@ const List = () => {
         .content :global(.date) {
           font-size: 12px;
           color: ${theme.palette.accents_3};
-        }
-        
-        .content :global(.desc) {
-          font-size: .85rem;
-          line-height: 1.2;
-          color: ${theme.palette.accents_5};
-          margin: .3rem 0 0;
         }
         
         @media only screen and (max-width: 767px) {

@@ -44,7 +44,9 @@ const Application = ({ Component, pageProps }) => {
       <meta property="og:description" content={BLOG.description} />
       <meta property="og:type" content="website" />
       <meta name="generator" content="unix.bio" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="author" content={BLOG.anthor} />
+      <meta name="twitter:creator" content={`@${BLOG.twitter}`} />
       <meta property="og:url" content={BLOG.domain} />
       <meta name="viewport" content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
     </Head>
