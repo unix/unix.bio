@@ -18,7 +18,7 @@
 
 首先，请确保你有最新版本的 [NodeJS](https://nodejs.org/en/)。
 
-1. 在项目种，运行 `npm i` 安装依赖。
+1. 在项目中，运行 `npm i` 安装依赖。
 
 2. 运行 `npm run post` 创建你的第一篇文章。
 
