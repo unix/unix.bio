@@ -93,10 +93,12 @@ const Layout = ({ children, meta = {} }) => {
         }
         
         .date-box {
-          display: inline-flex;
+          display: flex;
+          width: fit-content;
           align-items: center;
           height: 30px;
           margin: -.5rem 0 0 0;
+          position: relative;
         }
         
         .date-box>:global(.date) {
@@ -105,6 +107,10 @@ const Layout = ({ children, meta = {} }) => {
         }
         
         .date-box :global(.image) {
+          position: absolute;
+          left: 100%;
+          top: 50%;
+          transform: translateY(-50%);
           display: inline-flex;
           align-items: center;
           margin: 0 0 0 10px;
@@ -116,7 +122,7 @@ const Layout = ({ children, meta = {} }) => {
         
         @media only screen and (max-width: 767px) {
           .container {
-            max-width: 95vw;
+            max-width: 91vw;
             min-height: 100vh;
           }
           
@@ -130,7 +136,11 @@ const Layout = ({ children, meta = {} }) => {
           
           .date-box {
             justify-content: center;
-            padding-left: 30px;
+            margin: 0 auto;
+          }
+          
+          .date-box :global(.image) {
+            display: none;
           }
         }
       `}</style>

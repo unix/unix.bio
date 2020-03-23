@@ -96,7 +96,7 @@ const Application = ({ Component, pageProps }) => {
         
         @media only screen and (max-width: 767px) {
           html {
-            font-size: 14px;
+            font-size: 15px;
           }
         }
       `}</style>

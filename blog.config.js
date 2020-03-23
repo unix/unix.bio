@@ -8,7 +8,7 @@ const BLOG = {
   latestLimit: 5,
 
   labels: {
-    default: '文章',
+    default: '所有文章',
     latest: '最近',
     list: '所有',
   },

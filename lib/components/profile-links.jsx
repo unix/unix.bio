@@ -34,7 +34,11 @@ const ProfileLinks = () => {
           color: ${theme.palette.accents_5};
           text-transform: uppercase;
           font-size: .8rem;
-          margin-right: 10px;
+          margin-right: ${theme.layout.gapHalf};
+        }
+        
+        .link :global(a:last-of-type) {
+          margin-right: 0;
         }
       `}</style>
     </div>
