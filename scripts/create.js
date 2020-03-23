@@ -36,6 +36,7 @@ const create = async () => {
   const template = await fs.readFile(templatePath)
   const content = template.toString()
     .replace(/TEMPLATE_DATE/, new Date().toISOString())
+    .replace(/TEMPLATE_NAME/, answer)
   
   await fs.writeFile(filePath, content)
   console.log(chalk.cyan('  Successful. Enjoy.\n'))
