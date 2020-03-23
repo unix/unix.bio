@@ -1,10 +1,11 @@
 const fs = require('fs-extra')
 const path = require('path')
+const publicDir = path.join(__dirname, '../public/assets')
 const postsPath = path.join(__dirname, '../pages/posts')
 const fixedPath = path.join(__dirname, '../pages/fixed')
 const postsTemplate = path.join(__dirname, './templates/posts')
 const fixedTemplate = path.join(__dirname, './templates/fixed')
-const publicDir = path.join(__dirname, './public')
+
 
 ;(async () => {
   await fs.remove(postsPath)
