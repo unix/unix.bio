@@ -110,6 +110,10 @@ const Layout = ({ children, meta = {} }) => {
           margin: 0 0 0 10px;
         }
         
+        .date-box :global(img) {
+          object-fit: unset;
+        }
+        
         @media only screen and (max-width: 767px) {
           .container {
             max-width: 95vw;

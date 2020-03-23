@@ -1275,10 +1275,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zeit-ui/react@^0.0.1-alpha.30":
-  version "0.0.1-alpha.30"
-  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-0.0.1-alpha.30.tgz#5dbed09aff39ee76d0f97f246151648ddad55381"
-  integrity sha512-1IfxO/0nGGpQBxYyZS6YTWCNO/LitpkLsxwSquSl3VeSjVYO4IXyE3k8RC7oTJx02/pDch8udYjA+3FPUTvh0g==
+"@zeit-ui/react@^0.0.1-alpha.31":
+  version "0.0.1-alpha.31"
+  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-0.0.1-alpha.31.tgz#61163416c75cadb901f6ea792b2691bee0cce327"
+  integrity sha512-ee32iqnrChjhEV3iKdgwGIT1fbh98SM5xhw8zVfxsKPiHkUDy8BZQgaKIf8u5l47kB1Bx8JsFQybdSOJ/D7Byw==
 
 accepts@~1.3.5:
   version "1.3.7"
