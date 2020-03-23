@@ -1,25 +1,86 @@
 import Layout from 'lib/components/layout'
-import { Button } from '@zeit-ui/react'
+import { Button, Row, Spacer, Dot, Link, useModal, Modal, Image } from '@zeit-ui/react'
 
 export const meta = {
   title: '关于我',
-  date: '',
+  date: '2019-01-09T10:20:10.027Z',
   description: 'description',
 }
 
-你好，我是维特，一个自由主义者，<del>前端?</del>工程师。对 Serverless 与 DX (Developer experience) 很感兴趣。
-喜欢 `CoffeeScript` 与 `Ruby`，一直在写 `TypeScript`。
+export const Btc = () => {
+  const address = '1KE89oa6aMNaVEPUeQPxLTmQGmXL6W1mGi'
+  const { setVisible, bindings } = useModal()
+  return (
+   <>
+     <Button auto size="mini" type="secondary" onClick={() => setVisible(true)}>Show address of BTC</Button>
+     <Modal {...bindings}>
+       <Modal.Title>BTC</Modal.Title>
+       <Modal.Subtitle>This is Witt's BTC address</Modal.Subtitle>
+       <Modal.Content>
+         <p>{address}</p>
+       </Modal.Content>
+       <Modal.Action>OK</Modal.Action>
+     </Modal>
+   </>
+  )
+}
 
-我不写博客，`helloworld` 文章实在讨人厌，不想成为智障。但水平不够写不出好东西，所以不写。如果你发现博文更新，那就是我的工作不饱和了。
+export const Alipay = () => {
+  const { setVisible, bindings } = useModal()
+  return (
+    <>
+      <Button auto size="mini" type="secondary" onClick={() => setVisible(true)}>Show Alipay</Button>
+      <Modal {...bindings}>
+        <Modal.Title>Alipay</Modal.Title>
+        <Modal.Subtitle>Scan code with Alipay</Modal.Subtitle>
+        <Modal.Content>
+          <Image width={150} height={150} src="/assets/alipay.png" />
+        </Modal.Content>
+        <Modal.Action>OK</Modal.Action>
+      </Modal>
+    </>
+  )
+}
 
-我提供付费 `review` 服务，你可以在 [review-it](https://review.unix.bio/) 中提交自己的 `Pull Request` 链接并付款，
+你好，我是维特，一个自由主义者，<del>JavaScript 全栈?</del> 工程师。对 Serverless 与 DX (Developer experience) 很感兴趣。
+喜欢 `CoffeeScript` 与 `Ruby`，但一直在写 `TypeScript`。主要贡献是创造一些应用和类库来帮助提高开发者体验。
+
+我很少写博客，*Hello World* 文章实在讨人厌，不想成为智障。但水平不够写不出好东西，所以不写。如果你发现博文更新，那就是我的工作不饱和了。
+此外这里也提供 **Review** 服务，你可以在 <Link color rel="nofollow" target="_blank" href="https://review.unix.bio">Review It</Link> 中提交自己的 `Pull Request` 链接，
 我会在收到通知后立刻帮你分析代码，并尽可能多的提出对提高你编程能力有显著帮助的建议。
 
-<br/>
+我非常乐意倾听来自你的想法，你可以通过 <Link rel="nofollow" color target="_blank" href="mailto:unix.bio@gmail.com">邮件</Link> 与我取得联系。
+现在你所见的站点来自我的开源项目 <Link rel="nofollow" href="https://github.com/unix/unix.bio">unix/unix.bio (MIT)</Link> ，
+你可以无偿的使用它构建属于自己的博客。
 
-你可以通过邮件联系我😌:
-```js
-'unix.bio#gmail.com'.replace('#', String.fromCharCode(64))
-```
+或者你想赞助、捐赠我？请点击此按钮：
+
+<Row>
+  <Spacer x={1} />
+  <Dot type="warning" >
+  <Link target="_blank" href="https://www.paypal.me/unixbio" rel="nofollow">PayPal</Link>
+  </Dot>
+  <Spacer y={2} />
+</Row>
+
+<Row>
+  <Spacer x={1} />
+  <Dot type="success" >
+  <Link target="_blank" href="https://ko-fi.com/unixbio" rel="nofollow">Ko-fi</Link>
+  </Dot>
+  <Spacer y={2} />
+</Row>
+
+<Row>
+  <Spacer x={1} />
+  <Dot type="success"><Btc /></Dot>
+  <Spacer y={2} />
+</Row>
+
+<Row>
+  <Spacer x={1} />
+  <Dot type="success"><Alipay /></Dot>
+  <Spacer y={2} />
+</Row>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
