@@ -45,7 +45,7 @@ export const meta = {
 CI 工具则是在你每次的 PR / PUSH / 本地 Hook 触发后通过相应的规则检查，通过后自动升级版本，机器人模式在 github 很常见，
 通常是运行一个服务端来监听 Git 事件，在合适的时机向你发起一个 PR 升级版本。(有关 robot 你可以关注我的项目 <Link rel="nofollow" href="https://github.com/unix/cobot">cobot.gitlab</Link>）
 
-<Display caption={<p><code>cobot.gitlab</code> 以语义化的接口完成 <b>Bot</b> 开发</p>}>
+<Display width="500px" caption={<p><code>cobot.gitlab</code> 以语义化的接口完成 <b>Bot</b> 开发</p>}>
 
 ```js
 const bot = cobot.lift()
@@ -63,7 +63,7 @@ bot.on(BotEvents.MergeRequest, async(context) => {
 
 <Link rel="nofollow" href="https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner">什么是 NPX?</Link>
 
-<Display shadow caption={<p><code>done</code>可以不下载直接使用</p>}>
+<Display width="500px" shadow caption={<p><code>done</code>可以不下载直接使用</p>}>
 <Code darkBash>npx done</Code>
 </Display>
 

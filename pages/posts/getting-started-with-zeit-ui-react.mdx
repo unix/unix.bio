@@ -37,15 +37,15 @@ export const meta = {
 
 <Tabs initialValue="npm">
   <Tabs.Item label={<><Image scale="80%" width="38" height="18" src="/assets/npm.png" />NPM</>} value="npm">
-    <Display caption={<p>使用 <Code>npx</Code> 命令可以在线运行命令</p>}>
-      <Code darkBash minWidth="500px">npx create-react-app my-app</Code>
+    <Display width="500px" caption={<p>使用 <Code>npx</Code> 命令可以在线运行命令</p>}>
+      <Code darkBash>npx create-react-app my-app</Code>
     </Display>
     <Text>安装成功后可运行 <Code>npm start</Code> 确认。现在只需要将 <Code>@zeit-ui/react</Code> 组件库安装至项目即可：</Text>
     <Code darkBash>npm install @zeit-ui/react</Code>
   </Tabs.Item>
   <Tabs.Item label={<><Image width="45" height="18" src="/assets/yarn.png" />Yarn</>} value="yarn">
-    <Display caption={<p>使用 <Code>yarn</Code> 命令在线运行命令</p>}>
-      <Code darkBash minWidth="500px">yarn create react-app my-app</Code>
+    <Display width="500px" caption={<p>使用 <Code>yarn</Code> 命令在线运行命令</p>}>
+      <Code darkBash>yarn create react-app my-app</Code>
     </Display>
     <Text>安装成功后可运行 <Code>yarn start</Code> 确认。现在只需要将 <Code>@zeit-ui/react</Code> 组件库安装至项目即可：</Text>
     <Code darkBash>yarn add @zeit-ui/react</Code>
@@ -112,7 +112,7 @@ function App() {
 
 我们添加了一些基础的组件，现在运行 `npm start` 就可以在页面中看到不错的效果：
 
-<Display shadow caption={<p>我们的第一个页面</p>}>
+<Display width="500px" shadow caption={<p>我们的第一个页面</p>}>
   <Image width={600} height={284} src="/assets/getting-started-demo-1.png" />
 </Display>
 
