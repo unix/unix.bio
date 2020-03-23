@@ -9,7 +9,7 @@
     "collect": "node scripts/collect-meta.js"
   },
   "dependencies": {
-    "@zeit-ui/react": "^0.0.1-alpha.18",
+    "@zeit-ui/react": "^0.0.1-alpha.25",
     "ms": "^2.1.2",
     "next": "9.2.2",
     "react": "16.13.0",
