@@ -131,11 +131,25 @@ const BLOG = {
 
 ### How to migrate
 
+Timely migration can help you get the latest source code, this includes bug fixes and new features.
+
 Fortunately, we have a easy to use migrate tool, just run:
 
 ```shell
 npx unix-bio migrate
 ```
+
+<br />
+
+### Deploy only static (Not recommended)
+
+In a few scenarios, you may want to deploy your blog on a CDN or other static server. Use the following commands to deploy:
+
+```bash
+npm run export
+```
+
+After running the command, the generated static file will be in the `/out` directory.
 
 <br />
 

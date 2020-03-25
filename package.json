@@ -6,7 +6,8 @@
     "dev": "npm run collect && next dev",
     "now-build": "npm run collect && next build",
     "post": "node scripts/create.js",
-    "collect": "node scripts/collect-meta.js"
+    "collect": "node scripts/collect-meta.js",
+    "export": "npm run now-build && next export"
   },
   "dependencies": {
     "@zeit-ui/react": "^0.0.1-alpha.31",
