@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Link, Note, Text, Spacer, Display, Code, Image } from '@zeit-ui/react'
+import { Link, Note, Text, Spacer, Display, Code, Image, Snippet } from '@zeit-ui/react'
 
 export const meta = {
   title: '开始在 Vue 中使用 ZEIT UI',
@@ -15,13 +15,13 @@ export const meta = {
 <Spacer y={.5} />
 
 <Note type="warning" label="注意">
-请确保你拥有最新版本的 <Link rel="nofollow" href="https://nodejs.org/en/download/">NodeJS</Link>，
-同时也需要准备 NodeJS 的包管理器 <Link rel="nofollow" href="https://www.npmjs.com/">NPM</Link> 或是 <Link rel="nofollow" href="https://yarnpkg.com/">Yarn</Link>
+请确保你拥有最新版本的 <Link pure rel="nofollow" href="https://nodejs.org/en/download/">NodeJS</Link>，
+同时也需要准备 NodeJS 的包管理器 <Link pure rel="nofollow" href="https://www.npmjs.com/">NPM</Link> 或是 <Link pure rel="nofollow" href="https://yarnpkg.com/">Yarn</Link>。
 </Note>
 
 <Spacer y={.5} />
 
-为了轻易的和任何 Vue 项目接轨，我们使用 Vue 官方的脚手架 <Link rel="nofollow" href="https://cli.vuejs.org/zh/guide/">@vue/cli</Link> 创建通用项目。
+为了轻易的和任何 Vue 项目接轨，我们使用 Vue 官方的脚手架 <Link pure rel="nofollow" href="https://cli.vuejs.org/zh/guide/">@vue/cli</Link> 创建通用项目。
 **即便你的项目并非官方脚手架创建，也能以此通用项目作为参考，非常简单的使用 `ZEIT UI`**。
 
 <Spacer y={2} />
@@ -31,12 +31,14 @@ export const meta = {
 默认场景，你需要先安装 Vue 脚手架 (如果是自行编写 Bundle，可以跳过此节)：
 
 <Display width="500px" caption={<p>安装 <Code>@vue/cli</Code> 到全局</p>}>
-  <Code darkBash >npm install -g @vue/cli</Code>
+  <Snippet>npm install -g @vue/cli</Snippet>
 </Display>
 
 随后，我们可以使用命令生成基础的 Vue 项目：
 
-<Code darkBash>vue create hello-world</Code>
+<Spacer y={.5} />
+<Snippet>vue create hello-world</Snippet>
+<Spacer y={.5} />
 
 选择默认选项即可完成项目的创建。事实上，这些项目打包与编译方式都不会影响我们使用 `ZEIT UI`，对于富有经验的开发者来说，可以自行定制。
 如果你在这一步遇到了问题，可以参见 <Link rel="nofollow" href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create">官方文档</Link> 调试。
@@ -51,7 +53,9 @@ export const meta = {
 
 现在，我们可以运行命令安装 `@zeit-ui/vue`:
 
-<Code darkBash>npm i @zeit-ui/vue</Code>
+<Spacer y={.5} />
+<Snippet>npm i @zeit-ui/vue</Snippet>
+<Spacer y={.5} />
 
 打开项目的入口文件: `/src/main.js`，并在其中引入组件包:
 
@@ -119,7 +123,7 @@ new Vue({
 
 图标由额外的库提供支持，运行命令安装 `vue-icons`:
 
-<Code darkBash>npm i @zeit-ui/vue-icons</Code>
+<Snippet>npm i @zeit-ui/vue-icons</Snippet>
 
 随后你就可以在任何组件内使用这些 **图标组件**:
 

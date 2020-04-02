@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Spacer, Display, Code, Link, Dot, Image } from '@zeit-ui/react'
+import { Spacer, Display, Code, Link, Dot, Image, Snippet } from '@zeit-ui/react'
 
 export const meta = {
   title: '开源项目版本发布的最佳实践',
@@ -64,7 +64,7 @@ bot.on(BotEvents.MergeRequest, async(context) => {
 <Link rel="nofollow" href="https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner">什么是 NPX?</Link>
 
 <Display width="500px" shadow caption={<p><code>done</code>可以不下载直接使用</p>}>
-<Code darkBash>npx done</Code>
+<Snippet type="dark">npx done</Snippet>
 </Display>
 
 比如当你选择 minor 版本时即是修改本地的文件并将这些信息打包成 tag，然后把这些改动与 Tag 一并推送到远程源。

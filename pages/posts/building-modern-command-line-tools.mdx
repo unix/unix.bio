@@ -1,6 +1,6 @@
 import Layout from 'lib/components/layout'
 import NextLink from 'next/link'
-import { Display, Image, Spacer, Code, Link, Button, Text } from '@zeit-ui/react'
+import { Display, Image, Spacer, Code, Link, Button, Text, Snippet } from '@zeit-ui/react'
 
 export const meta = {
   title: '构建现代化的命令行工具',
@@ -35,7 +35,7 @@ export const meta = {
 但使用 `func`，我们可以仅通过一行命令初始化项目：
 
 <Display width="500px" caption={<p>运行命令快速创建 <code>func</code> 项目</p>}>
-  <Code darkBash>npm init func</Code>
+  <Snippet type="dark">npm init func</Snippet>
 </Display>
 
 项目初始化后进入文件夹，随机使用 `npm install` 或 `yarn` 安装依赖，现在就可以正式开发了。
