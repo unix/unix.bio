@@ -10,9 +10,9 @@
     "export": "npm run now-build && next export"
   },
   "dependencies": {
-    "@zeit-ui/react": "^0.0.1-alpha.31",
+    "@zeit-ui/react": "^0.0.1-beta.6",
     "ms": "^2.1.2",
-    "next": "9.2.2",
+    "next": "^9.3.4",
     "react": "16.13.0",
     "react-dom": "16.13.0"
   },
