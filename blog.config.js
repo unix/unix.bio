@@ -1,6 +1,6 @@
 
 const BLOG = {
-  anthor: 'Witt',
+  author: 'Witt',
   title: 'Witt - unix.bio',
   description: 'Hi, I\'m Witt. A JavaScript full stack engineer, I\'m creating apps and libs to help improve the developer experience.',
   summary: 'JavaScript 工程师，对开发者体验感兴趣。',

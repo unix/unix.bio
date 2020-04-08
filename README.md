@@ -102,7 +102,7 @@ In the **root directory** of the project, you can change the configuration for y
 
 ```js
 const BLOG = {
-  anthor: 'Witt',               // article anthor, used on `Meta`
+  author: 'Witt',               // article author, used on `Meta`
   title: 'Witt - unix.bio',     // website title
   description: 'Witt\'s blog',  // used on `Meta`
   summary: '',                  // one sentence introduction, show on home page
