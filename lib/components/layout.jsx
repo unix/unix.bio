@@ -1,16 +1,11 @@
 import React, { useMemo } from 'react'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { Spacer, Text, useTheme, Image } from '@zeit-ui/react'
 import Profile from './profile'
+import Contacts from './contacts'
+import { useRouter } from 'next/router'
 import { msToString } from '../date-transform'
+import { Spacer, Text, useTheme, Image } from '@zeit-ui/react'
 import BLOG from '../../blog.config'
-
-const ContactsWithNoSSR = dynamic(
-  () => import('./contacts'),
-  { ssr: false }
-)
 
 const getDate = date => {
   const d = new Date(date)
@@ -54,7 +49,7 @@ const Layout = ({ children, meta = {} }) => {
         {inDetailPage && <Spacer y={1} />}
         {children}
         <Spacer y={5} />
-        <ContactsWithNoSSR />
+        <Contacts />
       </div>
       
 
