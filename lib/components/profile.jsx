@@ -5,7 +5,7 @@ import ProfileLinks from './profile-links'
 import BLOG from '../../blog.config'
 
 const avatarCard = (show) => {
-  if (show) return <Avatar text={BLOG.anthor} isSquare size={45} />
+  if (show) return <Avatar text={BLOG.author} isSquare size={45} />
   return <Avatar isSquare size={45} alt="avatar" src="/assets/avatar.png" />
 }
 
@@ -28,7 +28,7 @@ const Profile = React.memo(({
         </Link>
         <Spacer x={.3} />
         <Link href="/">
-          <a><Text h1 className="name">{BLOG.anthor || ''}</Text></a>
+          <a><Text h1 className="name">{BLOG.author || ''}</Text></a>
         </Link>
       </Row>
       

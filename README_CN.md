@@ -99,7 +99,7 @@
 
 ```js
 const BLOG = {
-  anthor: 'Witt',               // 文章作者，在 `Meta` 上使用
+  author: 'Witt',               // 文章作者，在 `Meta` 上使用
   title: 'Witt - unix.bio',     // 站点标题
   description: 'Witt\'s blog',  // 在 `Meta` 使用
   summary: '',                  // 一句话简介，用于首页
