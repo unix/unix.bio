@@ -1,5 +1,9 @@
 const Sponsors = [
   {
+    name: '*盈',
+    amount: 1.43,
+  },
+  {
     name: '*睿',
     amount: 0.744,
   },
