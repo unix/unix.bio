@@ -9,6 +9,10 @@ const fixedTemplate = path.join(__dirname, './templates/fixed')
 const shouldIgnoreFile = [
   'sponsors.js',
 ]
+const shouldKeepImages = [
+  'avatar.png',
+  'og-main.png',
+]
 
 const removeDirsInPages = async files => {
   return await Promise.all(files.map(async name => {
@@ -37,7 +41,7 @@ const removeFilesInRoot = async files => {
   await fs.copy(fixedTemplate, fixedPath)
   
   await Promise.all(fs.readdirSync(assetsDir).map(async name => {
-    if (name === 'avatar.png') return
+    if (shouldKeepImages.includes(name)) return
     const imagePath = path.join(assetsDir, name)
     await fs.remove(imagePath)
   }))
