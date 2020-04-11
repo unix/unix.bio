@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Head from 'next/head'
 import Profile from './profile'
 import Contacts from './contacts'
@@ -17,6 +17,8 @@ const getDate = date => {
 const Layout = ({ children, meta = {} }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
+  const [showAfterRender, setShowAfterRender] = useState(false)
+  
   const inDetailPage = useMemo(() => meta && meta.title, [])
   const date = useMemo(() => getDate((meta || {}).date), [])
   const url = useMemo(() => {
@@ -25,6 +27,9 @@ const Layout = ({ children, meta = {} }) => {
   }, [asPath])
   const showViews = useMemo(() => BLOG.enableViews, [])
   
+  useEffect(() => setShowAfterRender(true), [])
+  
+  if (!showAfterRender) return null
   return (
     <section>
       <Head>

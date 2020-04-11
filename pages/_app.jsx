@@ -1,13 +1,15 @@
 import Head from 'next/head'
-import React, { useCallback, useState, useEffect, useMemo } from 'react'
-import { ZEITUIProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
-import ThemeConfigProvider from 'lib/components/theme-config-provider'
-import { getDNSPrefetchValue } from 'lib/date-transform'
 import BLOG from '../blog.config'
+import React, { useCallback, useState, useEffect, useMemo } from 'react'
+import { getDNSPrefetchValue } from 'lib/date-transform'
+import ThemeConfigProvider from 'lib/components/theme-config-provider'
+import { ZEITUIProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
+import useDomClean from 'lib/use-dom-clean'
 
 const Application = ({ Component, pageProps }) => {
   const theme = useTheme()
   const [themeType, setThemeType] = useState('light')
+  const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
   const changeHandle = useCallback(isDark => {
     const next = isDark ? 'light' : 'dark'
     setThemeType(next)
@@ -15,16 +17,11 @@ const Application = ({ Component, pageProps }) => {
   
   useEffect(() => {
     if (typeof localStorage !== 'object') return null
-    const localType = localStorage.getItem('theme')
-    if (!['light', 'dark'].includes(localType)) return null
-    setThemeType(localType)
+    const themeType = localStorage.getItem('theme')
+    setThemeType(themeType === 'dark' ? 'dark' : 'light')
   }, [])
-
-  useEffect(() => {
-    localStorage.setItem('theme', themeType)
-  }, [themeType])
-
-  const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
+  useEffect(() => localStorage.setItem('theme', themeType), [themeType])
+  useDomClean()
 
   return (
     <>
