@@ -12,31 +12,29 @@ const Contacts = () => {
   const theme = useTheme()
   const configs = useConfigs()
   const isDark = useMemo(() => theme.type === 'dark', [theme.type])
-  const email = useMemo(() => {
-    if (!BLOG.email) return null
-    return `mailto:${BLOG.email}`
-  }, [])
-  const github = useMemo(() => {
-    if (!BLOG.github) return null
-    return `https://github.com/${BLOG.github}`
-  }, [])
-  const twitter = useMemo(() => {
-    if (!BLOG.twitter) return null
-    return `https://twitter.com/${BLOG.twitter}`
-  }, [])
-  const switchTheme = () => {
-    const isDark = theme.type === 'dark'
-    configs.onChange(isDark)
+  const email = BLOG.email ? `mailto:${BLOG.email}` : null
+  const github = BLOG.github ? `https://github.com/${BLOG.github}` : null
+  const twitter = BLOG.twitter ? `https://twitter.com/${BLOG.twitter}` : null
+  const switchTheme = () => configs.onChange(theme.type === 'dark')
+  
+  const themeTitle = BLOG.cn ? '切换主题' : 'Switch themes'
+  const emailTitle = BLOG.cn ? '邮件' : 'Email me'
+  const githubTitle = `GitHub: ${BLOG.github}`
+  const twitterTitle = BLOG.cn ? `推特: ${BLOG.twitter}` : `Twitter: ${BLOG.twitter}`
+  const linkProps = {
+    rel: 'noreferrer',
+    pure: true,
+    target: '_blank',
   }
   
   return (
     <>
       <div className="contacts">
-        {isDark && <Sun onClick={switchTheme} />}
-        {!isDark && <Moon onClick={switchTheme} />}
-        {email && <Link aria-label="email" rel="noreferrer" pure target="_blank" href={email}><Mail /></Link> }
-        {github && <Link aria-label="github" rel="noreferrer" pure target="_blank" href={github}><Github /></Link>}
-        {twitter && <Link aria-label="twitter" rel="noreferrer" pure target="_blank" href={twitter}><Twitter /></Link>}
+        {isDark && <span title={themeTitle}><Sun onClick={switchTheme} /></span>}
+        {!isDark && <span title={themeTitle}><Moon onClick={switchTheme} /></span>}
+        {email && <Link aria-label="email" title={emailTitle} href={email} {...linkProps}><Mail /></Link> }
+        {github && <Link aria-label="github" title={githubTitle} href={github} {...linkProps}><Github /></Link>}
+        {twitter && <Link aria-label="twitter" title={twitterTitle} href={twitter} {...linkProps}><Twitter /></Link>}
         <div className="line">
           <Spacer y={.5} />
         </div>
@@ -47,17 +45,37 @@ const Contacts = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          //position: relative;
           padding: 0 ${theme.layout.gapQuarter};
           position: absolute;
           bottom: 2.5rem;
+          color: ${theme.palette.accents_4};
         }
-
+        
         .contacts :global(svg) {
           cursor: pointer;
           margin: ${theme.layout.gapQuarter} ${theme.layout.gapHalf};
           position: relative;
+          color: inherit;
           z-index: 2;
+        }
+        
+        .contacts :global(a) {
+          color: inherit;
+        }
+        
+       .contacts span {
+          color: inherit;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .contacts span:hover {
+          color: ${theme.palette.accents_6};
+        }
+        
+        .contacts :global(a:hover) {
+          color: ${theme.palette.accents_6};
         }
         
         .line {

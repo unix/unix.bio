@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Avatar, Text, Row, Spacer, useTheme } from '@zeit-ui/react'
 import Link from 'next/link'
 import ProfileLinks from './profile-links'
