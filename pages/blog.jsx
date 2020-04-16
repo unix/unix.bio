@@ -1,9 +1,9 @@
 import Layout from 'lib/components/layout'
-import List from 'lib/components/list'
+import Posts from 'lib/components/posts/posts'
 
 const Page = () => (
   <Layout>
-    <List />
+    <Posts />
   </Layout>
 )
 

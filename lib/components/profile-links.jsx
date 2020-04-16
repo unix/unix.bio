@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-import Link from 'next/link'
-import { useTheme } from '@zeit-ui/react'
+import NextLink from 'next/link'
+import { useTheme, Link } from '@zeit-ui/react'
 import metadata from '../data/metadata'
 import BLOG from '../../blog.config'
 
@@ -15,9 +15,9 @@ const fillSpace = name => {
 
 const makeLink = data => {
   return (
-    <Link href={data.url} key={data.url}>
-      <a>{fillSpace(data.name)}</a>
-    </Link>
+    <NextLink href={data.url} key={data.url} passHref>
+      <Link pure>{fillSpace(data.name)}</Link>
+    </NextLink>
   )
 }
 
@@ -31,10 +31,14 @@ const ProfileLinks = () => {
   
       <style jsx>{`
         .link :global(a) {
-          color: ${theme.palette.accents_5};
+          color: ${theme.palette.accents_6};
           text-transform: uppercase;
           font-size: .8rem;
           margin-right: ${theme.layout.gapHalf};
+        }
+        
+        .link :global(a:hover) {
+          color: ${theme.palette.accents_4};
         }
         
         .link :global(a:last-of-type) {

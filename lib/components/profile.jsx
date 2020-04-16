@@ -5,8 +5,8 @@ import ProfileLinks from './profile-links'
 import BLOG from '../../blog.config'
 
 const avatarCard = (show) => {
-  if (show) return <Avatar text={BLOG.author} isSquare size={45} />
-  return <Avatar isSquare size={45} alt="avatar" src="/assets/avatar.png" />
+  if (show) return <Avatar text={BLOG.author} isSquare size={36} />
+  return <Avatar isSquare size={36} alt="avatar" src="/assets/avatar.png" />
 }
 
 const Profile = React.memo(({
@@ -41,15 +41,16 @@ const Profile = React.memo(({
         }
         
         .profile :global(.name) {
-          font-size: 1.6rem;
+          font-size: 1.3rem;
           margin: 0;
           text-transform: uppercase;
           color: ${theme.palette.accents_5};
           line-height: 1;
+          font-weight: 500;
         }
         
         .profile :global(.intro) {
-          color: ${theme.palette.accents_5};
+          color: ${theme.palette.accents_7};
           font-size: .875rem;
           margin-top: 5px;
         }
@@ -69,12 +70,20 @@ const Profile = React.memo(({
             align-items: center;
           }
           
+          .profile :global(.avatar) {
+            display: none;
+          }
+          
           .profile :global(.name) {
-            margin-top: -1rem;
+            margin-top: -2rem;
+            margin-bottom: 3rem;
           }
           
           .profile :global(.intro) {
-            margin: 1.3rem auto 0;
+            margin: 0 auto 1rem;
+            color: ${theme.palette.accents_7};
+            padding: ${theme.layout.gapQuarter} ${theme.layout.gapHalf};
+            text-align: center;
           }
         }
       `}</style>

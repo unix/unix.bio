@@ -1,9 +1,9 @@
 import Layout from 'lib/components/layout'
-import Latest from 'lib/components/latest'
+import Posts from 'lib/components/posts/posts'
 
 const Page = () => (
   <Layout>
-    <Latest />
+    <Posts isLatest />
   </Layout>
 )
 

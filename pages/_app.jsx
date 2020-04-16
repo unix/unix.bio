@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import BLOG from '../blog.config'
 import React, { useCallback, useState, useEffect, useMemo } from 'react'
-import { getDNSPrefetchValue } from 'lib/date-transform'
+import { getDNSPrefetchValue } from 'lib/data-transform'
 import ThemeConfigProvider from 'lib/components/theme-config-provider'
 import { ZEITUIProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
 import useDomClean from 'lib/use-dom-clean'

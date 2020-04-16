@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Profile from './profile'
 import Contacts from './contacts'
 import { useRouter } from 'next/router'
-import { msToString } from '../date-transform'
+import { msToString } from '../data-transform'
 import { Spacer, Text, useTheme, Image } from '@zeit-ui/react'
 import BLOG from '../../blog.config'
 
