@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React, { useMemo } from 'react'
 import PostItem from './post-item'
 import { useTheme, Link } from '@zeit-ui/react'
@@ -36,6 +37,9 @@ const Posts = ({
   
   return (
     <section>
+      <Head>
+        {!isLatest && <title>{getTitle(false)} - {BLOG.title}</title>}
+      </Head>
       <h2>{title}</h2>
       <div className="content">
         {posts.map((post, index) => (
