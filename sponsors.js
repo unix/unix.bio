@@ -1,5 +1,10 @@
 const Sponsors = [
   {
+    name: '**龙',
+    amount: 1.43,
+    info: '米饭',
+  },
+  {
     name: 'Aquariuslt',
     amount: 5,
     info: 'GitHub Sponsor',
