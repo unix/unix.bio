@@ -35,13 +35,13 @@ const PostItem = ({ post }) => {
         }
         
         .item :global(.date) {
-          color: ${theme.palette.accents_4};
-          font-size: .85em;
+          color: ${theme.palette.accents_5};
+          font-size: .75em;
           padding-left: ${theme.layout.gapQuarter};
         }
         
         .item :global(.link:hover) {
-          color: ${theme.palette.accents_5};
+          color: ${theme.palette.accents_3};
         }
         
         .item :global(.link:hover .date) {
