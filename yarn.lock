@@ -1295,10 +1295,12 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zeit-ui/react@^0.0.1-beta.15":
-  version "0.0.1-beta.15"
-  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-0.0.1-beta.15.tgz#16c0f6473c6b9108f69662c87f1bf6bf143a4024"
-  integrity sha512-MgiKIev/AL3ygUwYNOVrl4G1q8cRyXnezO9tW46nvzGQFctw0wUdO3ScX5q8qDaLkibUBFx388FqnxDhIAqpCQ==
+"@zeit-ui/react@^0.0.1-beta.30":
+  version "0.0.1-beta.30"
+  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-0.0.1-beta.30.tgz#9bf525b800fb8edddd04cdb9f8717af29b595fb7"
+  integrity sha512-DaJ1m97IoSMg9gVgSDtRTL9XI0iKlfkjB0z+x6WdwALdAwVhqLIBeTWyUC2TOEkUC0lHS2UpYxpGtjJVJWztFg==
+  dependencies:
+    styled-jsx "^3.2.5"
 
 acorn@^6.2.1:
   version "6.4.1"
@@ -4773,7 +4775,7 @@ style-to-object@^0.2.1:
   dependencies:
     inline-style-parser "0.1.1"
 
-styled-jsx@3.2.5, styled-jsx@^3.2.4:
+styled-jsx@3.2.5, styled-jsx@^3.2.4, styled-jsx@^3.2.5:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.2.5.tgz#0172a3e13a0d6d8bf09167dcaf32cf7102d932ca"
   integrity sha512-prEahkYwQHomUljJzXzrFnBmQrSMtWOBbXn8QeEkpfFkqMZQGshxzzp4H8ebBIsbVlHF/3+GSXMnmK/fp7qVYQ==
