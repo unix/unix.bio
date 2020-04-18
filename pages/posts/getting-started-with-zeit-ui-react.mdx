@@ -117,7 +117,9 @@ function App() {
 我们添加了一些基础的组件，现在运行 `npm start` 就可以在页面中看到不错的效果：
 
 <Display width="500px" shadow caption={<p>我们的第一个页面</p>}>
-  <Image width={600} height={284} src="/assets/getting-started-demo-1.png" />
+  <Image.Browser title="react-getting-started">
+    <Image width={600} height={284} src="/assets/getting-started-demo-1.png" />
+  </Image.Browser>
 </Display>
 
 到此为止我们似乎做的不错，运用 ZEIT UI 构建了一个简单的页面。
