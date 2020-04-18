@@ -52,7 +52,7 @@ const Profile = React.memo(({
         .profile :global(.intro) {
           color: ${theme.palette.accents_7};
           font-size: .875rem;
-          margin-top: 5px;
+          margin: 5px 0;
         }
         
         @media only screen and (max-width: 767px) {
