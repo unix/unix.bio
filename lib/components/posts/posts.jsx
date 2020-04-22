@@ -2,13 +2,12 @@ import Head from 'next/head'
 import React, { useMemo } from 'react'
 import PostItem from './post-item'
 import { useTheme, Link } from '@zeit-ui/react'
-import BLOG from '../../../blog.config'
+import { Configs } from '../../utils'
 import NextLink from 'next/link'
 import metadata from 'lib/data/metadata'
-const latestLimit = BLOG.latestLimit || 5
 
 const getMoreLink = len => {
-  if (len < latestLimit) return null
+  if (len < Configs.latestLimit) return null
   return (
     <NextLink href="/blog" passHref>
       <Link pure title="More">...</Link>
@@ -20,12 +19,12 @@ const getLatest = (data, isLatest) => {
   const postNode = data.find(item => item.name === 'posts')
   const posts = (postNode || {}).children || []
   if (!isLatest) return posts
-  return posts.slice(0, latestLimit)
+  return posts.slice(0, Configs.latestLimit)
 }
 
 const getTitle = (isLatest) => {
-  if (!isLatest) return BLOG.labels.list || 'all Posts'
-  return BLOG.labels.latest || 'latest'
+  if (!isLatest) return Configs.labels.list
+  return Configs.labels.latest
 }
 
 const Posts = ({
@@ -38,7 +37,7 @@ const Posts = ({
   return (
     <section>
       <Head>
-        {!isLatest && <title>{getTitle(false)} - {BLOG.title}</title>}
+        {!isLatest && <title>{getTitle(false)} - {Configs.title}</title>}
       </Head>
       <h2>{title}</h2>
       <div className="content">

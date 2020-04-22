@@ -1,26 +1,17 @@
 import React, { useMemo } from 'react'
-import { useTheme, Spacer, Link } from '@zeit-ui/react'
-import BLOG from '../../blog.config'
-import useConfigs from '../states/config-context'
-import Github from './icons/github'
-import Twitter from './icons/twitter'
-import Mail from './icons/mail'
+import { useTheme, Spacer, Link, Divider } from '@zeit-ui/react'
+import useConfigs from '../config-context'
 import Sun from './icons/sun'
 import Moon from './icons/moon'
+import { Configs } from '../utils'
 
-const Contacts = () => {
+const Contacts = ({ isDetailPage = false }) => {
   const theme = useTheme()
   const configs = useConfigs()
   const isDark = useMemo(() => theme.type === 'dark', [theme.type])
-  const email = BLOG.email ? `mailto:${BLOG.email}` : null
-  const github = BLOG.github ? `https://github.com/${BLOG.github}` : null
-  const twitter = BLOG.twitter ? `https://twitter.com/${BLOG.twitter}` : null
   const switchTheme = () => configs.onChange(theme.type === 'dark')
   
-  const themeTitle = BLOG.cn ? '切换主题' : 'Switch themes'
-  const emailTitle = BLOG.cn ? '邮件' : 'Email me'
-  const githubTitle = `GitHub: ${BLOG.github}`
-  const twitterTitle = BLOG.cn ? `推特: ${BLOG.twitter}` : `Twitter: ${BLOG.twitter}`
+  const themeTitle = Configs.isCN() ? '切换主题' : 'Switch themes'
   const linkProps = {
     rel: 'noreferrer',
     pure: true,
@@ -30,25 +21,34 @@ const Contacts = () => {
   return (
     <>
       <div className="contacts">
-        {isDark && <span title={themeTitle}><Sun onClick={switchTheme} /></span>}
-        {!isDark && <span title={themeTitle}><Moon onClick={switchTheme} /></span>}
-        {email && <Link aria-label="email" title={emailTitle} href={email} {...linkProps}><Mail /></Link> }
-        {github && <Link aria-label="github" title={githubTitle} href={github} {...linkProps}><Github /></Link>}
-        {twitter && <Link aria-label="twitter" title={twitterTitle} href={twitter} {...linkProps}><Twitter /></Link>}
-        <div className="line">
-          <Spacer y={.5} />
+        {isDetailPage && <Divider y={.5} />}
+        <div className="between">
+          <div className="socials">
+            {Configs.email && <Link aria-label="email" href={Configs.email} {...linkProps}>Email</Link> }
+            {Configs.github && <Link aria-label="github" href={Configs.github} {...linkProps}>Github</Link>}
+            {Configs.twitter && <Link aria-label="twitter" href={Configs.twitter} {...linkProps}>Twitter</Link>}
+          </div>
+          <div>
+            {isDark && <span title={themeTitle}><Sun onClick={switchTheme} /></span>}
+            {!isDark && <span title={themeTitle}><Moon onClick={switchTheme} /></span>}
+          </div>
         </div>
-    
+        
         <style jsx>{`
         .contacts {
-          width: fit-content;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          width: ${Configs.layouts.pageWidth};
           padding: 0 ${theme.layout.gapQuarter};
           position: absolute;
-          bottom: 2.5rem;
-          color: ${theme.palette.accents_4};
+          bottom: 3.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          color: ${theme.palette.accents_6};
+        }
+        
+        .between {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
         
         .contacts :global(svg) {
@@ -63,6 +63,12 @@ const Contacts = () => {
           color: inherit;
         }
         
+        .socials :global(a) {
+          margin-right: .5rem;
+          font-size: .75rem;
+          text-transform: uppercase;
+        }
+        
        .contacts span {
           color: inherit;
           display: inline-flex;
@@ -71,33 +77,25 @@ const Contacts = () => {
         }
         
         .contacts span:hover {
-          color: ${theme.palette.accents_6};
+          color: ${theme.palette.accents_4};
         }
         
         .contacts :global(a:hover) {
-          color: ${theme.palette.accents_6};
+          color: ${theme.palette.accents_4};
+          text-decoration: underline dashed;
+          cursor: ne-resize;
+          transition: all 150ms ease;
         }
         
-        .line {
-          background-color: ${theme.palette.accents_1};
-          position: absolute;
-          bottom: 4px;
-          top: 4px;
-          left: -8px;
-          width: 8px;
-          z-index: 1;
-        }
-        
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
           .contacts {
             position: absolute;
-            bottom: 2.5rem;
-            left: 1rem;
+            width: ${Configs.layouts.pageWidthMobile};
           }
         }
       `}</style>
       </div>
-      <Spacer y={2.5} />
+      <Spacer y={3.5} />
     </>
   )
 }

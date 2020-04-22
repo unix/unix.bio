@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import NextLink from 'next/link'
 import { useTheme, Link } from '@zeit-ui/react'
 import metadata from '../data/metadata'
-import BLOG from '../../blog.config'
+import { Configs } from '../utils'
 
 const getFixes = metas => {
   const data = metas.find(item => item.name === 'fixed')
@@ -26,7 +26,7 @@ const ProfileLinks = () => {
   const links = useMemo(() => getFixes(metadata), [])
   return (
     <div className="link">
-      {makeLink({ url: '/blog', name: BLOG.labels.default || 'posts' })}
+      {makeLink({ url: '/blog', name: Configs.labels.default })}
       {links.map(link => makeLink(link))}
   
       <style jsx>{`

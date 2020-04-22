@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react'
 import { msToString } from '../data-transform'
 import { Image, useTheme } from '@zeit-ui/react'
-import BLOG from '../../blog.config'
 import { useRouter } from 'next/router'
+import { Configs } from '../utils'
 
 const DateDisplay = ({ date }) => {
   const theme = useTheme()
   const d = useMemo(() => new Date(date), [])
   if (`${d}` === 'Invalid Date') return null
   const time = Date.now() - d.getTime()
-  const locale = BLOG.cn ? 'zh-cn' : 'en-us'
+  const locale = Configs.isCN() ? 'zh-cn' : 'en-us'
 
   return (
     <p>
@@ -61,9 +61,9 @@ const Title = ({
 }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
-  const showViews = useMemo(() => BLOG.enableViews, [])
+  const showViews = useMemo(() => Configs.enableViews, [])
   const url = useMemo(() => {
-    const suffix = BLOG.cn ? '%20阅读' : '%20views'
+    const suffix = Configs.isCN() ? '%20阅读' : '%20views'
     const params = 'size=12&fill=999999&family=Menlo,%20Monaco,%20Lucida%20Console,%20Liberation%20Mono'
     return `https://views.show/svg?key=${asPath}&suffix=${suffix}&${params}`
   }, [asPath])

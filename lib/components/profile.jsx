@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Row, useTheme, User, Link } from '@zeit-ui/react'
 import NextLink from 'next/link'
 import ProfileLinks from './profile-links'
-import BLOG from '../../blog.config'
+import { Configs } from '../utils'
 
 const Profile = React.memo(({
 }) => {
@@ -20,9 +20,7 @@ const Profile = React.memo(({
       <Row align="bottom" className="user">
         <NextLink href="/" passHref>
           <Link pure>
-            <User src="/assets/avatar.png" name={BLOG.author || ''}>
-              {BLOG.summary || ''}
-            </User>
+            <User src="/assets/avatar.png" name={Configs.author}>{Configs.summary}</User>
           </Link>
         </NextLink>
       </Row>
