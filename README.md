@@ -67,10 +67,10 @@ You can **switch languages** in the configuration file
 #### Dark mode
 
 <p align="center">
-<img width="500" src="https://user-images.githubusercontent.com/11304944/77065795-eca3ae80-6a1c-11ea-9ee8-d143e37a6e44.png">
+<img width="600" src="https://user-images.githubusercontent.com/11304944/79985099-b1dddc00-84dc-11ea-889f-c2c8c61ae6ed.png">
 </p>
 <p align="center">
-<img width="500" src="https://user-images.githubusercontent.com/11304944/77065706-c1b95a80-6a1c-11ea-83cc-a19ea6c615dd.png">
+<img width="600" src="https://user-images.githubusercontent.com/11304944/79985096-b0141880-84dc-11ea-8d6f-ad52000670ea.png">
 </p>
 
 <br />
@@ -78,15 +78,15 @@ You can **switch languages** in the configuration file
 #### Mobile
 
 <p align="center">
-<img width="500" src="https://user-images.githubusercontent.com/11304944/77067355-cc292380-6a1f-11ea-8736-fb25c3563b16.png">
+<img width="500" src="https://user-images.githubusercontent.com/11304944/79985319-ff5a4900-84dc-11ea-92b5-c152086449d2.png">
 </p>
 <p align="center">
-<img width="500" src="https://user-images.githubusercontent.com/11304944/77067349-c9c6c980-6a1f-11ea-99a6-b4f2f7daf40b.png">
+<img width="500" src="https://user-images.githubusercontent.com/11304944/79985361-139e4600-84dd-11ea-95a8-110894c90576.png">
 </p>
 
 <br />
 
-#### Social experience
+#### Social Experience
 
 <p align="center">
 <img width="450" src="https://user-images.githubusercontent.com/11304944/77065600-93d41600-6a1c-11ea-9916-562ec1132026.png">
