@@ -48,6 +48,7 @@ const DateDisplay = ({ date }) => {
       @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
         p {
           text-align: center;
+          font-size: .75rem;
         }
       }
     `}</style>
@@ -104,13 +105,9 @@ const Title = ({
         }
         
         @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
-          .date-box {
-            justify-content: center;
-            margin: 0 auto;
-          }
-          
-          .date-box :global(.image) {
-            display: none;
+          .title h1 {
+            font-size: 1.4rem;
+            margin-top: 1rem;
           }
         }
       `}</style>

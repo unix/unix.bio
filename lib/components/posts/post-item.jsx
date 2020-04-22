@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, useTheme } from '@zeit-ui/react'
 import NextLink from 'next/link'
-import { msToString } from '../../data-transform'
+const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }
 
-const getTime = date => {
-  const t = Date.now() - new Date(date).getTime()
-  return msToString(t)
+const getDateString = (date) => {
+  const d = new Date(date)
+  if (`${d}` === 'Invalid Date') return ''
+  return new Date(date).toLocaleString('zh-cn', options)
+    .replace('日', '日, &nbsp;')
 }
 
 const PostItem = ({ post }) => {
@@ -14,7 +16,11 @@ const PostItem = ({ post }) => {
   return (
     <div className="item">
       <NextLink href={post.url} as={post.url} passHref>
-        <Link pure>{post.name} <span className="date">_{getTime(post.meta.date)}</span></Link>
+        <Link pure>
+          {post.name}
+          <span className="date" dangerouslySetInnerHTML={{__html: getDateString(post.meta.date)}}>
+          </span>
+        </Link>
       </NextLink>
       <style jsx>{`
         .item {
@@ -26,7 +32,7 @@ const PostItem = ({ post }) => {
         .item :global(.link) {
           color: ${theme.palette.accents_7};
           transition: color 120ms ease;
-          font-size: .85rem;
+          font-size: .95rem;
           max-width: 95%;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -34,10 +40,11 @@ const PostItem = ({ post }) => {
           display: inline-block;
         }
         
-        .item :global(.date) {
+        .date {
           color: ${theme.palette.accents_5};
           font-size: .75em;
-          padding-left: ${theme.layout.gapQuarter};
+          display: block;
+          line-height: 1.5rem;
         }
         
         .item :global(.link:hover) {
@@ -48,9 +55,13 @@ const PostItem = ({ post }) => {
           color: ${theme.palette.accents_3};
         }
         
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
           .item {
             max-width: 90vw;
+          }
+          
+          .item :global(.link) {
+            font-size: 1.15rem;
           }
         }
       `}</style>

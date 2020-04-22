@@ -23,7 +23,7 @@ const Layout = ({ children, meta = {} }) => {
         {meta.image && <meta property="twitter:image" content={meta.image} />}
       </Head>
       <div className="container">
-        {inDetailPage && <Spacer />}
+        <Spacer />
         <Profile />
         {inDetailPage && <Title title={meta.title} date={meta.date} />}
         {children}
@@ -67,12 +67,8 @@ const Layout = ({ children, meta = {} }) => {
         
         @media only screen and (max-width: 767px) {
           .container {
-            max-width: 91vw;
+            max-width: 88vw;
             min-height: 100vh;
-          }
-          
-          .container :global(h1) {
-            text-align: center;
           }
         }
       `}</style>

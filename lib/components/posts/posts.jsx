@@ -71,22 +71,13 @@ const Posts = ({
           display: block;
         }
         
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
           section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             margin-top: ${theme.layout.gapQuarter};
           }
           
           section h2 {
-            padding: 2px ${theme.layout.gapQuarter};
-            text-align: center;
-          }
-          
-          .content {
-            padding-top: calc(1.5 * ${theme.layout.gap});
+            margin-top: calc(1.5 * ${theme.layout.gap});
           }
         }
       `}</style>
