@@ -1,15 +1,22 @@
 import React, { useMemo } from 'react'
 import { msToString } from '../data-transform'
-import { Image, useTheme } from '@zeit-ui/react'
+import { useTheme } from '@zeit-ui/react'
 import { useRouter } from 'next/router'
 import { Configs } from '../utils'
+import useViewsShow from '../use-views-show'
 
 const DateDisplay = ({ date }) => {
   const theme = useTheme()
+  const { asPath } = useRouter()
+  const [count, countUpdated] = useViewsShow(asPath)
+  
   const d = useMemo(() => new Date(date), [])
   if (`${d}` === 'Invalid Date') return null
+
   const time = Date.now() - d.getTime()
   const locale = Configs.isCN() ? 'zh-cn' : 'en-us'
+  const showViews = useMemo(() => Configs.enableViews && countUpdated, [countUpdated])
+  const views = useMemo(() => `${count} ${Configs.isCN() ? '阅读' : 'views'}`, [count])
 
   return (
     <p>
@@ -17,6 +24,12 @@ const DateDisplay = ({ date }) => {
       {d.toLocaleString(locale).replace(/\//g, '-')}
       <span className="split"> / </span>
       {msToString(time)}
+      {showViews && (
+        <>
+          <span className="split"> / </span>
+          {views}
+        </>
+      )}
       <style jsx>{`
       p {
         color: ${theme.palette.accents_4};
@@ -25,7 +38,7 @@ const DateDisplay = ({ date }) => {
         align-items: center;
         font-family: ${theme.font.mono};
       }
-      
+
       span {
         user-select: none;
         font-weight: bold;
@@ -60,20 +73,12 @@ const Title = ({
   title, date,
 }) => {
   const theme = useTheme()
-  const { asPath } = useRouter()
-  const showViews = useMemo(() => Configs.enableViews, [])
-  const url = useMemo(() => {
-    const suffix = Configs.isCN() ? '%20阅读' : '%20views'
-    const params = 'size=10&width=100px&height=24px&fill=999999&family=Menlo,%20Monaco,%20Lucida%20Console,%20Liberation%20Mono'
-    return `https://views.show/svg?key=${asPath}&suffix=${suffix}&${params}`
-  }, [asPath])
   
   return (
     <div className="title">
       <h1>{title}</h1>
       <div className="date-box">
         <DateDisplay date={date} />
-        {showViews && <Image width={100} height={24} src={url} draggable={false} />}
       </div>
   
       <style jsx>{`
