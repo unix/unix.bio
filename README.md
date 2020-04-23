@@ -98,34 +98,9 @@ You can **switch languages** in the configuration file
 
 **First, do not rename any directories！** You can start your writing in the `posts` folder.
 
-In the **root directory** of the project, you can change the configuration for your blog:
+In the **root directory** of the project, you can change the configuration for your blog。
 
-```js
-const BLOG = {
-  author: 'Witt',               // article author, used on `Meta`
-  title: 'Witt - unix.bio',     // website title
-  description: 'Witt\'s blog',  // used on `Meta`
-  summary: '',                  // one sentence introduction, show on home page
-  language: 'en-us',            // 'en-us' or 'zh-cn'
-  latestLimit: 5,               // number of home display lists
-  
-  labels: {                     // label text
-    default: 'default',
-    latest: 'latest',
-    list: 'all list',
-  },
-  
-  email: '',                    // about social
-  github: 'unix',
-  twitter: 'echo_witt',
-  domain: 'unix.bio',           // your domain name
-  
-  googleAnalytics: 'UA-x',
-  cn: true,                     // chinese translation of some characters
-  enableViews: false,           // refer to https://docs.views.show
-}
-```
-
+All configuration documents please [refer to here](https://github.com/unix/unix.bio/wiki/All-configuration-items-for-Blog)
 
 <br />
 

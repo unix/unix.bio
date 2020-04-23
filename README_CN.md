@@ -95,34 +95,9 @@
 
 **首先，请不要重命名任何文件夹！** 你可以在 `posts` 文件夹下开始写作。
 
-在项目的 **根文件夹** 下, 你可以通过配置文件 `blog.config.js` 配置博客：
+在项目的 **根文件夹** 下, 你可以通过配置文件 `blog.config.js` 配置博客。
 
-```js
-const BLOG = {
-  author: 'Witt',               // 文章作者，在 `Meta` 上使用
-  title: 'Witt - unix.bio',     // 站点标题
-  description: 'Witt\'s blog',  // 在 `Meta` 使用
-  summary: '',                  // 一句话简介，用于首页
-  language: 'en-us',            // 'en-us' 或 'zh-cn' 语言切换
-  latestLimit: 5,               // 首页最近显示文章数量
-  
-  labels: {                     // 标签名称
-    default: 'default',
-    latest: 'latest',
-    list: 'all list',
-  },
-  
-  email: '',                    // 社交
-  github: 'unix',
-  twitter: 'echo_witt',
-  domain: 'unix.bio',           // 域名展示
-  
-  googleAnalytics: 'UA-x',      // google 分析的 UA ID
-  cn: true,                     // 开启中文支持，部分字符需要开启此选项才能得到更好支持
-  enableViews: false,           // 参考 https://docs.views.show 
-}
-```
-
+你可以在 Wiki 阅读博客 [所有配置的文档](https://github.com/unix/unix.bio/wiki/%E5%8D%9A%E5%AE%A2%E6%89%80%E6%9C%89%E7%9A%84%E9%85%8D%E7%BD%AE%E9%A1%B9)
 
 <br />
 
