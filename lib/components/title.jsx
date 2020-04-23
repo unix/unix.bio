@@ -64,7 +64,7 @@ const Title = ({
   const showViews = useMemo(() => Configs.enableViews, [])
   const url = useMemo(() => {
     const suffix = Configs.isCN() ? '%20阅读' : '%20views'
-    const params = 'size=12&fill=999999&family=Menlo,%20Monaco,%20Lucida%20Console,%20Liberation%20Mono'
+    const params = 'size=10&width=100px&height=24px&fill=999999&family=Menlo,%20Monaco,%20Lucida%20Console,%20Liberation%20Mono'
     return `https://views.show/svg?key=${asPath}&suffix=${suffix}&${params}`
   }, [asPath])
   

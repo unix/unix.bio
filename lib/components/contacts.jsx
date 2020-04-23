@@ -39,6 +39,7 @@ const Contacts = ({ isDetailPage = false }) => {
           width: ${Configs.layouts.pageWidth};
           padding: 0 ${theme.layout.gapQuarter};
           position: absolute;
+          z-index: 1;
           bottom: 3.5rem;
           left: 50%;
           transform: translateX(-50%);
