@@ -33,6 +33,8 @@ const Profile = React.memo(({
         .profile :global(.user) {
           padding-left: 0;
           margin-bottom: ${theme.layout.gapQuarter};
+          max-width: 100%;
+          overflow: hidden;
         }
         
         @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
