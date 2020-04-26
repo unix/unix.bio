@@ -13,7 +13,9 @@ This is the source code of my [blog](https://unix.bio).
 
 You can also use this project to build your own blog.
 
- Run `npm init unix-bio` or `yarn create unix-bio` to initialize.
+`npm i -g unix-bio`
+
+Then run `npm init unix-bio` or `yarn create unix-bio` to initialize.
 
 <br />
 
