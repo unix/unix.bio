@@ -10,8 +10,6 @@
 
 你也可以使用此项目来构建属于自己的博客。
 
-`npm i -g unix-bio`
-
 运行 `npm init unix-bio` 或 `yarn create unix-bio` 即可初始化你的博客。
 
 <br />
