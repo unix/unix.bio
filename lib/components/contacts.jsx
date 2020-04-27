@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { useTheme, Spacer, Link, Divider } from '@zeit-ui/react'
 import useConfigs from '../config-context'
-import Sun from './icons/sun'
-import Moon from './icons/moon'
+import SunIcon from '@zeit-ui/react-icons/sun'
+import MoonIcon from '@zeit-ui/react-icons/moon'
 import { Configs } from '../utils'
 
 const Contacts = ({ isDetailPage = false }) => {
@@ -29,8 +29,8 @@ const Contacts = ({ isDetailPage = false }) => {
             {Configs.twitter && <Link aria-label="twitter" href={Configs.twitter} {...linkProps}>Twitter</Link>}
           </div>
           <div>
-            {isDark && <span title={themeTitle}><Sun onClick={switchTheme} /></span>}
-            {!isDark && <span title={themeTitle}><Moon onClick={switchTheme} /></span>}
+            {isDark && <span title={themeTitle}><SunIcon onClick={switchTheme} size={16} /></span>}
+            {!isDark && <span title={themeTitle}><MoonIcon onClick={switchTheme} size={16} /></span>}
           </div>
         </div>
         
