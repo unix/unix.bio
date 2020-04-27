@@ -3,11 +3,13 @@ import BLOG from '../blog.config'
 import { CSSBaseline } from '@zeit-ui/react'
 import flush from 'styled-jsx/server'
 
+const { language, googleAnalytics } = BLOG
+
 class MyDocument extends Document {
-  static async getInitialProps (ctx) {
+  static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     const styles = CSSBaseline.flush()
-  
+
     return {
       ...initialProps,
       styles: (
@@ -19,13 +21,14 @@ class MyDocument extends Document {
       )
     }
   }
-  
+
   render() {
     return (
-      <Html lang={BLOG.language}>
+      <Html lang={language}>
         <Head />
         <body>
-          <script dangerouslySetInnerHTML={{ __html: `
+          <script dangerouslySetInnerHTML={{
+            __html: `
             (function(){
               if (!window.localStorage) return;
               if (window.localStorage.getItem('theme') === 'dark') {
@@ -36,18 +39,20 @@ class MyDocument extends Document {
           `}} />
           <Main />
           <NextScript />
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${BLOG.googleAnalytics}`} />
-          <script
-            async
-            dangerouslySetInnerHTML={{
-              __html: `
+          {googleAnalytics && <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalytics}`} />}
+          {googleAnalytics &&
+            <script
+              async
+              dangerouslySetInnerHTML={{
+                __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${BLOG.googleAnalytics}');
+              gtag('config', '${googleAnalytics}');
               `
-            }}
-          />
+              }}
+            />
+          }
         </body>
       </Html>
     )

@@ -17,11 +17,11 @@ const BLOG = {
   github: 'unix',
   twitter: 'echo_witt',
   domain: 'unix.bio',
-  
-  googleAnalytics: 'UA-110371817-3',
+
+  googleAnalytics: '', // your GA ID
   cn: true,
   enableViews: true,
-  
+
   layouts: {
     pageWidth: '750px',
     pageWidthMobile: '88vw',
