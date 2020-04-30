@@ -11,7 +11,7 @@
     "export": "npm run now-build && next export"
   },
   "dependencies": {
-    "@zeit-ui/react": "^1.0.0-rc.4",
+    "@zeit-ui/react": "^1.0.0-rc.9",
     "@zeit-ui/react-icons": "^1.2.1",
     "ms": "^2.1.2",
     "next": "^9.3.6",

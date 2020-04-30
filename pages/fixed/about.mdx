@@ -13,14 +13,14 @@ export const Btc = () => {
   const { setVisible, bindings } = useModal()
   return (
    <>
-     <Button auto size="mini" type="secondary" onClick={() => setVisible(true)}>Show address of BTC</Button>
+     <Button auto size="mini" onClick={() => setVisible(true)}>Show address of BTC</Button>
      <Modal {...bindings}>
        <Modal.Title>BTC</Modal.Title>
        <Modal.Subtitle>This is Witt's BTC address</Modal.Subtitle>
        <Modal.Content>
          <p>{address}</p>
        </Modal.Content>
-       <Modal.Action>OK</Modal.Action>
+       <Modal.Action onClick={({ close }) => close()}>OK</Modal.Action>
      </Modal>
    </>
   )
@@ -30,14 +30,14 @@ export const Alipay = () => {
   const { setVisible, bindings } = useModal()
   return (
     <>
-      <Button auto size="mini" type="secondary" onClick={() => setVisible(true)}>Show Alipay</Button>
+      <Button auto size="mini" onClick={() => setVisible(true)}>Show Alipay</Button>
       <Modal {...bindings}>
         <Modal.Title>Alipay</Modal.Title>
         <Modal.Subtitle>Scan code with Alipay</Modal.Subtitle>
         <Modal.Content>
           <Image width={150} height={150} src="/assets/alipay.png" />
         </Modal.Content>
-        <Modal.Action>OK</Modal.Action>
+        <Modal.Action onClick={({ close }) => close()}>OK</Modal.Action>
       </Modal>
     </>
   )
