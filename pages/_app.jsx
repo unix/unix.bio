@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import BLOG from '../blog.config'
+import { PrismBaseline } from '@zeit-ui/react-prism'
+import { ZEITUIProvider, CSSBaseline } from '@zeit-ui/react'
 import React, { useCallback, useState, useEffect, useMemo } from 'react'
+import useDomClean from 'lib/use-dom-clean'
 import { getDNSPrefetchValue } from 'lib/data-transform'
 import ThemeConfigProvider from 'lib/components/theme-config-provider'
-import { ZEITUIProvider, useTheme, CSSBaseline } from '@zeit-ui/react'
-import useDomClean from 'lib/use-dom-clean'
 
 const Application = ({ Component, pageProps }) => {
-  const theme = useTheme()
   const [themeType, setThemeType] = useState('light')
   const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
   const changeHandle = useCallback(isDark => {
@@ -46,52 +46,12 @@ const Application = ({ Component, pageProps }) => {
       <meta name="viewport" content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover" />
     </Head>
     <ZEITUIProvider theme={{ type: themeType }}>
-      <CSSBaseline>
+      <CSSBaseline />
+      <PrismBaseline />
       <ThemeConfigProvider onChange={changeHandle}>
         <Component {...pageProps} />
       </ThemeConfigProvider>
-      </CSSBaseline>
       <style global jsx>{`
-        .tag {
-          color: ${theme.palette.accents_5};
-        }
-        
-        .punctuation {
-          color: ${theme.palette.accents_5};
-        }
-        
-        .attr-name {
-          color: ${theme.palette.accents_6};
-        }
-        
-        .attr-value {
-          color: ${theme.palette.accents_4};
-        }
-        
-        .language-javascript {
-          color: ${theme.palette.accents_4};
-        }
-        
-        span[class*="class-name"] {
-          color: ${theme.palette.purple};
-        }
-        
-        span.token.string {
-          color: ${theme.palette.accents_5};
-        }
-        
-        span.keyword {
-          color: ${theme.palette.success}
-        }
-        
-        span.plain-text {
-          color: ${theme.palette.accents_3};
-        }
-        
-        body {
-          overflow-x: hidden;
-        }
-        
         @media only screen and (max-width: 767px) {
           html {
             font-size: 15px;

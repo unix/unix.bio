@@ -1308,10 +1308,15 @@
   resolved "https://registry.yarnpkg.com/@zeit-ui/react-icons/-/react-icons-1.2.1.tgz#6e200adf6870aca0cd4a6e0d2ba5fb5196d53234"
   integrity sha512-K0r7ZmqCB6Tl/tCmrjKXYuoWL9iMxUQem1lzUP/QCEJI+o0v5B0MnrEMzxrlXDFZDN/0wPjna0jcecQTL80GAA==
 
-"@zeit-ui/react@^1.0.0-rc.9":
-  version "1.0.0-rc.9"
-  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-1.0.0-rc.9.tgz#be54410f99d05a7970ccded5403f565eeeee07cb"
-  integrity sha512-PRqlw5Ydhu88aV7/6vMPaFe7TCMnwlb4WPJ4BahNULRlnNrYOZ4DF4E50U3z7M8sE+OXFkywVz2jvJI3BZbd6Q==
+"@zeit-ui/react-prism@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@zeit-ui/react-prism/-/react-prism-1.0.0.tgz#3438c648f71b7fc0d8a7c53a0cba90bc3dc2f784"
+  integrity sha512-gLGHCaVX7EM/dPl82GCVlLkpkA101cSK7gVnV0auQRHTiUq/Jeger87JbbQ+dJNSWH636sXiyErR0mwHpqHCUw==
+
+"@zeit-ui/react@^1.0.0-rc.11":
+  version "1.0.0-rc.11"
+  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-1.0.0-rc.11.tgz#de6854b596cb0b1192835207d39f0424de85854a"
+  integrity sha512-6HhnL9TGAbMfPqts7rlcMkLLQgSwyzxnk/xa2eQ64AcuLj765zmyUFahvDT4z1ZKtGgYphESmt1feMjixwd/7A==
   dependencies:
     styled-jsx "^3.2.5"
 
