@@ -8,25 +8,25 @@ export const meta = {
   image: 'https://user-images.githubusercontent.com/11304944/76085431-fd036480-5fec-11ea-8412-9e581425344a.png',
 }
 
-有意思的是，和 <Link pure href="/posts/getting-started-with-zeit-ui-vue">在 Vue 的指南</Link> 中非常相似，我们也提供了 ZEIT UI 在 React 框架上的支持，
+有意思的是，和 <Link href="/posts/getting-started-with-zeit-ui-vue">在 Vue 的指南</Link> 中非常相似，我们也提供了 ZEIT UI 在 React 框架上的支持，
 包括数十个有着统一风格的组件，当然还有完善的文档支持。令人兴奋的是，所有的组件都以 `React FC` 的方式实现，
 它们都是以优雅的方案构建出的难以想象的高性能组件，也有着 React Hooks 与 Context 精彩的应用，在未来 `Concurrent` 受到支持时我们也会立刻考虑在它们在组件中的优化方案。
 就是这样，`@zeit-ui/react` 是**进步的，高效的，极简风格且优雅的组件库**。
 
 在开始创建你的第一个 ZEIT UI 项目之前，我们还必须同步一个基础观念：极简的风格并非简陋，**真正的简约也不是删繁就简，而是在纷繁中构建秩序**。
-来自 ZEIT 的设计风格绝不是灵光一现的作品，而是设计大师 <Link pure href="https://evilrabb.it/" rel="nofollow">Evil Rabbit</Link> 与其团队设计师精心雕琢的设计语言，
+来自 ZEIT 的设计风格绝不是灵光一现的作品，而是设计大师 <Link href="https://evilrabb.it/" rel="nofollow">Evil Rabbit</Link> 与其团队设计师精心雕琢的设计语言，
 如果你使用在此基础上构建的 UI 库 `@zeit-ui/react` 时发现任何瑕疵，那一定是我们拙劣的技术实现所致，不必担心，我们可以一同优化与解决缺陷。
 
 <Spacer y={.5} />
 
 <Note type="warning" label="注意">
-请确保你拥有最新版本的 <Link pure rel="nofollow" href="https://nodejs.org/en/download/">NodeJS</Link>，
-同时也需要准备 NodeJS 的包管理器 <Link pure rel="nofollow" href="https://www.npmjs.com/">NPM</Link> 或是 <Link pure rel="nofollow" href="https://yarnpkg.com/">Yarn</Link>
+请确保你拥有最新版本的 <Link rel="nofollow" href="https://nodejs.org/en/download/">NodeJS</Link>，
+同时也需要准备 NodeJS 的包管理器 <Link rel="nofollow" href="https://www.npmjs.com/">NPM</Link> 或是 <Link rel="nofollow" href="https://yarnpkg.com/">Yarn</Link>
 </Note>
 
 <Spacer y={.5} />
 
-为了轻易的和任何 React 项目接轨，也作为简易的示范，我们使用知名的脚手架 <Link pure rel="nofollow" href="https://github.com/facebook/create-react-app">create-react-app</Link> 创建通用项目。
+为了轻易的和任何 React 项目接轨，也作为简易的示范，我们使用知名的脚手架 <Link rel="nofollow" href="https://github.com/facebook/create-react-app">create-react-app</Link> 创建通用项目。
 **即便你的项目并非此脚手架创建，也能以此通用项目作为参考，非常简单的使用 `ZEIT UI`**。
 
 <Spacer y={2} />
@@ -86,7 +86,7 @@ ReactDOM.render(
 
 是的，`@zeit-ui/react` 没有任何 `.css` 文件，我们把每个组件的样式分发给组件本身，你完全无需考虑样式的问题。
 这在你未来需要**统一定制主题风格**时非常有帮助，甚至能帮助你在 **Server Render** 时获的最佳效果。有关定制主题等高级内容，
-你可以参阅 <Link pure color href="https://react.zeit-ui.co/docs/customization/themes">如何定制主题的文档</Link>。
+你可以参阅 <Link color href="https://react.zeit-ui.co/docs/customization/themes">如何定制主题的文档</Link>。
 
 <Spacer y={2} />
 
@@ -125,7 +125,7 @@ function App() {
 到此为止我们似乎做的不错，运用 ZEIT UI 构建了一个简单的页面。
 你可以在 <Link rel="nofollow" href="https://github.com/zeit-ui/react-getting-started/tree/7ca0d66505f03bac709feeb58538df325bc9d8ea">示例项目</Link> 中查看这次的提交。
 
-想要了解更多的组件？你可以看看 <Link pure color rel="nofollow" href="https://react.zeit-ui.co/">ZEIT - UI React 的 官方文档</Link>。
+想要了解更多的组件？你可以看看 <Link color rel="nofollow" href="https://react.zeit-ui.co/">ZEIT - UI React 的 官方文档</Link>。
 
 
 <Spacer y={2} />
@@ -140,7 +140,7 @@ function App() {
 在你的页面获得最佳表现力时也确保了性能与体验。
 
 最后，`@zeit-ui/react` 完整且优先的提供 `Server Render` 支持，你所见的博客与我们的文档都是由服务端预渲染所完成，
-你可以在 <Link pure color rel="nofollow" href="https://react.zeit-ui.co/docs/getting-started/server-render">这里了解如何配置</Link>。
+你可以在 <Link color rel="nofollow" href="https://react.zeit-ui.co/docs/getting-started/server-render">这里了解如何配置</Link>。
 
 <Spacer y={2} />
 

@@ -14,7 +14,6 @@ const Contacts = ({ isDetailPage = false }) => {
   const themeTitle = Configs.isCN() ? '切换主题' : 'Switch themes'
   const linkProps = {
     rel: 'noreferrer',
-    pure: true,
     target: '_blank',
   }
   

@@ -16,7 +16,7 @@ const fillSpace = name => {
 const makeLink = data => {
   return (
     <NextLink href={data.url} key={data.url} passHref>
-      <Link pure>{fillSpace(data.name)}</Link>
+      <Link>{fillSpace(data.name)}</Link>
     </NextLink>
   )
 }

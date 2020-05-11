@@ -10,7 +10,7 @@ const getMoreLink = len => {
   if (len < Configs.latestLimit) return null
   return (
     <NextLink href="/blog" passHref>
-      <Link pure title="More">...</Link>
+      <Link title="More">...</Link>
     </NextLink>
   )
 }
