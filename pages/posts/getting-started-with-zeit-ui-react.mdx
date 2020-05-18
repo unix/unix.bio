@@ -15,7 +15,7 @@ export const meta = {
 
 在开始创建你的第一个 ZEIT UI 项目之前，我们还必须同步一个基础观念：极简的风格并非简陋，**真正的简约也不是删繁就简，而是在纷繁中构建秩序**。
 来自 ZEIT 的设计风格绝不是灵光一现的作品，而是设计大师 <Link href="https://evilrabb.it/" rel="nofollow">Evil Rabbit</Link> 与其团队设计师精心雕琢的设计语言，
-如果你使用在此基础上构建的 UI 库 `@zeit-ui/react` 时发现任何瑕疵，那一定是我们拙劣的技术实现所致，不必担心，我们可以一同优化与解决缺陷。
+如果你使用在此基础上构建的 UI 库 `@zeit-ui/react` 时发现任何瑕疵，那一定是我们拙劣的技术实现所致。
 
 <Spacer y={.5} />
 
@@ -69,14 +69,14 @@ export const meta = {
 
 ```jsx
 // ...
-import { ZEITUIProvider, CSSBaseline } from '@zeit-ui/react'
+import { ZeitProvider, CssBaseline } from '@zeit-ui/react'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ZEITUIProvider>        // 基础 Context 支持
-      <CSSBaseline />       // 基础样式组件
+    <ZeitProvider>        // 基础 Context 支持
+      <CssBaseline />       // 基础样式组件
       <App />
-    </ZEITUIProvider>
+    </ZeitProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
