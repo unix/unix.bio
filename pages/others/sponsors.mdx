@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Code, Link, Spacer, Badge, Text, Row, Col, useTheme } from '@zeit-ui/react'
+import { Link, Spacer, Text, User, useTheme, Grid } from '@zeit-ui/react'
 import NextLink from 'next/link'
 import Sponsors from '../../sponsors'
 
@@ -13,21 +13,15 @@ export const SponsorList = () => {
   const list = Sponsors
     .map(item => ({ ...item, amount: item.amount.toFixed(2) }))
   return (
-    <div>
+    <Grid.Container gap={2}>
       {list.map((item, index) => (
-        <Row align="middle" key={`${item.name}-index`} style={{ marginBottom: '2rem' }}
-          justify="space-between">
-          <Col span={2}></Col>
-          <Col span={8} style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', color: theme.palette.accents_4 }}>
-            <Text b style={{ color: theme.palette.foreground }}>{item.name}
-              {item.info && <span style={{ fontSize: '.7rem', fontWeight: '400', color: theme.palette.accents_4 }}><Spacer inline x={.2} />{item.info}</span>}
-            </Text>
-          </Col>
-          <Col span={1}><Badge>{item.amount}$</Badge></Col>
-          <Col span={4}></Col>
-        </Row>
+        <Grid key={`${item.name}-${index}`} xs={12} sm={8} alignItems="center">
+        <User text={item.name} name={item.name} src={item.avatar}>
+          <Text span size="12px">{item.amount}$ <Text type="secondary" span>{item.isSponsor ? '/ month' : ''}</Text></Text>
+        </User>
+        </Grid>
       ))}
-    </div>
+    </Grid.Container>
   )
 }
 
@@ -36,7 +30,7 @@ export const SponsorList = () => {
 
 
 你可以在 <NextLink href="/fixed/about"><Link color>关于我</Link></NextLink> 的页面找到捐赠链接，
-捐赠时的留言将在此展示。
+按月赞助来自于 GitHub Sponsors。
 
 <Spacer y={2} />
 <SponsorList />

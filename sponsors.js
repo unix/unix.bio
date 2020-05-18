@@ -2,17 +2,21 @@ const Sponsors = [
   {
     name: 'Hanxing Yang',
     amount: 1,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars0.githubusercontent.com/u/1492263?s=96&v=4',
   },
   {
     name: 'Neo Zhuo',
     amount: 5,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars3.githubusercontent.com/u/6374269?s=96&v=4',
   },
   {
     name: 'iqingting',
     amount: 50,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars3.githubusercontent.com/u/3411958?s=96&v=4',
+  
   },
   {
     name: '*博',
@@ -21,32 +25,36 @@ const Sponsors = [
   {
     name: 'Kaito Sugimoto',
     amount: 1,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars0.githubusercontent.com/u/36184621?s=96&v=4',
   },
   {
     name: 'geeeger',
     amount: 1,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars3.githubusercontent.com/u/19817649?s=96&v=4',
   },
   {
     name: '**龙',
     amount: 1.43,
-    info: '米饭',
   },
   {
     name: 'Aquariuslt',
     amount: 5,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars3.githubusercontent.com/u/6554061?s=96&v=4',
   },
   {
     name: 'MonkeyLeeT',
     amount: 5,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars0.githubusercontent.com/u/6754057?s=96&v=4',
   },
   {
     name: 'Lzumikonata',
     amount: 10,
-    info: 'GitHub Sponsor',
+    isSponsor: true,
+    avatar: 'https://avatars2.githubusercontent.com/u/17999142?s=96&v=4',
   },
   {
     name: '*盈',
@@ -59,7 +67,6 @@ const Sponsors = [
   {
     name: '**清',
     amount: 1,
-    info: '谢谢维特聚聚~~',
   },
   {
     name: '**强',
