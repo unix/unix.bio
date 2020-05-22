@@ -22,22 +22,24 @@ const getLatest = (data, isLatest) => {
   return posts.slice(0, Configs.latestLimit)
 }
 
-const getTitle = (isLatest) => {
+const getTitle = isLatest => {
   if (!isLatest) return Configs.labels.list
   return Configs.labels.latest
 }
 
-const Posts = ({
-  isLatest = false,
-}) => {
+const Posts = ({ isLatest = false }) => {
   const theme = useTheme()
   const posts = useMemo(() => getLatest(metadata, isLatest), [])
   const title = useMemo(() => getTitle(isLatest), [])
-  
+
   return (
     <section>
       <Head>
-        {!isLatest && <title>{getTitle(false)} - {Configs.title}</title>}
+        {!isLatest && (
+          <title>
+            {getTitle(false)} - {Configs.title}
+          </title>
+        )}
       </Head>
       <h2>{title}</h2>
       <div className="content">
@@ -50,9 +52,9 @@ const Posts = ({
         section {
           margin-top: calc(${theme.layout.gap} * 2);
         }
-        
+
         section h2 {
-          font-size: .8rem;
+          font-size: 0.8rem;
           color: ${theme.palette.accents_6};
           text-transform: uppercase;
           letter-spacing: 2px;
@@ -61,20 +63,20 @@ const Posts = ({
           display: inline-block;
           margin: 0;
         }
-        
+
         .content {
           margin: ${theme.layout.gap} 0;
         }
-        
+
         .more {
           display: block;
         }
-        
+
         @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
           section {
             margin-top: ${theme.layout.gapQuarter};
           }
-          
+
           section h2 {
             margin-top: calc(1.5 * ${theme.layout.gap});
           }

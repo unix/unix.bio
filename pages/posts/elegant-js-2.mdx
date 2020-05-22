@@ -8,18 +8,17 @@ export const meta = {
   description: '',
 }
 
-
 接上文，在 <NextLink href="/posts/elegant-js-1"><a>JS 优雅指南 - 1</a></NextLink> 中我们聊到了基础的 JavaScript 编程指南，
 包括如何可靠的声明变量、常量、函数、以及利用函数正确的构建逻辑，现在我们思考改善代码质量的第一步，如何命名。
 
 在阅读代码之初，编码的风格与命名会比抽象方式、设计技巧更令我们印象深刻，很多时候也会为项目的风格定下基调。比如当你阅读一些算法工程师写的代码块，
-常常会见到 *单字母变量* 、*反复的声明* 、*不知所以的赋值与拷贝* 、*累赘的条件判断* 等等，我们不能说这里有问题，
+常常会见到 _单字母变量_ 、_反复的声明_ 、_不知所以的赋值与拷贝_ 、_累赘的条件判断_ 等等，我们不能说这里有问题，
 因为他们的代码大多的的确确是可以正常工作的，甚至在性能或储存空间上有一些优势，但这在工程，特别是大型工程中是不值得称道的。
 根据经验我们可以这类代码归类为 "糊屎"，充其量是 "糊" 了一滩高性能的 "屎"。
 
 现在我们做的是脱离 "**编程只不过是工具**" 的阶段，脱离 "糊屎男孩"，让机器面有喜色、富有人性，使阅读者在某个瞬间切实地感受到创作者的思维热情与审美哲学。
 
-<br/>
+<br />
 
 ## 1. 富有准确性的命名
 
@@ -46,7 +45,8 @@ const book = {}
 
 ```js
 // bad
-if (username && username.includes('prefix-')) {}
+if (username && username.includes('prefix-')) {
+}
 
 // bad
 const prefix = username && username.includes('prefix-')
@@ -82,6 +82,7 @@ const getUsers = (...params) => {}
 **例 4**，准确的表达
 
 属性可以避免不必要的描述，言简意赅：
+
 ```js
 // bad
 const book = {
@@ -98,6 +99,7 @@ func(book.title)
 ```
 
 注意单复数:
+
 ```js
 // bad
 const book = findBooks()
@@ -113,14 +115,10 @@ const books = findBooks()
 
 ```js
 // bad
-const titles = books
-  .map(item => item.title)
-  .filter(item => item.length > 0)
+const titles = books.map(item => item.title).filter(item => item.length > 0)
 
 // good
-const titles = books
-  .map(book => book.title)
-  .filter(title => title.length > 0)
+const titles = books.map(book => book.title).filter(title => title.length > 0)
 ```
 
 <Spacer y={2} />
@@ -196,4 +194,3 @@ const cursorDown = () => {}
 ```
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
-

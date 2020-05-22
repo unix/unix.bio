@@ -19,15 +19,13 @@ const getMetadata = async (files, parentPath) => {
         }
         const content = await fs.readFile(filePath, 'utf-8')
         const meta = await extractMetadata(content)
-        const url = filePath
-          .replace(pagePrefix, '')
-          .replace('.mdx', '')
+        const url = filePath.replace(pagePrefix, '').replace('.mdx', '')
         return { name: meta.title || file, url, meta }
-      })
+      }),
   )
 }
 
-const sortPosts = (data) => {
+const sortPosts = data => {
   const posts = (data.find(item => item.name === 'posts') || {}).children || []
   const sorted = posts
     .map(post => {
@@ -35,19 +33,19 @@ const sortPosts = (data) => {
         console.error(`[missing metadata]: ${post.url}`)
         return post
       }
-  
+
       if (!post.meta.title) {
         console.error(`[metadata]: missing key "title" in (${post.name}) ${post.url}`)
         console.error('> Please make sure that each post has a [title].')
       }
-      
+
       if (!post.meta.date) {
         console.error(`[metadata]: missing key "date" in (${post.name}) ${post.url}`)
         console.error('> Try to run "new Date().toUTCString()" in console to get "date".')
-        const meta = {...post.meta, date: new Date().toUTCString() }
-        return {...post, meta}
+        const meta = { ...post.meta, date: new Date().toUTCString() }
+        return { ...post, meta }
       }
-  
+
       if (`${new Date(post.meta.date)}` === 'Invalid Date') {
         console.error(`[metadata]: format error "date" in (${post.name}) ${post.url}`)
         console.error('> Try to run "new Date().toUTCString()" in console to get "date".')
@@ -55,7 +53,7 @@ const sortPosts = (data) => {
       return post
     })
     .sort((pre, next) => +new Date(next.meta.date) - new Date(pre.meta.date))
-  
+
   return data.map(v => {
     if (v.name !== 'posts') return v
     return { ...v, children: sorted }

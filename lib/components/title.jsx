@@ -9,7 +9,7 @@ const DateDisplay = ({ date }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
   const [count, countUpdated] = useViewsShow(asPath)
-  
+
   const d = useMemo(() => new Date(date), [])
   if (`${d}` === 'Invalid Date') return null
 
@@ -31,56 +31,54 @@ const DateDisplay = ({ date }) => {
         </>
       )}
       <style jsx>{`
-      p {
-        color: ${theme.palette.accents_4};
-        font-size: .8rem;
-        display: inline-flex;
-        align-items: center;
-        font-family: ${theme.font.mono};
-      }
-
-      span {
-        user-select: none;
-        font-weight: bold;
-      }
-      
-      .dot {
-        color: ${theme.palette.accents_7};
-        padding-right: 2px;
-      }
-      
-      .split {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        color: ${theme.palette.success};
-        padding: 0 .5rem;
-      }
-      
-      @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
         p {
-          text-align: center;
-          font-size: .75rem;
+          color: ${theme.palette.accents_4};
+          font-size: 0.8rem;
+          display: inline-flex;
+          align-items: center;
+          font-family: ${theme.font.mono};
         }
-      }
-    `}</style>
+
+        span {
+          user-select: none;
+          font-weight: bold;
+        }
+
+        .dot {
+          color: ${theme.palette.accents_7};
+          padding-right: 2px;
+        }
+
+        .split {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          color: ${theme.palette.success};
+          padding: 0 0.5rem;
+        }
+
+        @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
+          p {
+            text-align: center;
+            font-size: 0.75rem;
+          }
+        }
+      `}</style>
     </p>
   )
 }
 
-const Title = ({
-  title, date,
-}) => {
+const Title = ({ title, date }) => {
   const theme = useTheme()
-  
+
   return (
     <div className="title">
       <h1>{title}</h1>
       <div className="date-box">
         <DateDisplay date={date} />
       </div>
-  
+
       <style jsx>{`
         .title {
           margin: ${theme.layout.gap} 0;
@@ -91,10 +89,10 @@ const Title = ({
           width: fit-content;
           align-items: center;
           height: 30px;
-          margin: -.5rem 0 0 0;
+          margin: -0.5rem 0 0 0;
           position: relative;
         }
-        
+
         .date-box :global(.image) {
           position: absolute;
           left: 100%;
@@ -104,11 +102,11 @@ const Title = ({
           align-items: center;
           margin: 0 0 0 10px;
         }
-        
+
         .date-box :global(img) {
           object-fit: unset;
         }
-        
+
         @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
           .title h1 {
             font-size: 1.4rem;

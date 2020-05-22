@@ -16,7 +16,6 @@ const Sponsors = [
     amount: 50,
     isSponsor: true,
     avatar: 'https://avatars3.githubusercontent.com/u/3411958?s=96&v=4',
-  
   },
   {
     name: '*博',
@@ -71,7 +70,7 @@ const Sponsors = [
   {
     name: '**强',
     amount: 10,
-  }
+  },
 ]
 
 export default Sponsors

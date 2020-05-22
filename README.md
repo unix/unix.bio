@@ -2,7 +2,6 @@
 
 > Modern static blog template.
 
-
 [中文文档](./README_CN.md)
 
 <br />
@@ -13,7 +12,7 @@ This is the source code of my [blog](https://unix.bio).
 
 You can also use this project to build your own blog.
 
- Run `npm init unix-bio` or `yarn create unix-bio` to initialize.
+Run `npm init unix-bio` or `yarn create unix-bio` to initialize.
 
 <br />
 
@@ -25,9 +24,9 @@ First, Please make sure your [NodeJS](https://nodejs.org/en/) is in the latest v
 
 2. run `npm run post` to create your post.
 
-2. run `npm run dev` to browse development page.
+3. run `npm run dev` to browse development page.
 
-3. run `npm i -g now && now` to deploy. (Default deployment to [now](https://now.sh/))
+4. run `npm i -g now && now` to deploy. (Default deployment to [now](https://now.sh/))
 
 <br />
 
@@ -35,10 +34,10 @@ First, Please make sure your [NodeJS](https://nodejs.org/en/) is in the latest v
 
 #### High optimization
 
-  - High performance optimization thanks to [next.js](http://nextjs.com/)
-  - Perfect SEO support
-  - High readability
-  - Your just need to `write`
+- High performance optimization thanks to [next.js](http://nextjs.com/)
+- Perfect SEO support
+- High readability
+- Your just need to `write`
 
 <p align="center">
 <img width="500" align="center" src="https://user-images.githubusercontent.com/11304944/77065913-1bba2000-6a1d-11ea-868c-8e96dd09ddd5.png">
@@ -54,9 +53,9 @@ You can **switch languages** in the configuration file
 
 #### Write on MDXJS
 
-  - Full markdown support
-  - React Components support
-  - More customization possibilities
+- Full markdown support
+- React Components support
+- More customization possibilities
 
 <p align="center">
 <img width="600" src="https://user-images.githubusercontent.com/11304944/76159776-b33a8b80-615e-11ea-9752-19827e5c900d.png">
@@ -131,4 +130,3 @@ After running the command, the generated static file will be in the `/out` direc
 ### LICENSE
 
 [MIT](./LICENSE)
-

@@ -22,9 +22,9 @@
 
 2. 运行 `npm run post` 创建你的第一篇文章。
 
-2. 运行 `npm run dev` 在本地预览页面。
+3. 运行 `npm run dev` 在本地预览页面。
 
-3. 运行 `npm i -g now && now` 命令开始部署。 (默认会部署到 [now](https://now.sh/))
+4. 运行 `npm i -g now && now` 命令开始部署。 (默认会部署到 [now](https://now.sh/))
 
 <br />
 
@@ -32,10 +32,10 @@
 
 #### 高优化
 
-  - 得益于 [next.js](http://nextjs.com/) 与 [@zeit-ui/react](https://react.zeit-ui.co/) 的高性能优化与混合渲染
-  - 完善的 SEO 支持和服务端渲染
-  - 高可读性支持
-  - 你只需要专注于写作
+- 得益于 [next.js](http://nextjs.com/) 与 [@zeit-ui/react](https://react.zeit-ui.co/) 的高性能优化与混合渲染
+- 完善的 SEO 支持和服务端渲染
+- 高可读性支持
+- 你只需要专注于写作
 
 <p align="center">
 <img width="500" align="center" src="https://user-images.githubusercontent.com/11304944/77065913-1bba2000-6a1d-11ea-868c-8e96dd09ddd5.png">
@@ -51,9 +51,9 @@
 
 #### 在 MDXJS 下开始写作
 
-  - 完善的 Markdown 语法支持
-  - 可以在 Markdown 种使用 React 组件
-  - 更多定制组件的可能性
+- 完善的 Markdown 语法支持
+- 可以在 Markdown 种使用 React 组件
+- 更多定制组件的可能性
 
 <p align="center">
 <img width="600" src="https://user-images.githubusercontent.com/11304944/76159776-b33a8b80-615e-11ea-9752-19827e5c900d.png">
@@ -132,4 +132,3 @@ npm run export
 ### 协议
 
 [MIT](./LICENSE)
-

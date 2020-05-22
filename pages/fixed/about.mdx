@@ -12,17 +12,19 @@ export const Btc = () => {
   const address = '1KE89oa6aMNaVEPUeQPxLTmQGmXL6W1mGi'
   const { setVisible, bindings } = useModal()
   return (
-   <>
-     <Button auto size="mini" onClick={() => setVisible(true)}>Show address of BTC</Button>
-     <Modal {...bindings}>
-       <Modal.Title>BTC</Modal.Title>
-       <Modal.Subtitle>This is Witt's BTC address</Modal.Subtitle>
-       <Modal.Content>
-         <p>{address}</p>
-       </Modal.Content>
-       <Modal.Action onClick={({ close }) => close()}>OK</Modal.Action>
-     </Modal>
-   </>
+    <>
+      <Button auto size="mini" onClick={() => setVisible(true)}>
+        Show address of BTC
+      </Button>
+      <Modal {...bindings}>
+        <Modal.Title>BTC</Modal.Title>
+        <Modal.Subtitle>This is Witt's BTC address</Modal.Subtitle>
+        <Modal.Content>
+          <p>{address}</p>
+        </Modal.Content>
+        <Modal.Action onClick={({ close }) => close()}>OK</Modal.Action>
+      </Modal>
+    </>
   )
 }
 
@@ -30,7 +32,9 @@ export const Alipay = () => {
   const { setVisible, bindings } = useModal()
   return (
     <>
-      <Button auto size="mini" onClick={() => setVisible(true)}>Show Alipay</Button>
+      <Button auto size="mini" onClick={() => setVisible(true)}>
+        Show Alipay
+      </Button>
       <Modal {...bindings}>
         <Modal.Title>Alipay</Modal.Title>
         <Modal.Subtitle>Scan code with Alipay</Modal.Subtitle>
@@ -46,7 +50,7 @@ export const Alipay = () => {
 你好，我是维特，一个自由主义者，<del>JavaScript 全栈?</del> 工程师。对 Serverless 与 DX (Developer experience) 很感兴趣。
 喜欢 `CoffeeScript` 与 `Ruby`，但一直在写 `TypeScript`。主要贡献是创造一些应用和类库来帮助提高开发者体验。
 
-我很少写博客，*Hello World* 文章实在讨人厌，不想成为智障。但水平不够写不出好东西，所以不写。如果你发现博文更新，那就是我的工作不饱和了。
+我很少写博客，_Hello World_ 文章实在讨人厌，不想成为智障。但水平不够写不出好东西，所以不写。如果你发现博文更新，那就是我的工作不饱和了。
 此外这里也提供 **Review** 服务，你可以在 <Link color rel="nofollow" target="_blank" href="https://review.unix.bio">Review It</Link> 中提交自己的 `Pull Request` 链接，
 我会在收到通知后立刻帮你分析代码，并尽可能多的提出对提高你编程能力有显著帮助的建议。
 
@@ -58,37 +62,47 @@ export const Alipay = () => {
 
 <Row>
   <Spacer x={1} />
-  <Dot type="success" >
-  <Link target="_blank" href="https://github.com/sponsors/unix" rel="nofollow">GitHub Sponsor</Link>
+  <Dot type="success">
+    <Link target="_blank" href="https://github.com/sponsors/unix" rel="nofollow">
+      GitHub Sponsor
+    </Link>
   </Dot>
   <Spacer y={2} />
 </Row>
 
 <Row>
   <Spacer x={1} />
-  <Dot type="warning" >
-  <Link target="_blank" href="https://www.paypal.me/unixbio" rel="nofollow">PayPal</Link>
+  <Dot type="warning">
+    <Link target="_blank" href="https://www.paypal.me/unixbio" rel="nofollow">
+      PayPal
+    </Link>
   </Dot>
   <Spacer y={2} />
 </Row>
 
 <Row>
   <Spacer x={1} />
-  <Dot type="success" >
-  <Link target="_blank" href="https://ko-fi.com/unixbio" rel="nofollow">Ko-fi</Link>
+  <Dot type="success">
+    <Link target="_blank" href="https://ko-fi.com/unixbio" rel="nofollow">
+      Ko-fi
+    </Link>
   </Dot>
   <Spacer y={2} />
 </Row>
 
 <Row>
   <Spacer x={1} />
-  <Dot type="success"><Btc /></Dot>
+  <Dot type="success">
+    <Btc />
+  </Dot>
   <Spacer y={2} />
 </Row>
 
 <Row>
   <Spacer x={1} />
-  <Dot type="success"><Alipay /></Dot>
+  <Dot type="success">
+    <Alipay />
+  </Dot>
   <Spacer y={2} />
 </Row>
 

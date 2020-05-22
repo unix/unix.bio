@@ -28,19 +28,19 @@ const ProfileLinks = () => {
     <div className="link">
       {makeLink({ url: '/blog', name: Configs.labels.default })}
       {links.map(link => makeLink(link))}
-  
+
       <style jsx>{`
         .link :global(a) {
           color: ${theme.palette.accents_6};
           text-transform: uppercase;
-          font-size: .8rem;
+          font-size: 0.8rem;
           margin-right: ${theme.layout.gapHalf};
         }
-        
+
         .link :global(a:hover) {
           color: ${theme.palette.accents_4};
         }
-        
+
         .link :global(a:last-of-type) {
           margin-right: 0;
         }

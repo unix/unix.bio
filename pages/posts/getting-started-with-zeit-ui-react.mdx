@@ -5,7 +5,8 @@ export const meta = {
   title: '在 React 中尝试 ZEIT UI',
   date: '2020-03-22T22:57:30.027Z',
   description: '',
-  image: 'https://user-images.githubusercontent.com/11304944/76085431-fd036480-5fec-11ea-8412-9e581425344a.png',
+  image:
+    'https://user-images.githubusercontent.com/11304944/76085431-fd036480-5fec-11ea-8412-9e581425344a.png',
 }
 
 有意思的是，和 <Link href="/posts/getting-started-with-zeit-ui-vue">在 Vue 的指南</Link> 中非常相似，我们也提供了 ZEIT UI 在 React 框架上的支持，
@@ -17,14 +18,24 @@ export const meta = {
 来自 ZEIT 的设计风格绝不是灵光一现的作品，而是设计大师 <Link href="https://evilrabb.it/" rel="nofollow">Evil Rabbit</Link> 与其团队设计师精心雕琢的设计语言，
 如果你使用在此基础上构建的 UI 库 `@zeit-ui/react` 时发现任何瑕疵，那一定是我们拙劣的技术实现所致。
 
-<Spacer y={.5} />
+<Spacer y={0.5} />
 
 <Note type="warning" label="注意">
-请确保你拥有最新版本的 <Link rel="nofollow" href="https://nodejs.org/en/download/">NodeJS</Link>，
-同时也需要准备 NodeJS 的包管理器 <Link rel="nofollow" href="https://www.npmjs.com/">NPM</Link> 或是 <Link rel="nofollow" href="https://yarnpkg.com/">Yarn</Link>
+  请确保你拥有最新版本的{' '}
+  <Link rel="nofollow" href="https://nodejs.org/en/download/">
+    NodeJS
+  </Link>
+  ， 同时也需要准备 NodeJS 的包管理器{' '}
+  <Link rel="nofollow" href="https://www.npmjs.com/">
+    NPM
+  </Link>{' '}
+  或是{' '}
+  <Link rel="nofollow" href="https://yarnpkg.com/">
+    Yarn
+  </Link>
 </Note>
 
-<Spacer y={.5} />
+<Spacer y={0.5} />
 
 为了轻易的和任何 React 项目接轨，也作为简易的示范，我们使用知名的脚手架 <Link rel="nofollow" href="https://github.com/facebook/create-react-app">create-react-app</Link> 创建通用项目。
 **即便你的项目并非此脚手架创建，也能以此通用项目作为参考，非常简单的使用 `ZEIT UI`**。
@@ -33,30 +44,72 @@ export const meta = {
 
 ## 创建 React 项目
 
-<Spacer y={.5} />
+<Spacer y={0.5} />
 
 <Tabs initialValue="npm">
-  <Tabs.Item label={<><Image scale="80%" width="38" height="18" src="/assets/npm.png" />NPM</>} value="npm">
-    <Display width="500px" caption={<p>使用 <Code>npx</Code> 命令可以在线运行命令</p>}>
+  <Tabs.Item
+    label={
+      <>
+        <Image scale="80%" width="38" height="18" src="/assets/npm.png" />
+        NPM
+      </>
+    }
+    value="npm">
+    <Display
+      width="500px"
+      caption={
+        <p>
+          使用 <Code>npx</Code> 命令可以在线运行命令
+        </p>
+      }>
       <Snippet>npx create-react-app my-app</Snippet>
     </Display>
-    <Text>安装成功后可运行 <Code>npm start</Code> 确认。现在只需要将 <Code>@zeit-ui/react</Code> 组件库安装至项目即可：</Text>
-    <Display width="500px" caption={<p>使用 <Code>npm</Code> 安装 UI 组件</p>}>
+    <Text>
+      安装成功后可运行 <Code>npm start</Code> 确认。现在只需要将 <Code>@zeit-ui/react</Code>{' '}
+      组件库安装至项目即可：
+    </Text>
+    <Display
+      width="500px"
+      caption={
+        <p>
+          使用 <Code>npm</Code> 安装 UI 组件
+        </p>
+      }>
       <Snippet type="success">npm install @zeit-ui/react</Snippet>
     </Display>
   </Tabs.Item>
-  <Tabs.Item label={<><Image width="45" height="18" src="/assets/yarn.png" />Yarn</>} value="yarn">
-    <Display width="500px" caption={<p>使用 <Code>yarn</Code> 创建 React 应用</p>}>
+  <Tabs.Item
+    label={
+      <>
+        <Image width="45" height="18" src="/assets/yarn.png" />
+        Yarn
+      </>
+    }
+    value="yarn">
+    <Display
+      width="500px"
+      caption={
+        <p>
+          使用 <Code>yarn</Code> 创建 React 应用
+        </p>
+      }>
       <Snippet>yarn create react-app my-app</Snippet>
     </Display>
-    <Text>安装成功后可运行 <Code>yarn start</Code> 确认。现在只需要将 <Code>@zeit-ui/react</Code> 组件库安装至项目即可：</Text>
-    <Display width="500px" caption={<p>使用 <Code>yarn</Code> 安装 UI 组件</p>}>
+    <Text>
+      安装成功后可运行 <Code>yarn start</Code> 确认。现在只需要将 <Code>@zeit-ui/react</Code>{' '}
+      组件库安装至项目即可：
+    </Text>
+    <Display
+      width="500px"
+      caption={
+        <p>
+          使用 <Code>yarn</Code> 安装 UI 组件
+        </p>
+      }>
       <Snippet type="success">yarn add @zeit-ui/react</Snippet>
     </Display>
   </Tabs.Item>
 </Tabs>
-
-
 
 至此为止我们已经准备好了基础项目。如果你是初学者，在这一步遇到困难，可以在 <Link rel="nofollow" href="https://github.com/zeit-ui/react-getting-started/issues/new">这里</Link> 留下你的问题。
 
@@ -65,7 +118,7 @@ export const meta = {
 ## 引用组件库
 
 在 `src/index.js` 中，我们添加基础的 Context 支持 `ZEITUIProvider` 到根组件下，同时别忘了引入组件 `CSSBaseline`，
-它提供基础的样式重置与声明，类似于你熟知的 *normalize.css* 。
+它提供基础的样式重置与声明，类似于你熟知的 _normalize.css_ 。
 
 ```jsx
 // ...
@@ -73,13 +126,15 @@ import { ZeitProvider, CssBaseline } from '@zeit-ui/react'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ZeitProvider>        // 基础 Context 支持
-      <CssBaseline />       // 基础样式组件
+    <ZeitProvider>
+      {' '}
+      // 基础 Context 支持
+      <CssBaseline /> // 基础样式组件
       <App />
     </ZeitProvider>
   </React.StrictMode>,
-  document.getElementById('root')
-);
+  document.getElementById('root'),
+)
 ```
 
 你可以在 <Link rel="nofollow" href="https://github.com/zeit-ui/react-getting-started/tree/c6ced6cd2ae690aa014f809b39b26173b8895bd5">示例项目</Link> 中查看这次的代码变更，以确保完成了引入工作。
@@ -110,7 +165,7 @@ function App() {
         <Note type="success">This note details something important.</Note>
       </Card>
     </div>
-  );
+  )
 }
 ```
 
@@ -126,7 +181,6 @@ function App() {
 你可以在 <Link rel="nofollow" href="https://github.com/zeit-ui/react-getting-started/tree/7ca0d66505f03bac709feeb58538df325bc9d8ea">示例项目</Link> 中查看这次的提交。
 
 想要了解更多的组件？你可以看看 <Link color rel="nofollow" href="https://react.zeit-ui.co/">ZEIT - UI React 的 官方文档</Link>。
-
 
 <Spacer y={2} />
 
@@ -149,6 +203,5 @@ function App() {
 `ZEIT UI` 是一个 **公益性的开源项目**，我们没有借助它盈利。但不用担心，项目至今为止已经开发且维护了超过一年，并且会持续地维护，
 你有任何的问题、想法，都可以在 <Link rel="nofollow" href="https://github.com/zeit-ui/react/issues/new/choose">这里</Link> 留言，
 我们很高兴看到每个新想法，即使你是一个刚刚入门的开发者，也可以帮助我们做的更好。
-
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

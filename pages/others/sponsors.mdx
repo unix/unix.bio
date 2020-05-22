@@ -10,15 +10,19 @@ export const meta = {
 
 export const SponsorList = () => {
   const theme = useTheme()
-  const list = Sponsors
-    .map(item => ({ ...item, amount: item.amount.toFixed(2) }))
+  const list = Sponsors.map(item => ({ ...item, amount: item.amount.toFixed(2) }))
   return (
     <Grid.Container gap={2}>
       {list.map((item, index) => (
         <Grid key={`${item.name}-${index}`} xs={12} sm={8} alignItems="center">
-        <User text={item.name} name={item.name} src={item.avatar}>
-          <Text span size="12px">{item.amount}$ <Text type="secondary" span>{item.isSponsor ? '/ month' : ''}</Text></Text>
-        </User>
+          <User text={item.name} name={item.name} src={item.avatar}>
+            <Text span size="12px">
+              {item.amount}${' '}
+              <Text type="secondary" span>
+                {item.isSponsor ? '/ month' : ''}
+              </Text>
+            </Text>
+          </User>
         </Grid>
       ))}
     </Grid.Container>
@@ -27,7 +31,6 @@ export const SponsorList = () => {
 
 非常感谢各位慷慨的赞助者帮助我确保开源项目得以维护。捐赠不是必须的，但作为礼物，如果你有需要可以邮件我，
 我可以帮助你远程解决一些问题或是 Review 代码。
-
 
 你可以在 <NextLink href="/fixed/about"><Link color>关于我</Link></NextLink> 的页面找到捐赠链接，
 按月赞助来自于 GitHub Sponsors。

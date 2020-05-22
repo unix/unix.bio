@@ -7,7 +7,6 @@ export const meta = {
   description: '',
 }
 
-
 当你开始写一个开源项目时总是要考虑有没有 github / npm / domain ... 各类命名冲突，如果你需要发布在 NPM 上那就更困难了，
 因为在 NPM 初期有很多人创建了非常多的包仅仅是为了**占位**，现在看来仍旧有一大批简短、语义化的包名被占据连续六七年没有任何更新,
 比如 `fish` `ok` `command` 等等。现在你可以通过一些 NPM 争议政策来要求将包的所有权转移给你，因为这些占位包对社区并没有价值。
@@ -35,7 +34,7 @@ export const meta = {
 1. 首先运行 `npm owner ls <pkgname>` 获取当前包所有者的公开邮件地址
 2. 发送邮件至 **包的所有者并且抄送** `support@npmjs.com`
 
-按照 "npm disputes" 的说明，要求转移的邮件内容必须要 *足够的友善* ，至少要包括 package 可能违反的条约、
+按照 "npm disputes" 的说明，要求转移的邮件内容必须要 _足够的友善_ ，至少要包括 package 可能违反的条约、
 可以转移的原因 (如无维护无贡献)、包的名称以及你的 `npm username`。这里最好使用 NPM 的通知邮箱发送，便于 NPM 工作人员查询你的账号与发布记录。
 
 需要注意的是，如果你想要转移的 "npm package" 存在商标版权侵犯或者是占位问题，NPM 工作人员将立刻处理，这不在上述的 4 周流程之类。
@@ -60,7 +59,5 @@ export const meta = {
 
 请不要因为占位或内容不符在 `package page` 上点击 `report`。这是用于报告包本身的安全内容问题。如果因为包含违反当地法律、不合适的内容、侵权等等，
 可以尝试举报滥用: `abuse@npmjs.com` 。(注册与你的包名非常非常相近的名称，有意误导也可以算作此类)
-
-
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

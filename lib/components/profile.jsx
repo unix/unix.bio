@@ -4,8 +4,7 @@ import NextLink from 'next/link'
 import ProfileLinks from './profile-links'
 import { Configs } from '../utils'
 
-const Profile = React.memo(({
-}) => {
+const Profile = React.memo(({}) => {
   const theme = useTheme()
   const [showText, setShowText] = useState(theme.type === 'dark')
   useEffect(() => {
@@ -20,7 +19,9 @@ const Profile = React.memo(({
       <Row align="bottom" className="user">
         <NextLink href="/" passHref>
           <Link>
-            <User src="/assets/avatar.png" name={Configs.author}>{Configs.summary}</User>
+            <User src="/assets/avatar.png" name={Configs.author}>
+              {Configs.summary}
+            </User>
           </Link>
         </NextLink>
       </Row>
@@ -29,14 +30,14 @@ const Profile = React.memo(({
         .profile {
           padding: ${theme.layout.gap} 0;
         }
-        
+
         .profile :global(.user) {
           padding-left: 0;
           margin-bottom: ${theme.layout.gapQuarter};
           max-width: 100%;
           overflow: hidden;
         }
-        
+
         @media only screen and (max-width: ${theme.layout.breakpointMobile}) {
           .profile {
             width: 100%;

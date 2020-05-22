@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="home">
       <Profile />
-  
+
       <style jsx>{`
         .home {
           width: 100%;
