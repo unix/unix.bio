@@ -7,6 +7,7 @@
     "dev": "npm run collect && next dev",
     "now-build": "npm run collect && next build",
     "post": "node scripts/create.js",
+    "prettier": "prettier --write .",
     "collect": "node scripts/collect-meta.js",
     "export": "npm run now-build && next export"
   },
@@ -28,6 +29,7 @@
     "chalk": "^3.0.0",
     "extract-mdx-metadata": "^1.0.0",
     "fs-extra": "^8.1.0",
+    "prettier": "^2.0.5",
     "prompt-sync": "^4.2.0",
     "rehype-join-line": "^1.0.2",
     "styled-jsx": "^3.2.4"
