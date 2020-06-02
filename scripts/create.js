@@ -8,7 +8,7 @@ const templatePath = path.join(__dirname, 'template.mdx')
 const create = async () => {
   const hasPosts = await fs.pathExists(postsPath)
   if (!hasPosts) {
-    console.log(chalk.red('  About. Not found dir "/page/posts".\n'))
+    console.log(chalk.red('  Aborted. Not found dir "/page/posts".\n'))
     process.exit(1)
   }
 
@@ -16,7 +16,7 @@ const create = async () => {
   const answer = prompt(chalk.hex('#bdbdbd')(promptText))
 
   if (!answer) {
-    console.log(chalk.yellow('  About. Nothing has changed.\n'))
+    console.log(chalk.yellow('  Aborted. Nothing has changed.\n'))
     process.exit(1)
   }
 
@@ -29,7 +29,7 @@ const create = async () => {
 
   const hasFile = await fs.pathExists(filePath)
   if (hasFile) {
-    console.log(chalk.red(`  About. File ${postsPath} is exists.\n`))
+    console.log(chalk.red(`  Aborted. File ${postsPath} is exists.\n`))
     process.exit(1)
   }
 
