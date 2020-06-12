@@ -1,5 +1,11 @@
 const Sponsors = [
   {
+    name: 'MinLiang Zeng',
+    amount: 1,
+    isSponsor: true,
+    avatar: 'https://avatars3.githubusercontent.com/u/11664505?s=96&v=4',
+  },
+  {
     name: 'Teddy',
     amount: 1,
     isSponsor: true,
@@ -20,7 +26,6 @@ const Sponsors = [
   {
     name: 'iqingting',
     amount: 50,
-    isSponsor: true,
     avatar: 'https://avatars3.githubusercontent.com/u/3411958?s=96&v=4',
   },
   {
