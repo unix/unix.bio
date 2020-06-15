@@ -1334,10 +1334,10 @@
   resolved "https://registry.yarnpkg.com/@zeit-ui/react-prism/-/react-prism-1.0.0.tgz#3438c648f71b7fc0d8a7c53a0cba90bc3dc2f784"
   integrity sha512-gLGHCaVX7EM/dPl82GCVlLkpkA101cSK7gVnV0auQRHTiUq/Jeger87JbbQ+dJNSWH636sXiyErR0mwHpqHCUw==
 
-"@zeit-ui/react@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-1.5.0.tgz#078e1a3b5188d01644e9985312346029177775bc"
-  integrity sha512-OWwqX4K6Feagf+kyzIJ/w63rbUZviCLumKzgNPZpEAXGF7CPGb8maKchN4z5riKmEM4UbAgjFNUmL/sevHSwVg==
+"@zeit-ui/react@^1.7.0-canary.4":
+  version "1.7.0-canary.4"
+  resolved "https://registry.yarnpkg.com/@zeit-ui/react/-/react-1.7.0-canary.4.tgz#b8ac255dc8708a5564162953e6339ed5e928ae9c"
+  integrity sha512-HGoK1uborzP/ejBt6/BgEf5sfCUa6IjneEYbForbWeH8pS9On0m9YSoyE3EPk82XwR6JH9paz9JALEadYJVIkA==
   dependencies:
     styled-jsx "^3.2.5"
 

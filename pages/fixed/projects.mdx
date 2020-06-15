@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Spacer, Dot, Link, Code } from '@zeit-ui/react'
+import { Spacer, Dot, Link, Code, Grid, Card, Text, Image } from '@zeit-ui/react'
 
 export const meta = {
   title: '开源项目',
@@ -7,56 +7,76 @@ export const meta = {
   description: '',
 }
 
-这是我开发一些有意思的项目。
+export const Item = ({ name, git, desc, image }) => {
+  return (
+    <Grid xs={20} sm={10} md={8}>
+      <Link target="_blank" href={`https://github.com/${git}`} title={`view ${name} on GitHub`}>
+        <Card shadow>
+          {image && (
+            <div style={{ height: 0, paddingBottom: '50%' }}>
+              <Image src={image} style={{ objectFit: 'cover' }} />
+            </div>
+          )}
+          <Card.Content>
+            <Text h3>{name}</Text>
+            <Text span>{desc}</Text>
+          </Card.Content>
+        </Card>
+      </Link>
+    </Grid>
+  )
+}
 
-<Spacer y={2} />
-<Dot type="success">高活跃度项目</Dot>
-<Spacer />
-<Link href="https://github.com/unix/func">
-  <Code>func</Code> - 现代化的，IoC 范式命令行框架。
-</Link>
-<Spacer y={0.5} />
+我正在创造一些能够改善开发者体验的工具和开源项目，如果你有不错的想法或正面临一些重复性的工作，
+想要有任何改进？<Link rel="nofollow" color target="_blank" href="mailto:unix.bio@gmail.com">请让我知道</Link>。
 
-<Link href="https://github.com/zeit-ui/vue">
-  <Code>zeit-ui/vue</Code> - ZEIT UI 的 Vue 实现
-</Link>
-<Spacer y={0.5} />
-
-<Link href="https://github.com/zeit-ui/react">
-  <Code>zeit-ui/react</Code> - ZEIT UI 的 React 实现
-</Link>
-<Spacer y={0.5} />
-
-<Link href="https://github.com/unix/views-show">
-  <Code>views-show</Code> - 无服务器的浏览量统计服务
-</Link>
-<Spacer y={0.5} />
-
-<Link href="https://github.com/unix/koa-ts">
-  <Code>koa-ts</Code> - Koa2 与 TS 的最佳实践，包含脚手架
-</Link>
-<Spacer y={0.5} />
-
-<Link href="https://github.com/unix/want">
-  <Code>want</Code> - 以不下载的方式在线运行命令，无负担运维
-</Link>
-<Spacer y={0.5} />
-
-<Link href="https://github.com/unix/done">
-  <Code>done</Code> - 自动化、标准化的 Release 工具
-</Link>
-<Spacer y={0.5} />
-
-<Link href="https://github.com/unix/cdn-viewer">
-  <Code>cdn-viewer</Code> - 以文件树审阅任何版本时的仓库或包
-</Link>
-<Spacer y={0.5} />
-
+<Spacer y={1.5} />
+<Grid.Container gap={2} justify="center">
+  <Item
+    name="Zeit UI React"
+    git="zeit-ui/react"
+    desc="极简风格的 React 组件库。"
+    image="https://user-images.githubusercontent.com/11304944/76085431-fd036480-5fec-11ea-8412-9e581425344a.png"
+  />
+  <Item
+    name="backset"
+    git="unix/backset"
+    desc="高体验、高性能数据流管理工具。"
+    image="https://repository-images.githubusercontent.com/269178398/eee2d580-a627-11ea-8a09-e2ec16515b53"
+  />
+  <Item
+    name="func"
+    git="unix/func"
+    desc="现代化的，IoC 范式命令行框架。"
+    image="https://repository-images.githubusercontent.com/191786216/b4ae9d00-8fac-11e9-95ac-ed4241bfe314"
+  />
+  <Item
+    name="unix.bio"
+    git="unix/unix.bio"
+    desc="开源的服务端渲染个人博客。"
+    image="https://repository-images.githubusercontent.com/245429351/7a54a280-88d5-11ea-96ae-6a2dfaf25b1b"
+  />
+  <Item
+    name="want"
+    git="unix/want"
+    desc="以不下载的方式在线运行命令，无负担运维。"
+    image="https://repository-images.githubusercontent.com/180941196/b2568a00-af03-11ea-8e25-f3cf612ebb84"
+  />
+  <Item
+    name="views.show"
+    git="unix/views-show"
+    desc="无服务器的浏览量统计服务。"
+    image="https://repository-images.githubusercontent.com/246850433/65bf7e80-af04-11ea-90f6-2719f264cad4"
+  />
+</Grid.Container>
 <Spacer y={3} />
 <Dot type="success">维护中项目</Dot>
 <Spacer y={0.5} />
 
-- [unix.bio](https://github.com/unix/unix.bio) 开源的服务端渲染个人博客
+- [zeit-ui/vue](https://github.com/zeit-ui/vue) ZEIT UI 的 Vue 实现
+- [koa-ts](https://github.com/unix/koa-ts) Koa2 与 TS 的最佳实践，包含脚手架
+- [done](https://github.com/unix/done) 自动化、标准化的 Release 工具
+- [cdn-viewer](https://github.com/unix/cdn-viewer) 以文件树审阅任何版本时的仓库或包
 - [func-service](https://github.com/unix/func-service) 使用 func 构建的 func 脚手架
 - [store-now](https://github.com/unix/store-now) 命令行工具文件存储
 - [zeit-style](https://github.com/zeit-ui/zeit-style) Zeit UI 的 CSS 实现
@@ -101,6 +121,6 @@ export const meta = {
 - [just-fine/fine.sh-cli](https://github.com/just-fine/fine.sh-cli) 一键部署文档工具
 - [now-coffee](https://github.com/unix/now-coffee) Now 的 coffeescript 编译过
 - [DungeonWatchDog](https://github.com/unix/DungeonWatchDog) 魔兽世界 Lua 插件，地下城过滤器，[用户量>40k](https://www.curseforge.com/wow/addons/dungeonwatchdog)。
-- [Nioro](https://github.com/unix/Nioro) 魔兽世界 Lua 插件，框架界面增强，[用户量>12k](https://www.curseforge.com/wow/addons/Nioro)
+- [Nioro](https://github.com/unix/Nioro) 魔兽世界 Lua 插件，框架界面增强，[用户量>14k](https://www.curseforge.com/wow/addons/Nioro)
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

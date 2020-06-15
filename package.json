@@ -12,7 +12,7 @@
     "export": "npm run now-build && next export"
   },
   "dependencies": {
-    "@zeit-ui/react": "^1.5.0",
+    "@zeit-ui/react": "^1.7.0-canary.4",
     "@zeit-ui/react-icons": "^1.2.2",
     "@zeit-ui/react-prism": "^1.0.0",
     "ms": "^2.1.2",
