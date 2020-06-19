@@ -1,5 +1,9 @@
 const Sponsors = [
   {
+    name: '*进秋',
+    amount: 1.45,
+  },
+  {
     name: 'MinLiang Zeng',
     amount: 1,
     isSponsor: true,

@@ -10,7 +10,9 @@ export const meta = {
 
 export const SponsorList = () => {
   const theme = useTheme()
-  const list = Sponsors.map(item => ({ ...item, amount: item.amount.toFixed(2) }))
+  const list = Sponsors.map(item => ({ ...item, amount: item.amount.toFixed(2) })).sort((a, b) =>
+    a.isSponsor ? -1 : 1,
+  )
   return (
     <Grid.Container gap={2}>
       {list.map((item, index) => (
