@@ -26,7 +26,7 @@ First, Please make sure your [NodeJS](https://nodejs.org/en/) is in the latest v
 
 3. run `npm run dev` to browse development page.
 
-4. run `npm i -g now && now` to deploy. (Default deployment to [now](https://now.sh/))
+4. run `npm i -g vercel && vercel` to deploy. (Default deployment to [Vercel](http://vercel.com/))
 
 <br />
 

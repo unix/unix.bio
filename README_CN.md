@@ -24,7 +24,7 @@
 
 3. 运行 `npm run dev` 在本地预览页面。
 
-4. 运行 `npm i -g now && now` 命令开始部署。 (默认会部署到 [now](https://now.sh/))
+4. 运行 `npm i -g vercel && vercel` 命令开始部署。 (默认会部署到 [Vercel](http://vercel.com/))
 
 <br />
 
