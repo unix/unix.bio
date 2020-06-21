@@ -19,7 +19,7 @@ const Profile = React.memo(({}) => {
       <Row align="bottom" className="user">
         <NextLink href="/" passHref>
           <Link>
-            <User src="/assets/avatar.png" name={Configs.author}>
+            <User src="/assets/avatar.png" name={Configs.author} altText="avatar">
               {Configs.summary}
             </User>
           </Link>
