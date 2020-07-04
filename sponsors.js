@@ -1,5 +1,11 @@
 const Sponsors = [
   {
+    name: 'Frank Xu',
+    amount: 5,
+    isSponsor: true,
+    avatar: 'https://avatars0.githubusercontent.com/u/6738274?s=96&v=4',
+  },
+  {
     name: '*进秋',
     amount: 1.45,
   },
