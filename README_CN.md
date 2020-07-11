@@ -122,7 +122,13 @@ npx unix-bio migrate
 npm run export
 ```
 
-在运行命令后，静态文件会生成在 `/out` 文件夹。
+在运行导出命令后，静态文件会生成在 `/out` 文件夹。如果您想要自定义 CDN 的域名前缀，可以声明环境变量后再运行导出命令:
+
+```bash
+# cdn prefix
+export CDN_PREFIX=https://unix.bio
+npm run export
+```
 
 如果你使用自定义的静态部署，将无法获得最好的性能，同时未来所有与服务端渲染、混合渲染相关的功能也不受支持。
 此外，静态部署需要您自行解决各类路径与缓存问题。（请不要在 `issues` 中提此类问题）

@@ -123,7 +123,14 @@ In a few scenarios, you may want to deploy your blog on a CDN or other static se
 npm run export
 ```
 
-After running the command, the generated static file will be in the `/out` directory.
+After running the command, the generated static file will be in the `/out` directory. If you want to set the prefix of the CDN,
+please set the environment variable:
+
+```bash
+# set CDN prefix
+export CDN_PREFIX=https://unix.bio
+npm run export
+```
 
 <br />
 
