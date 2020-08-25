@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { useMemo } from 'react'
 import PostItem from './post-item'
-import { useTheme, Link } from '@zeit-ui/react'
+import { useTheme, Link } from '@geist-ui/react'
 import { Configs } from '../../utils'
 import NextLink from 'next/link'
 import metadata from 'lib/data/metadata'

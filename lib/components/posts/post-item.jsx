@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useTheme } from '@zeit-ui/react'
+import { Link, useTheme } from '@geist-ui/react'
 import NextLink from 'next/link'
 const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }
 

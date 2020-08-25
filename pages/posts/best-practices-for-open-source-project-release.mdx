@@ -1,5 +1,5 @@
 import Layout from 'lib/components/layout'
-import { Spacer, Display, Code, Link, Dot, Image, Snippet } from '@zeit-ui/react'
+import { Spacer, Display, Code, Link, Dot, Image, Snippet } from '@geist-ui/react'
 
 export const meta = {
   title: '开源项目版本发布的最佳实践',
@@ -184,6 +184,6 @@ bot.on(BotEvents.MergeRequest, async context => {
 - 当设定的触发条件 (如 Tag) 达成时，travis 会根据 `.travis.yml` 的配置运行相应脚本并发布指定文件至 npm 或 github。
 
 如果你已可以使用 `Github Actions`，这件事就简单很多，`Github Actions` 有非常好的配置共享特色，你可以使用社区已经得到验证的、健壮的脚本管理自动发布任务。
-相关的脚本配置可以参考我的项目 <Link href="https://github.com/zeit-ui/vue/blob/master/.github/workflows/publish.yml">zeit-ui/vue</Link>。
+相关的脚本配置可以参考我的项目 <Link href="https://github.com/geist-org/vue/blob/master/.github/workflows/publish.yml">geist-vue</Link>。
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

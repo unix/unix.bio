@@ -32,7 +32,7 @@
 
 #### 高优化
 
-- 得益于 [next.js](http://nextjs.com/) 与 [@zeit-ui/react](https://react.zeit-ui.co/) 的高性能优化与混合渲染
+- 得益于 [next.js](http://nextjs.com/) 与 [Geist UI](https://react.geist-ui.dev/) 的高性能优化与混合渲染
 - 完善的 SEO 支持和服务端渲染
 - 高可读性支持
 - 你只需要专注于写作

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { msToString } from '../data-transform'
-import { useTheme } from '@zeit-ui/react'
+import { useTheme } from '@geist-ui/react'
 import { useRouter } from 'next/router'
 import { Configs } from '../utils'
 import useViewsShow from '../use-views-show'

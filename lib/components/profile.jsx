@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Row, useTheme, User, Link } from '@zeit-ui/react'
+import { Row, useTheme, User, Link } from '@geist-ui/react'
 import NextLink from 'next/link'
 import ProfileLinks from './profile-links'
 import { Configs } from '../utils'

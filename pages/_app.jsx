@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import BLOG from '../blog.config'
-import { PrismBaseline } from '@zeit-ui/react-prism'
-import { ZeitProvider, CssBaseline } from '@zeit-ui/react'
+import { PrismBaseline } from '@geist-ui/react-prism'
+import { GeistProvider, CssBaseline } from '@geist-ui/react'
 import React, { useCallback, useState, useEffect, useMemo } from 'react'
 import useDomClean from 'lib/use-dom-clean'
 import { getDNSPrefetchValue } from 'lib/data-transform'
@@ -48,7 +48,7 @@ const Application = ({ Component, pageProps }) => {
           content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
         />
       </Head>
-      <ZeitProvider theme={{ type: themeType }}>
+      <GeistProvider theme={{ type: themeType }}>
         <CssBaseline />
         <PrismBaseline />
         <ThemeConfigProvider onChange={changeHandle}>
@@ -61,7 +61,7 @@ const Application = ({ Component, pageProps }) => {
             }
           }
         `}</style>
-      </ZeitProvider>
+      </GeistProvider>
     </>
   )
 }

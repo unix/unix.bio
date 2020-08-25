@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
-import { useTheme, Spacer, Link, Divider } from '@zeit-ui/react'
+import { useTheme, Spacer, Link, Divider } from '@geist-ui/react'
 import useConfigs from '../config-context'
-import SunIcon from '@zeit-ui/react-icons/sun'
-import MoonIcon from '@zeit-ui/react-icons/moon'
+import SunIcon from '@geist-ui/react-icons/sun'
+import MoonIcon from '@geist-ui/react-icons/moon'
 import { Configs } from '../utils'
 
 const Contacts = ({ isDetailPage = false }) => {
