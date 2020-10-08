@@ -16,7 +16,7 @@
     "@geist-ui/react-icons": "^1.0.0",
     "@geist-ui/react-prism": "^1.0.0",
     "ms": "^2.1.2",
-    "next": "^9.5.2",
+    "next": "^9.5.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
