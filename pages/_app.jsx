@@ -42,13 +42,17 @@ const Application = ({ Component, pageProps }) => {
         <meta property="og:url" content={BLOG.domain} />
         <meta property="og:image" content={`https:${domain}/assets/og-main.png`} />
         <meta property="twitter:image" content={`https:${domain}/assets/og-main.png`} />
-        <meta itemProp="image" property="og:image" content={`https:${domain}/assets/og-main.png`} />
+        <meta
+          itemProp="image"
+          property="og:image"
+          content={`https:${domain}/assets/og-main.png`}
+        />
         <meta
           name="viewport"
           content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
         />
       </Head>
-      <GeistProvider theme={{ type: themeType }}>
+      <GeistProvider themeType={themeType}>
         <CssBaseline />
         <PrismBaseline />
         <ThemeConfigProvider onChange={changeHandle}>
