@@ -3,12 +3,12 @@ import { msToString } from '../data-transform'
 import { useTheme } from '@geist-ui/react'
 import { useRouter } from 'next/router'
 import { Configs } from '../utils'
-import useViewsShow from '../use-views-show'
+import useViews from '@unix/views'
 
 const DateDisplay = ({ date }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
-  const [count, countUpdated] = useViewsShow(asPath)
+  const [count, countUpdated] = useViews(asPath)
 
   const d = useMemo(() => new Date(date), [])
   if (`${d}` === 'Invalid Date') return null
