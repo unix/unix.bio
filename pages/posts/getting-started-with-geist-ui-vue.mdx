@@ -1,4 +1,4 @@
-import Layout from 'lib/components/layout'
+import { Layout } from 'lib/components'
 import { Link, Note, Text, Spacer, Display, Code, Image, Snippet } from '@geist-ui/react'
 
 export const meta = {
@@ -11,34 +11,31 @@ export const meta = {
   <Link color href="https://github.com/geist-org/vue">
     Giest UI - Vue
   </Link>{' '}
-  是一个现代化的 Vue 组件库， 它是一个用于构建现代网站和应用程序的开源设计系统。它提供了数十个具备统一化风格的组件与基础样式支持，
+  是一个现代化的 Vue 组件库，
+  它是一个用于构建现代网站和应用程序的开源设计系统。它提供了数十个具备统一化风格的组件与基础样式支持，
   也能帮助你轻易的通过组件的方式使用图标。通过本文你可以快速的搭建一个基于此组件库的前端项目。
 </Text>
 
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 <Note type="warning" label="注意">
   请确保你拥有最新版本的{' '}
   <Link rel="nofollow" href="https://nodejs.org/en/download/">
     NodeJS
   </Link>
-  ， 同时也需要准备 NodeJS 的包管理器{' '}
-  <Link rel="nofollow" href="https://www.npmjs.com/">
+  ， 同时也需要准备 NodeJS 的包管理器 <Link rel="nofollow" href="https://www.npmjs.com/">
     NPM
-  </Link>{' '}
-  或是{' '}
-  <Link rel="nofollow" href="https://yarnpkg.com/">
+  </Link> 或是 <Link rel="nofollow" href="https://yarnpkg.com/">
     Yarn
-  </Link>
-  。
+  </Link>。
 </Note>
 
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 为了轻易的和任何 Vue 项目接轨，我们使用 Vue 官方的脚手架 <Link rel="nofollow" href="https://cli.vuejs.org/zh/guide/">@vue/cli</Link> 创建通用项目。
 **即便你的项目并非官方脚手架创建，也能以此通用项目作为参考，非常简单的使用 `Geist UI`**。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 创建 Vue 项目
 
@@ -56,9 +53,9 @@ export const meta = {
 
 随后，我们可以使用命令生成基础的 Vue 项目：
 
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 <Snippet>vue create hello-world</Snippet>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 选择默认选项即可完成项目的创建。事实上，这些项目打包与编译方式都不会影响我们使用 `Geist UI`，对于富有经验的开发者来说，可以自行定制。
 如果你在这一步遇到了问题，可以参见 <Link rel="nofollow" href="https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create">官方文档</Link> 调试。
@@ -70,18 +67,18 @@ export const meta = {
       选择 <b>默认</b> 即可创建项目
     </p>
   }>
-  <Image width={600} height={228} src="/assets/cli-new-project.png" />
+  <Image width="600px" height="228px" src="/assets/cli-new-project.png" />
 </Display>
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 安装 Geist UI
 
 现在，我们可以运行命令安装 `@geist-ui/vue`:
 
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 <Snippet>npm i @geist-ui/vue</Snippet>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 打开项目的入口文件: `/src/main.js`，并在其中引入组件包:
 
@@ -107,7 +104,7 @@ new Vue({
 
 至此为止，你的项目代码应该和 <Link rel="nofollow" href="https://github.com/geist-org/vue-getting-started/tree/0e47f1a1e207f7472c3092caca4b77727c1d51e1">示例工程</Link> 一样，如果有问题可以参考它修正。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 第一个页面
 
@@ -133,7 +130,7 @@ new Vue({
 
 你可以在这里参考至此为止 <Link rel="nofollow" href="https://github.com/geist-org/vue-getting-started/tree/0f3177c86a3d39e9b33cfa847f939b694fc7eb4a">示例工程</Link> 的代码。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 使用图标
 
@@ -160,22 +157,23 @@ export default {
 
 觉得这里有些难以理解？没有关系，我们并不急着使用图标，你完全可以先熟悉 `Geist UI`。若是你对此感兴趣想要了解更多的图标，不妨看看我们所准备的 <Link rel="nofollow" href="https://vue-icons.geist-ui.dev/">所有的图标文档</Link>。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 仅在 HTML 中使用
 
 有些时候仅仅只需要单个 `.html` 文件就可以完成所有事情，这样我们就不必构建一个大而全的项目，幸运的是，即便是在单个 HTML 文件中，我们也能轻松的使用 `Geist UI`。
 
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 <Note type="warning" label="注意">
-  仅在 <Code>.html</Code> 文件中使用组件库意味着你必须还要在页面中引入 <Code>vue.js</Code> 。
+  仅在 <Code>.html</Code> 文件中使用组件库意味着你必须还要在页面中引入 <Code>vue.js</Code>{' '}
+  。
 </Note>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 我们在 <Link rel="nofollow" href="https://github.com/geist-org/vue/blob/master/examples/umd/index.html">这里</Link> 准备完整的 UMD 示例，
 你也可以按照这些代码创建一个极简的页面。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 只使用样式
 
@@ -185,7 +183,10 @@ export default {
 <Display caption={<p>从 <Code>CDN</Code> 上直接使用样式文件</p>}>
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@geist-ui/style@latest/dist/style.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@geist-ui/style@latest/dist/style.css"
+/>
 ```
 
 </Display>
@@ -193,7 +194,7 @@ export default {
 你可以在 <Link rel="nofollow" href="https://github.com/geist-org/style">Geist Style</Link> 项目浏览。
 这份独立的样式文件实现了部分纯 `.css` 组件的同时保持了极小的体积，大约只有 `11kb`。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 问题和建议
 

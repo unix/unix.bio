@@ -6,7 +6,18 @@ import Title from './title'
 import { Spacer } from '@geist-ui/react'
 import { Configs } from '../utils'
 
-const LayoutHeader = ({ meta }) => (
+export type PostMetadata = {
+  title: string
+  date: string
+  description?: string
+  image?: string
+}
+
+export type LayoutHeader = {
+  meta: PostMetadata
+}
+
+const LayoutHeader: React.FC<LayoutHeader> = ({ meta }) => (
   <Head>
     {meta.title && (
       <title>
@@ -21,7 +32,23 @@ const LayoutHeader = ({ meta }) => (
   </Head>
 )
 
-const Layout = ({ children, meta = {} }) => {
+export type Props = {
+  meta?: PostMetadata
+}
+const defaultProps = {
+  meta: {
+    title: '',
+    date: new Date().toISOString(),
+  },
+}
+
+type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
+export type LayoutProps = Props & NativeAttrs
+
+const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({
+  children,
+  meta,
+}: LayoutProps & typeof defaultProps) => {
   const [showAfterRender, setShowAfterRender] = useState(false)
   const inDetailPage = useMemo(() => meta && meta.title, [])
   useEffect(() => setShowAfterRender(true), [])
@@ -47,8 +74,8 @@ const Layout = ({ children, meta = {} }) => {
         <Profile />
         {inDetailPage && <Title title={meta.title} date={meta.date} />}
         {children}
-        <Spacer y={5} />
-        <Contacts isDetailPage={inDetailPage} />
+        <Spacer h={5} />
+        <Contacts isDetailPage={!!inDetailPage} />
       </div>
 
       <style jsx>{`
@@ -94,5 +121,7 @@ const Layout = ({ children, meta = {} }) => {
     </section>
   )
 }
+
+Layout.defaultProps = defaultProps
 
 export default Layout

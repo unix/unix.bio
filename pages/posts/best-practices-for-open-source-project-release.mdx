@@ -1,4 +1,4 @@
-import Layout from 'lib/components/layout'
+import { Layout } from 'lib/components'
 import { Spacer, Display, Code, Link, Dot, Image, Snippet } from '@geist-ui/react'
 
 export const meta = {
@@ -10,7 +10,7 @@ export const meta = {
 对于存放在 Github / Gitlab 的开源项目，视项目大小与功用也有不同的发布方式、发布内容与自动化工程化解决方案。
 这里以包含 `package.json` 的项目为例，介绍各种不同的发布方法。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## Release
 
@@ -29,7 +29,6 @@ export const meta = {
 所谓语义化版本即是按约定对版本号进行约束与声明，与多数人采用同一套规则来升级版本，具体规则可以参考 <Link rel="nofollow" href="https://semver.org/lang/zh-CN/">Semver version</Link>。
 也就是大家熟悉的主-次-修订：
 
-{' '}
 <ul>
   <p>
     <Dot type="error">
@@ -86,6 +85,7 @@ bot.on(BotEvents.MergeRequest, async context => {
 
 <Link
   rel="nofollow"
+  color
   href="https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner">
   什么是 NPX?
 </Link>
@@ -121,7 +121,7 @@ bot.on(BotEvents.MergeRequest, async context => {
 
 - `Release` 时借助 conventional-changelog-cli 自动生成所有的 `CHANGE_LOG`
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## Publish
 
@@ -147,7 +147,7 @@ bot.on(BotEvents.MergeRequest, async context => {
       <Code>Release Drafter</Code> 自动完成的草稿
     </p>
   }>
-  <Image width={600} height={304} src="/assets/release-drafter.png" />
+  <Image width="600px" height="304px" src="/assets/release-drafter.png" />
 </Display>
 
 <Spacer />

@@ -1,10 +1,10 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 import BLOG from '../blog.config'
 import { CssBaseline } from '@geist-ui/react'
 import flush from 'styled-jsx/server'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+class BlogDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     const styles = CssBaseline.flush()
 
@@ -61,4 +61,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument
+export default BlogDocument

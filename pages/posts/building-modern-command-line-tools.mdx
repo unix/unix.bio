@@ -1,6 +1,15 @@
-import Layout from 'lib/components/layout'
+import { Layout } from 'lib/components'
 import NextLink from 'next/link'
-import { Display, Image, Spacer, Code, Link, Button, Text, Snippet } from '@geist-ui/react'
+import {
+  Display,
+  Image,
+  Spacer,
+  Code,
+  Link,
+  Button,
+  Text,
+  Snippet,
+} from '@geist-ui/react'
 
 export const meta = {
   title: '构建现代化的命令行工具',
@@ -24,18 +33,17 @@ export const meta = {
       现代化的命令框架 <code>func</code>{' '}
     </p>
   }>
-  <Image width={600} height={300} src="/assets/func_demo.png" />
+  <Image width="600px" height="300px" src="/assets/func_demo.png" />
 </Display>
 
 <Text p>
   <Link href="https://github.com/unix/func">func</Link> 的出现就是为了解决这些问题。
-  <Code>func</Code> 本身的实现参阅了社区内诸多基于 NodeJS
-  的命令行工具的优秀实现，与流行的框架设计思路相结合，以优雅的设计、小体积、高性能 等为目标，
-  同时关注开发者体验，大幅度的提升了命令行工具项目的可扩展性与可读性，几乎是如今 NodeJS
-  社区中开发命令行工具的最优解。我们可以尝试使用 <Code>func</Code> 构建一个命令行工具。
+  <Code>func</Code> 本身的实现参阅了社区内诸多基于 NodeJS 的命令行工具的优秀实现，与流行的框架设计思路相结合，以优雅的设计、小体积、高性能
+  等为目标， 同时关注开发者体验，大幅度的提升了命令行工具项目的可扩展性与可读性，几乎是如今
+  NodeJS 社区中开发命令行工具的最优解。我们可以尝试使用 <Code>func</Code> 构建一个命令行工具。
 </Text>
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 构建项目
 
@@ -56,7 +64,7 @@ export const meta = {
 可以注意到，`func` 的项目模板中为我们准备了 `start` 与 `build` 2 个脚本，它们都是由 `func-service` 驱动的，
 帮助你一键切换开发与生产模式，我们所要做的就是专注于命令行逻辑本身，实现逻辑就够了。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 实现逻辑
 
@@ -84,7 +92,7 @@ export class Test {
 `CommandArgsProvider` 实际上是一个 `class` 类型，当你标记一个参数为此类型时，`func` 会在运行时为你注入所有的命令参数，
 同样的也支持 `OptionArgsProvider` 、`RegisterProvider` 等等，你可以在 <Link color href="https://github.com/unix/func#guide">官方的文档</Link> 阅读它们的具体类型。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 打包与发布
 
@@ -101,7 +109,7 @@ export class Test {
 堆栈中真的就只有 `.js` 文件内的内容，不会引用其他，不会加载任何无关紧要的东西。此时我们也就无需用户关心 `dependencies`，甚至可以移除它们，这样一来，
 下载或即时运行时就直接跳过了 _对比依赖版本_ 这一步，这其中省略了无数的请求也就会会极大的增加速度，`npm init func` 能够在 1 秒左右立刻开始安装也是这样的道理。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 优化与经验
 

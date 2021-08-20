@@ -1,13 +1,15 @@
 import Head from 'next/head'
+import { NextPage } from 'next'
+import { AppProps } from 'next/app'
 import BLOG from '../blog.config'
+import useDomClean from 'lib/use-dom-clean'
 import { PrismBaseline } from '@geist-ui/react-prism'
 import { GeistProvider, CssBaseline } from '@geist-ui/react'
-import React, { useCallback, useState, useEffect, useMemo } from 'react'
-import useDomClean from 'lib/use-dom-clean'
+import { useCallback, useState, useEffect, useMemo } from 'react'
 import { getDNSPrefetchValue } from 'lib/data-transform'
-import ThemeConfigProvider from 'lib/components/theme-config-provider'
+import { BlogConfigsProvider } from 'lib/components'
 
-const Application = ({ Component, pageProps }) => {
+const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const [themeType, setThemeType] = useState('light')
   const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
   const changeHandle = useCallback(isDark => {
@@ -16,7 +18,7 @@ const Application = ({ Component, pageProps }) => {
   }, [])
 
   useEffect(() => {
-    if (typeof localStorage !== 'object') return null
+    if (typeof localStorage !== 'object') return
     const themeType = localStorage.getItem('theme')
     setThemeType(themeType === 'dark' ? 'dark' : 'light')
   }, [])
@@ -28,7 +30,7 @@ const Application = ({ Component, pageProps }) => {
       <Head>
         <title>{BLOG.title}</title>
         {domain && <link rel="dns-prefetch" href={domain} />}
-        <meta name="google" value="notranslate" />
+        <meta name="google" content="notranslate" />
         <meta name="referrer" content="strict-origin" />
         <meta name="description" content={BLOG.description} />
         <meta property="og:site_name" content={BLOG.title} />
@@ -55,9 +57,9 @@ const Application = ({ Component, pageProps }) => {
       <GeistProvider themeType={themeType}>
         <CssBaseline />
         <PrismBaseline />
-        <ThemeConfigProvider onChange={changeHandle}>
+        <BlogConfigsProvider onChange={changeHandle}>
           <Component {...pageProps} />
-        </ThemeConfigProvider>
+        </BlogConfigsProvider>
         <style global jsx>{`
           @media only screen and (max-width: 767px) {
             html {

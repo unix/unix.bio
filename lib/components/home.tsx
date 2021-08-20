@@ -1,7 +1,7 @@
 import React from 'react'
 import Profile from './profile'
 
-const Home = () => {
+const Home: React.FC<unknown> = () => {
   return (
     <div className="home">
       <Profile />

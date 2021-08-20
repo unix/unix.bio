@@ -1,4 +1,4 @@
-import Layout from 'lib/components/layout'
+import { Layout } from 'lib/components'
 import { Spacer, Dot, Link, Code, Grid, Card, Text, Image } from '@geist-ui/react'
 
 export const meta = {
@@ -10,8 +10,11 @@ export const meta = {
 export const Item = ({ name, git, desc, image }) => {
   return (
     <Grid xs={20} sm={10} md={8}>
-      <Link target="_blank" href={`https://github.com/${git}`} title={`view ${name} on GitHub`}>
-        <Card shadow>
+      <Link
+        target="_blank"
+        href={`https://github.com/${git}`}
+        title={`view ${name} on GitHub`}>
+        <Card shadow height="100%">
           {image && (
             <div style={{ height: 0, paddingBottom: '50%' }}>
               <Image src={image} style={{ objectFit: 'cover' }} />
@@ -30,7 +33,7 @@ export const Item = ({ name, git, desc, image }) => {
 我正在创造一些能够改善开发者体验的工具和开源项目，如果你有不错的想法或正面临一些重复性的工作，
 想要有任何改进？<Link rel="nofollow" color target="_blank" href="mailto:unix.bio@gmail.com">请让我知道</Link>。
 
-<Spacer y={1.5} />
+<Spacer h={1.5} />
 <Grid.Container gap={2} justify="center">
   <Item
     name="Geist React"
@@ -69,9 +72,9 @@ export const Item = ({ name, git, desc, image }) => {
     image="https://repository-images.githubusercontent.com/246850433/65bf7e80-af04-11ea-90f6-2719f264cad4"
   />
 </Grid.Container>
-<Spacer y={3} />
+<Spacer h={3} />
 <Dot type="success">维护中项目</Dot>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 - [geist-vue](https://github.com/geist-org/vue) Geist UI 的 Vue 实现
 - [koa-ts](https://github.com/unix/koa-ts) Koa2 与 TS 的最佳实践，包含脚手架
@@ -85,9 +88,9 @@ export const Item = ({ name, git, desc, image }) => {
 - [geist-ui/react-icons](https://github.com/geist-org/react-icons) Geist UI 的 React 图标组件
 - [v-decorators](https://github.com/unix/v-decorators) Vue 实用 decorators 库
 
-<Spacer y={3} />
+<Spacer h={3} />
 <Dot type="warning">维护频率低的项目</Dot>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 - [aliyun-logs](https://github.com/unix/aliyun-logs) - 阿里云日志 SDK
 - [docs](https://github.com/unix/docs) Geek 风格的文档中心
@@ -99,9 +102,9 @@ export const Item = ({ name, git, desc, image }) => {
 - [v2ex-cli](https://github.com/unix/v2ex-cli) v2ex 命令行工具
 - [todo-live](https://github.com/unix/todo-live) todo 命令行工具
 
-<Spacer y={3} />
+<Spacer h={3} />
 <Dot type="error">不再维护的项目</Dot>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 - [ng-mocker](https://github.com/DhyanaChina/ng-mocker) 适用于 Angular 的开发 mock 库
 - [storage-angular](https://github.com/DhyanaChina/storage-angular) Angular Storage 增强
@@ -113,9 +116,9 @@ export const Item = ({ name, git, desc, image }) => {
 - [easy-jsdelivr](https://github.com/unix/easy-jsdelivr) jsdelivr 界面管理与包文件查找
 - [element-angular](https://github.com/ElemeFE/element-angular) Element UI 的 Angular 实现
 
-<Spacer y={3} />
+<Spacer h={3} />
 <Dot type="warning">其他语言项目</Dot>
-<Spacer y={0.5} />
+<Spacer h={0.5} />
 
 - [just-fine/cs](https://github.com/just-fine/cs) coffeescript 的众多框架脚手架，包含 [coffee-vue](https://github.com/just-fine/vue-coffee)
   [coffee-sails](https://github.com/just-fine/sails-coffee) [coffee-micro](https://github.com/just-fine/micro-coffee) [coffee-react-next](https://github.com/just-fine/next-coffee)

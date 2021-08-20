@@ -5,7 +5,13 @@ import SunIcon from '@geist-ui/react-icons/sun'
 import MoonIcon from '@geist-ui/react-icons/moon'
 import { Configs } from '../utils'
 
-const Contacts = ({ isDetailPage = false }) => {
+export interface ContactsProps {
+  isDetailPage?: boolean
+}
+
+const Contacts: React.FC<React.PropsWithChildren<ContactsProps>> = ({
+  isDetailPage = false,
+}) => {
   const theme = useTheme()
   const configs = useConfigs()
   const isDark = useMemo(() => theme.type === 'dark', [theme.type])
@@ -20,7 +26,7 @@ const Contacts = ({ isDetailPage = false }) => {
   return (
     <>
       <div className="contacts">
-        {isDetailPage && <Divider y={0.5} />}
+        {isDetailPage && <Divider h={0.5} />}
         <div className="between">
           <div className="socials">
             {Configs.email && (
@@ -115,7 +121,7 @@ const Contacts = ({ isDetailPage = false }) => {
           }
         `}</style>
       </div>
-      <Spacer y={3.5} />
+      <Spacer h={3.5} />
     </>
   )
 }

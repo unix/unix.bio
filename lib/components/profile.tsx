@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Row, useTheme, User, Link } from '@geist-ui/react'
+import { useTheme, User, Link } from '@geist-ui/react'
 import NextLink from 'next/link'
 import ProfileLinks from './profile-links'
 import { Configs } from '../utils'
 
-const Profile = React.memo(({}) => {
+const Profile: React.FC<unknown> = React.memo(() => {
   const theme = useTheme()
   const [showText, setShowText] = useState(theme.type === 'dark')
   useEffect(() => {
@@ -16,7 +16,7 @@ const Profile = React.memo(({}) => {
 
   return (
     <div className="profile">
-      <Row align="bottom" className="user">
+      <div className="user">
         <NextLink href="/" passHref>
           <Link>
             <User src="/assets/avatar.png" name={Configs.author} altText="avatar">
@@ -24,7 +24,7 @@ const Profile = React.memo(({}) => {
             </User>
           </Link>
         </NextLink>
-      </Row>
+      </div>
       <ProfileLinks />
       <style jsx>{`
         .profile {

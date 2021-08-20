@@ -1,19 +1,24 @@
 import React, { useMemo } from 'react'
 import NextLink from 'next/link'
 import { useTheme, Link } from '@geist-ui/react'
-import metadata from '../data/metadata'
+import metadata from '../data/metadata.json'
 import { Configs } from '../utils'
 
-const getFixes = metas => {
+const getFixes = (metas: typeof metadata) => {
   const data = metas.find(item => item.name === 'fixed')
   return (data || {}).children || []
 }
 
-const fillSpace = name => {
+const fillSpace = (name: string): string => {
   return name.replace(/ /g, '_')
 }
 
-const makeLink = data => {
+export type ProfileLinkItem = {
+  url: string
+  name: string
+}
+
+const makeLink = (data: ProfileLinkItem): React.ReactNode => {
   return (
     <NextLink href={data.url} key={data.url} passHref>
       <Link>{fillSpace(data.name)}</Link>
@@ -21,7 +26,7 @@ const makeLink = data => {
   )
 }
 
-const ProfileLinks = () => {
+const ProfileLinks: React.FC<unknown> = () => {
   const theme = useTheme()
   const links = useMemo(() => getFixes(metadata), [])
   return (

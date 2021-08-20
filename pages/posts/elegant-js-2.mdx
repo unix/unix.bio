@@ -1,4 +1,4 @@
-import Layout from 'lib/components/layout'
+import { Layout } from 'lib/components'
 import NextLink from 'next/link'
 import { Spacer, Link } from '@geist-ui/react'
 
@@ -121,7 +121,7 @@ const titles = books.map(item => item.title).filter(item => item.length > 0)
 const titles = books.map(book => book.title).filter(title => title.length > 0)
 ```
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 2. 观察与思考
 
@@ -142,7 +142,7 @@ const titles = books.map(book => book.title).filter(title => title.length > 0)
 未来的一些接口也会被移入这些结构体 —— 这就是我们对于命名的观察与思考。我曾经见过有人说 "狗是人类的朋友，taobao 的文档连狗都不如"，
 这就是他观察的结果了，虽然令人不那么开心。
 
-<Spacer y={2} />
+<Spacer h={2} />
 
 ## 3.巧妙与投机取巧
 

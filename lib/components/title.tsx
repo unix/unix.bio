@@ -5,7 +5,11 @@ import { useRouter } from 'next/router'
 import { Configs } from '../utils'
 import useViews from '@unix/views'
 
-const DateDisplay = ({ date }) => {
+export interface DateDisplayProps {
+  date: string
+}
+
+const DateDisplay: React.FC<DateDisplayProps> = ({ date }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
   const [count, countUpdated] = useViews(asPath)
@@ -69,7 +73,12 @@ const DateDisplay = ({ date }) => {
   )
 }
 
-const Title = ({ title, date }) => {
+export interface TitleProps {
+  title: string
+  date: string
+}
+
+const Title: React.FC<TitleProps> = ({ title, date }) => {
   const theme = useTheme()
 
   return (

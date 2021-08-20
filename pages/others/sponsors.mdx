@@ -1,4 +1,4 @@
-import Layout from 'lib/components/layout'
+import { Layout } from 'lib/components'
 import { Link, Spacer, Text, User, useTheme, Grid } from '@geist-ui/react'
 import NextLink from 'next/link'
 import Sponsors from '../../sponsors'
@@ -10,9 +10,10 @@ export const meta = {
 
 export const SponsorList = () => {
   const theme = useTheme()
-  const list = Sponsors.map(item => ({ ...item, amount: item.amount.toFixed(2) })).sort((a, b) =>
-    a.isSponsor ? -1 : 1,
-  )
+  const list = Sponsors.map(item => ({
+    ...item,
+    amount: item.amount.toFixed(2),
+  })).sort((a, b) => (a.isSponsor ? -1 : 1))
   return (
     <Grid.Container gap={2}>
       {list.map((item, index) => (
@@ -37,7 +38,7 @@ export const SponsorList = () => {
 你可以在 <NextLink href="/fixed/about"><Link color>关于我</Link></NextLink> 的页面找到捐赠链接，
 按月赞助来自于 GitHub Sponsors。
 
-<Spacer y={2} />
+<Spacer h={2} />
 <SponsorList />
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

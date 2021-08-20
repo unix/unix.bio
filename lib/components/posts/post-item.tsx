@@ -1,15 +1,31 @@
 import React from 'react'
 import { Link, useTheme } from '@geist-ui/react'
 import NextLink from 'next/link'
-const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }
 
-const getDateString = date => {
+const options: Intl.DateTimeFormatOptions = {
+  weekday: 'short',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}
+
+const getDateString = (date: string = ''): string => {
   const d = new Date(date)
   if (`${d}` === 'Invalid Date') return ''
   return new Date(date).toLocaleString('zh-cn', options).replace('日', '日, &nbsp;')
 }
 
-const PostItem = ({ post }) => {
+export interface PostItemProps {
+  post: {
+    url: string
+    name: string
+    meta?: {
+      date: string
+    }
+  }
+}
+
+const PostItem: React.FC<PostItemProps> = ({ post }) => {
   const theme = useTheme()
 
   return (
@@ -19,7 +35,8 @@ const PostItem = ({ post }) => {
           {post.name}
           <span
             className="date"
-            dangerouslySetInnerHTML={{ __html: getDateString(post.meta.date) }}></span>
+            dangerouslySetInnerHTML={{ __html: getDateString(post.meta?.date) }}
+          />
         </Link>
       </NextLink>
       <style jsx>{`
