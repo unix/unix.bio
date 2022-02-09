@@ -12,7 +12,7 @@ export interface DateDisplayProps {
 const DateDisplay: React.FC<DateDisplayProps> = ({ date }) => {
   const theme = useTheme()
   const { asPath } = useRouter()
-  const [count, countUpdated] = useViews(asPath)
+  const [count, countUpdated] = useViews(asPath, { disabled: !Configs.enableViews })
 
   const d = useMemo(() => new Date(date), [])
   if (`${d}` === 'Invalid Date') return null
