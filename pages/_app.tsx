@@ -3,11 +3,13 @@ import { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import BLOG from '../blog.config'
 import useDomClean from 'lib/use-dom-clean'
+import { MDXProvider } from '@mdx-js/react'
 import { PrismBaseline } from '@geist-ui/prism'
-import { GeistProvider, CssBaseline } from '@geist-ui/core'
+import { GeistProvider, CssBaseline, Image } from '@geist-ui/core'
 import { useCallback, useState, useEffect, useMemo } from 'react'
 import { getDNSPrefetchValue } from 'lib/data-transform'
 import { BlogConfigsProvider } from 'lib/components'
+import { HybridLink, HybridCode } from 'lib/components/mdx'
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const [themeType, setThemeType] = useState('light')
@@ -58,7 +60,14 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
         <CssBaseline />
         <PrismBaseline />
         <BlogConfigsProvider onChange={changeHandle}>
-          <Component {...pageProps} />
+          <MDXProvider
+            components={{
+              a: HybridLink,
+              img: Image,
+              pre: HybridCode,
+            }}>
+            <Component {...pageProps} />
+          </MDXProvider>
         </BlogConfigsProvider>
         <style global jsx>{`
           @media only screen and (max-width: 767px) {
