@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Profile from './profile'
 import Contacts from './contacts'
 import Title from './title'
-import { Spacer } from '@geist-ui/react'
+import { Spacer } from '@geist-ui/core'
 import { Configs } from '../utils'
 
 export type PostMetadata = {

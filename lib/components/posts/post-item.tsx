@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useTheme } from '@geist-ui/react'
+import { Link, useTheme } from '@geist-ui/core'
 import NextLink from 'next/link'
 
 const options: Intl.DateTimeFormatOptions = {

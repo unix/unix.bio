@@ -13,8 +13,6 @@ const withMDX = require('@next/mdx')({
 })
 
 const nextConfig = {
-  target: 'serverless',
-
   pageExtensions: ['jsx', 'js', 'mdx', 'md', 'ts', 'tsx'],
 
   cssModules: true,
@@ -34,41 +32,39 @@ const nextConfig = {
     VERSION: require('./package.json').version,
   },
 
-  experimental: {
-    redirects() {
-      return [
-        {
-          source: '/blog/others/:path*',
-          permanent: true,
-          destination: '/posts/:path*',
-        },
-        {
-          source: '/blog/others/:path*/',
-          permanent: true,
-          destination: '/posts/:path*',
-        },
-        {
-          source: '/blog/js/:path*',
-          permanent: true,
-          destination: '/posts/:path*',
-        },
-        {
-          source: '/blog/js/:path*/',
-          permanent: true,
-          destination: '/posts/:path*',
-        },
-        {
-          source: '/blog/proxy/:path*',
-          permanent: true,
-          destination: '/posts/:path*',
-        },
-        {
-          source: '/blog/proxy/:path*/',
-          permanent: true,
-          destination: '/posts/:path*',
-        },
-      ]
-    },
+  redirects() {
+    return [
+      {
+        source: '/blog/others/:path*',
+        permanent: true,
+        destination: '/posts/:path*',
+      },
+      {
+        source: '/blog/others/:path*/',
+        permanent: true,
+        destination: '/posts/:path*',
+      },
+      {
+        source: '/blog/js/:path*',
+        permanent: true,
+        destination: '/posts/:path*',
+      },
+      {
+        source: '/blog/js/:path*/',
+        permanent: true,
+        destination: '/posts/:path*',
+      },
+      {
+        source: '/blog/proxy/:path*',
+        permanent: true,
+        destination: '/posts/:path*',
+      },
+      {
+        source: '/blog/proxy/:path*/',
+        permanent: true,
+        destination: '/posts/:path*',
+      },
+    ]
   },
 }
 

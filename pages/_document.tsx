@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 import BLOG from '../blog.config'
-import { CssBaseline } from '@geist-ui/react'
+import { CssBaseline } from '@geist-ui/core'
 import flush from 'styled-jsx/server'
 
 class BlogDocument extends Document {

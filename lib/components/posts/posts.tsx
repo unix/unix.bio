@@ -4,7 +4,7 @@ import PostItem from './post-item'
 import { Configs } from 'lib/utils'
 import NextLink from 'next/link'
 import metadata from 'lib/data/metadata.json'
-import { useTheme, Link } from '@geist-ui/react'
+import { useTheme, Link } from '@geist-ui/core'
 
 const getMoreLink = (len: number): React.ReactNode => {
   if (len < Configs.latestLimit) return null

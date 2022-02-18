@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
-import { useTheme, Spacer, Link, Divider } from '@geist-ui/react'
+import { useTheme, Spacer, Link, Divider } from '@geist-ui/core'
 import useConfigs from '../config-context'
-import SunIcon from '@geist-ui/react-icons/sun'
-import MoonIcon from '@geist-ui/react-icons/moon'
+import SunIcon from '@geist-ui/icons/sun'
+import MoonIcon from '@geist-ui/icons/moon'
 import { Configs } from '../utils'
 
 export interface ContactsProps {

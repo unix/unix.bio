@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import NextLink from 'next/link'
-import { useTheme, Link } from '@geist-ui/react'
+import { useTheme, Link } from '@geist-ui/core'
 import metadata from '../data/metadata.json'
 import { Configs } from '../utils'
 

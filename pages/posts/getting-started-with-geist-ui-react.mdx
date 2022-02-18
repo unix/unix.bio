@@ -9,7 +9,7 @@ import {
   Image,
   Tabs,
   Snippet,
-} from '@geist-ui/react'
+} from '@geist-ui/core'
 
 export const meta = {
   title: '在 React 中尝试 Geist UI',
@@ -22,7 +22,7 @@ export const meta = {
 有意思的是，和 <Link href="/posts/getting-started-with-geist-ui-vue">在 Vue 的指南</Link> 中非常相似，我们也提供了 Geist UI 在 React 框架上的支持，
 包括数十个有着统一风格的组件，当然还有完善的文档支持。令人兴奋的是，所有的组件都以 `React FC` 的方式实现，
 它们都是以优雅的方案构建出的难以想象的高性能组件，也有着 React Hooks 与 Context 精彩的应用，在未来 `Concurrent` 受到支持时我们也会立刻考虑在它们在组件中的优化方案。
-就是这样，`@geist-ui/react` 是**进步的，高效的，极简风格且优雅的组件库**。
+就是这样，`@geist-ui/core` 是**进步的，高效的，极简风格且优雅的组件库**。
 
 <Spacer h={0.5} />
 
@@ -69,7 +69,7 @@ export const meta = {
     </Display>
     <Text>
       安装成功后可运行 <Code>npm start</Code> 确认。现在只需要将{' '}
-      <Code>@geist-ui/react</Code> 组件库安装至项目即可：
+      <Code>@geist-ui/core</Code> 组件库安装至项目即可：
     </Text>
     <Display
       width="500px"
@@ -78,7 +78,7 @@ export const meta = {
           使用 <Code>npm</Code> 安装 UI 组件
         </p>
       }>
-      <Snippet type="success">npm install @geist-ui/react</Snippet>
+      <Snippet type="success">npm install @geist-ui/core</Snippet>
     </Display>
   </Tabs.Item>
   <Tabs.Item
@@ -100,7 +100,7 @@ export const meta = {
     </Display>
     <Text>
       安装成功后可运行 <Code>yarn start</Code> 确认。现在只需要将{' '}
-      <Code>@geist-ui/react</Code> 组件库安装至项目即可：
+      <Code>@geist-ui/core</Code> 组件库安装至项目即可：
     </Text>
     <Display
       width="500px"
@@ -109,7 +109,7 @@ export const meta = {
           使用 <Code>yarn</Code> 安装 UI 组件
         </p>
       }>
-      <Snippet type="success">yarn add @geist-ui/react</Snippet>
+      <Snippet type="success">yarn add @geist-ui/core</Snippet>
     </Display>
   </Tabs.Item>
 </Tabs>
@@ -125,7 +125,7 @@ export const meta = {
 
 ```jsx
 // ...
-import { GeistProvider, CssBaseline } from '@geist-ui/react'
+import { GeistProvider, CssBaseline } from '@geist-ui/core'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -142,7 +142,7 @@ ReactDOM.render(
 
 你可以在 <Link rel="nofollow" href="https://github.com/geist-org/react-getting-started/tree/c6ced6cd2ae690aa014f809b39b26173b8895bd5">示例项目</Link> 中查看这次的代码变更，以确保完成了引入工作。
 
-是的，`@geist-ui/react` 没有任何 `.css` 文件，我们把每个组件的样式分发给组件本身，你完全无需考虑样式的问题。
+是的，`@geist-ui/core` 没有任何 `.css` 文件，我们把每个组件的样式分发给组件本身，你完全无需考虑样式的问题。
 这在你未来需要**统一定制主题风格**时非常有帮助，甚至能帮助你在 **Server Render** 时获的最佳效果。有关定制主题等高级内容，
 你可以参阅 <Link color href="https://react.geist-ui.dev/docs/customization/themes">如何定制主题的文档</Link>。
 
@@ -155,13 +155,13 @@ ReactDOM.render(
 
 ```jsx
 // ...
-import { Card, Code, Note, Spacer } from '@geist-ui/react'
+import { Card, Code, Note, Spacer } from '@geist-ui/core'
 
 function App() {
   return (
     <div className="app">
       <Card>
-        hello, world. I am using <Code>@geist-ui/react</Code> !
+        hello, world. I am using <Code>@geist-ui/core</Code> !
       </Card>
       <Spacer h={1.5} />
       <Card shadow>
@@ -181,14 +181,14 @@ function App() {
 
 ## 额外的支持
 
-`@geist-ui/react` 还默认提供了一套非常易于使用的**黑暗模式**，当你切换到黑暗模式时，所有的组件、文字、色彩都会自动的跟随变化，
+`@geist-ui/core` 还默认提供了一套非常易于使用的**黑暗模式**，当你切换到黑暗模式时，所有的组件、文字、色彩都会自动的跟随变化，
 现在你所看到的博客页面就使用了它，点击下方的图标按钮可以预览效果。
 
 当然，任何时候你都可以自定义所有的样式变量，这包括主题与单个组件。同时，在自定义这些基础变量时也无需担心过多的**重复渲染 (re-render)**，
-`@geist-ui/react` 只会重新渲染那些你自定义过的色彩、间距或其他表现力参数，我们在样式的框架设计上充分利用了 React API 提供的 `memoized` 与 `diff` 特性，
+`@geist-ui/core` 只会重新渲染那些你自定义过的色彩、间距或其他表现力参数，我们在样式的框架设计上充分利用了 React API 提供的 `memoized` 与 `diff` 特性，
 在你的页面获得最佳表现力时也确保了性能与体验。
 
-最后，`@geist-ui/react` 完整且优先的提供 `Server Render` 支持，你所见的博客与我们的文档都是由服务端预渲染所完成，
+最后，`@geist-ui/core` 完整且优先的提供 `Server Render` 支持，你所见的博客与我们的文档都是由服务端预渲染所完成，
 你可以在 <Link color rel="nofollow" href="https://react.geist-ui.dev/docs/getting-started/server-render">这里了解如何配置</Link>。
 
 <Spacer h={2} />
