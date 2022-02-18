@@ -15,18 +15,11 @@ const withMDX = require('@next/mdx')({
 const nextConfig = {
   pageExtensions: ['jsx', 'js', 'mdx', 'md', 'ts', 'tsx'],
 
-  cssModules: true,
-
   generateEtags: false,
 
   poweredByHeader: false,
 
   assetPrefix: isProd ? cdnPrefix : '',
-
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: '[local]___[hash:base64:5]',
-  },
 
   env: {
     VERSION: require('./package.json').version,

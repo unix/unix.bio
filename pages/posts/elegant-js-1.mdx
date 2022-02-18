@@ -1,4 +1,3 @@
-import { Spacer } from '@geist-ui/core'
 import NextLink from 'next/link'
 import { Layout } from 'lib/components'
 
@@ -13,8 +12,6 @@ export const meta = {
 我们知道代码被人阅读的难度远胜于引擎，要写出好的代码需要脱离自己的视角，以他人的眼光审视，重新理解上下文含义，
 此时代码的架构、拆分、组合、技巧则给予人阅读的幸福感，我们致力于构建优秀的代码意味着不仅以代码为工具，更是将其视作传达智慧、
 思想、理念的桥梁。这是一种智慧上的锤炼与分享。
-
-<Spacer />
 
 ## 1. 优先使用 `const`。
 
@@ -38,8 +35,6 @@ let count = 0
 const count = [...].reduce((pre, current) => pre + current, 0)
 ```
 
-<Spacer />
-
 ## 2. 使用函数表达式优于函数声明
 
 配合上文所提到的 `const`，我们能够使用函数表达式来创建一个函数，更多的时候我们会与箭头函数配合食用 `const f = () => {}`。它们优于传统函数声明的地方在于:
@@ -58,8 +53,6 @@ function addOne(value) {
 // good
 const addOne = value => value + 1
 ```
-
-<Spacer />
 
 ## 3. 使用 return 减少缩进
 
@@ -84,8 +77,6 @@ const render = () => {
   // client code
 }
 ```
-
-<Spacer />
 
 ## 4. 不要过度优化
 
@@ -121,8 +112,6 @@ for (i = 0; i < len; i++) {}
 users.forEach(user => {})
 ```
 
-<Spacer />
-
 ## 5. 减少魔术字符
 
 魔术字符 (魔术数字) 指的是代码中出现意义不明的字符，从上下文无法推论其来源与作用，这会使代码难以扩展。
@@ -144,8 +133,6 @@ const apis = {
 const url = `${host}/${apiVersion}/${apis.users}`
 ```
 
-<Spacer />
-
 ## 6. 函数不要有过多参数
 
 在不断延展的需求中，我们的函数会有越来越多的参数，但要注意，当一个函数的参数较多时会使调用方困扰。我们并非需要所有的函数都实现 `curry`，
@@ -161,8 +148,6 @@ const createUser = (id, name, createdAt, telephone, email, address) => {}
 // good
 const createUser = (id, userOptions) => {}
 ```
-
-<Spacer />
 
 ## 7. 保持函数的专注
 
@@ -192,8 +177,6 @@ const getuser = id => {
 }
 ```
 
-<Spacer />
-
 ## 8. 使用语义化命名代替长条件
 
 过长的条件判断常常会在一段时间后变的匪夷所思，很难理解其中的逻辑，将其使用语义化的常量代替则可向阅读者提示意义，更省略了不必要的注释。
@@ -211,15 +194,10 @@ const isTeenAgerMember = user.age < 19 && user.age > 13
 if (isTeenAgerMember) // ...
 ```
 
-<Spacer />
-
 ## 9. 减少函数的副作用
 
 减少函数的副作用并非总是需要以纯函数来解决所有问题，不必慌张，我们知道副作用会使状态的变化难以琢磨，在编程中应当以较少的副作用函数为目标，
 使函数的预期与实际保持一致的同时不至于造成过多的影响，这或许会使在构思和声明时花费一些时间，但对上下文的代码块来说，是一件好事。
-
-你可能发现有些时候会不可避免的改变了某些外部状态，比如缓存某些值，为此你陷入了重构的苦思，事实是不必过于担忧，你想做的就必然有道理。
-这就是 **编程中的取舍** 。学会在编程、架构、工程上有所取舍 (不是随心所欲) 后构建出的产品自然会嵌上独具一格的风采，这就是你的编程。
 
 ```js
 // bad
@@ -238,6 +216,6 @@ const upload = user => {
 upload(user)
 ```
 
-下文，<NextLink href="/posts/elegant-js-2"><a>JS 优雅指南 - 2</a></NextLink>。
+下文，[JS 优雅指南 - 2](/posts/elegant-js-2)。
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

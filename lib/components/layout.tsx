@@ -106,14 +106,17 @@ const Layout: React.FC<React.PropsWithChildren<LayoutProps>> = ({
 
         .container :global(h2) {
           font-size: 1.7rem;
+          margin-top: 2.25rem;
         }
 
         .container :global(h3) {
           font-size: 1.4rem;
+          margin-top: 1rem;
         }
 
         .container :global(h4) {
           font-size: 1.2rem;
+          margin-top: 1rem;
         }
 
         @media only screen and (max-width: 767px) {

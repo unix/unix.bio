@@ -11,7 +11,7 @@ import { getDNSPrefetchValue } from 'lib/data-transform'
 import { BlogConfigsProvider } from 'lib/components'
 import { HybridLink, HybridCode } from 'lib/components/mdx'
 
-const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
+const Application: NextPage<AppProps<unknown>> = ({ Component, pageProps }) => {
   const [themeType, setThemeType] = useState('light')
   const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
   const changeHandle = useCallback(isDark => {
@@ -21,8 +21,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (typeof localStorage !== 'object') return
-    const themeType = localStorage.getItem('theme')
-    setThemeType(themeType === 'dark' ? 'dark' : 'light')
+    setThemeType(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light')
   }, [])
   useEffect(() => localStorage.setItem('theme', themeType), [themeType])
   useDomClean()
@@ -59,16 +58,16 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
       <GeistProvider themeType={themeType}>
         <CssBaseline />
         <PrismBaseline />
-        <BlogConfigsProvider onChange={changeHandle}>
-          <MDXProvider
-            components={{
-              a: HybridLink,
-              img: Image,
-              pre: HybridCode,
-            }}>
+        <MDXProvider
+          components={{
+            a: HybridLink,
+            img: Image,
+            pre: HybridCode,
+          }}>
+          <BlogConfigsProvider onChange={changeHandle}>
             <Component {...pageProps} />
-          </MDXProvider>
-        </BlogConfigsProvider>
+          </BlogConfigsProvider>
+        </MDXProvider>
         <style global jsx>{`
           @media only screen and (max-width: 767px) {
             html {
