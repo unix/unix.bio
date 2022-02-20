@@ -1,0 +1,147 @@
+import { Layout } from 'lib/components'
+
+export const meta = {
+  title: '思考当代 Web 架构发展',
+  date: '2022-02-20T15:38:05.212Z',
+  description: '',
+  image: '',
+}
+
+过去的几个月内，[Remix](https://remix.run/docs/en/v1) 用大胆的设计押宝新的 Web 架构，在深度开发、阅读后，我也对此产生了一些思考：
+分布式边缘化计算在现代 Web 架构中的影响，以及与传统缓存方案的对比。
+
+如今流行的 Web 解决方案中，我们总是推崇将数据尽可能的静态化，比如在网页中切割资源、在应用部署时生成静态数据、按需重新验证与生成数据、完全的 SPA 应用等。
+这些常见设计都有一个共同的依赖：将数据尽可能的缓存在客户端至服务端中的某个节点上，无论是客户端缓存、Worker、L1 / L2 等等，它们都寄希望于数据是不变的，
+或是一部分数据在切割后能够在尽可能长的时间内保持不变，以便于用户总是能够享受缓存的数据。
+
+在流行的 SSR、Headless Service 框架内，也开始流行 [SSG](https://www.cloudflare.com/zh-cn/learning/performance/static-site-generator/) / [DPR](https://github.com/jamstack/jamstack.org/discussions/549) ([re-validate](https://nextjs.org/blog/next-12-1#on-demand-incremental-static-regeneration-beta)) 等，
+这意味着完全地服务端渲染并不能解决 Web 中的所有痛点，在构建高性能站点时我们不得不从工程上作出根本性的变化，将一部分业务上低频变更数据通过各类方案预先 Build，
+直到失效、重新生成前保证它们能够总是享受缓存。到现在为止，混合式架构方案已经有了非常不错的表现，几乎已经达到高性能站点可以想象的极限，那么我们还有什么是可以做的呢？
+
+## 不同的实践
+
+在单个服务端的世界内，静态数据离用户最近的部分的确是 CDN 缓存，SSG 类解决方案将业务数据预先静态化在性能上是非常不错的选择，
+但也包含一些 [难以处理的问题](https://remix.run/docs/en/v1/guides/performance)：通常它们需要更富有经验的开发者来解决动静态在工程、业务上耦合的高复杂的问题。
+
+- _复杂度_ -> 要求对业务数据作出隔离和预置处理，工程复杂度上升
+- _开发体验_ -> 单次构建时间更长，构建资源更多
+- _边界场景_ -> 重新验证或到期后缓存大面积失效时体验不佳，穿透时也需要更多的等待时间
+- _结合动态的复杂度_ -> 需要结合少量动态需求时，复杂度上升非常快
+
+同时，动态 (通常需要与服务端进行交互) 数据的获取和更新面临更大的问题，距服务端物理位置较远的用户体验会大打折扣，
+尽管用户在缓存的帮助下快速的建立了页面的骨架，但部分与业务结合的动态数据将需要花费大量时间加载 (如为不同用户定制的数据)：可能需要跨越多个网关、国家固定出口线路，
+甚至需要穿越太平洋的隧道才能完成一次响应。大部分谈及 Web 性能的文章只关注于首屏加载静态数据而忽略动静态集合、动态数据，这是一个伪需求：
+**在 2022 年我们几乎不需要再考虑纯静态数据的加载性能，它们已经做的足够好并且优化空间有限，如何提升动态 Web 站点性能与 Web 可交互时间点才是至关重要的。**
+
+### 边缘化
+
+Cloudflare 提供的 [Workers](https://workers.cloudflare.com/) 服务可以认为是推动 [Edge Computing](https://en.wikipedia.org/wiki/Edge_computing) 真正发展的重要实践，
+Workers 允许用户将代码部署在全球几百个不同地理位置节点上，以便于更接近于的节点优先完成响应。举例来说，
+一位来自悉尼的用户发起的实时请求大多数时候只会落在悉尼以内或附近的网络节点上，由这些节点完成处理后再返回给用户，用户侧的客户端不会因为与美洲、欧洲的服务端发生交互而被迫等待大量网络时间。
+
+> 也许你会说，这不只是分布式架构的应用吗？
+>
+> 确实如此。但对于 Web 来说，需要的不仅是这些。如果我们能够始终保持应用是无状态的，那么对于客户端 (或是 SSR 等动静态混合源站) 只需要容器同步部署到多个地点即可，在容器云平台我们可以在极短的时间内就完成这些内容。
+> 或是同时在多个地点部署 Serverless 应用，以 [LBR](https://aws.amazon.com/blogs/aws/latency-based-multi-region-routing-now-available-for-aws/) / [Geo DNS](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geo) 等方式分配物理区域的流量即可完成类似架构。
+
+尽管我们部署无状态应用可以提高站点的响应速度，但没有解决根本性的问题：一致性、复杂度、易用性等，甚至在费用上也超出常规 Web 架构。
+这是因为部署多个无状态应用并按地区路由流量是一件工程上非常复杂的设计，特别是包含客户端应用的缓存时；使用 [AWS Lambda@Edge](https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html) 的成本会远[高于 Lambda](https://medium.com/@zackbloom/serverless-pricing-and-costs-aws-lambda-and-lambda-edge-169bfb58db75)；
+同时还需要处理多个容器冷启动延迟、蓝绿滚动等在多地区上的同步部署高复杂度问题等。Cloudflare Workers 架构是解决这些问题很好的答案，
+如使用 [V8 协调隔离](https://v8.dev/) 代替容器隔离；无需在 [轻量级隔离](https://blog.cloudflare.com/cloud-computing-without-containers/) 上使用传统的容器热身来保证多节点始终处于预热状态；更低的占用意味着更低的价格；更高的 [性能](https://blog.cloudflare.com/serverless-performance-comparison-workers-lambda/)；
+易用性也能使互联网上大多数依赖于容器云的 Web 客户能够轻易的迁移和重新部署等。
+
+[Layer0](https://docs.layer0.co/guides/overview#section_high_availability) 中的一部分设计可以被认为与 Workers 类似，
+它也允许开发者将一部分逻辑捆绑到 "边缘" 执行，并允许边缘逻辑在请求命中传统缓存前、后或其他生命周期时操控缓存。与 Workers 同样相似的是，
+我们目前还不能完全依赖 Edge 去构建 Full Server Render 逻辑，这些在 Edge 上运行的代码处于 [Workers runtime](https://developers.cloudflare.com/workers/runtime-apis/web-standards) 中，包含一些平台限制。
+(不是语言的差异，而是运行环境，Workers 也逐渐支持 [wasm](https://developers.cloudflare.com/workers/platform/languages#wasm-supported))
+
+尽管如此，现在也衍生了一些将传统客户端同构到 Edge 的框架，如 [Preact](https://preactjs.com/guide/v10/getting-started)。这是非常不错的尝试，
+但 Edge 架构也有其局限性，比如在涉及操作文件系统 (实现 re-generate SSG 常见的需求)、分布式数据库、数据同步写入等方面需求时仍旧不可能完全代替现代 Web 架构，
+所以我**建议将一部分轻量级的动态处理需求从中心化的云设施中剥离出来，并置于 Edge Runtime，这是有益的** —— 这些关键的动态变化可能是影响 Web 应用性能的瓶颈：
+
+- 类似于 Web 中动态的鉴权的部分
+- 从 Edge 控制传统缓存
+- A/B Test
+- 基于地理位置提供的不同内容 (按合规性分配内容)
+- 阻止来自不同地理位置的攻击
+
+从易用性和开发者体验上来说，将一部分逻辑无痛的迁移到 Edge 并且能够和 Web 客户端完成较好交互是很有很难度的：一方面我们需要保持原有的传统 Web 架构设计不变以便于不被云平台独有实现束缚住，
+另一方面我们要尽可能的使用可拆卸式的代码将一部分逻辑移动到 Edge Runtime。
+目前可以大范围商用、具备较高开发体验的云平台也有 [Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions) 与 [Netlify Edge Handlers](https://docs.netlify.com/edge-handlers/overview/#app)。
+
+## 服务端与服务端渲染
+
+服务端渲染 (SSR) 不等同于服务端模板渲染，事实上在现代化 Web 架构中，SSR 已经是包含 SSG / DPR / SSR (见上文)等诸多集合体的概念，
+此外，[Server Component](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html) 也应该可以纳入这个范畴。
+本质上都是一个汇集了大量可静态信息的、用于渲染 HTML 字符串的、不需要长时间唤醒的 HTTP 服务端。
+
+在大量的已有实践中，开发者们喜欢把 SSR 部署于 Serverless 中以利用其随时可唤醒的优势来节省资源，这是不错的实践，相比于直接将源站置于容器云或其他云服务商中心化的虚拟机上。
+但仅限于可大量静态化的 Web 站点。一旦我们要求 SSR 对每个页面重新渲染或重新生成静态页面 (重置缓存) 时，响应速度就不那么理想了：
+
+1. 客户端不能享受缓存 (或需要重新验证)，等待服务端的渲染
+2. 来自悉尼的用户发送请求到达美东 (以 AWS 默认节点 `us-east-1` 举例)
+3. 如果正在使用 Serverless，还要额外等待冷启动时间
+4. 美东的服务端从本地数据库中获取信息，重新生成 HTML 字符串
+5. 服务端将数据从美东发送至悉尼
+6. 如有必要，热身刚刚生成的新 HTML 到 CDN 每个节点
+
+这个过程及其漫长，但也是必要的：这次请求必须由服务端确认后才能重新生成新的页面，SSR 需要重新查询数据并 re-generate，所幸的是：大部分 Web 页面仍旧可以被优化为 DPR，
+享受这次生成页面后一段时间的缓存。
+
+除页面 (与资源) 的加载之外，Web 应用中还有相当一部分需要与服务端交互的 HTTP(或其他协议) 请求，我们通常会构建独立的 API Server 运行这些业务逻辑，
+也有开发者将 API 打包在 SSR 服务端中运行，这里不需要深究，我们将这类需求可以看做是对持久化、外部共享数据的读写，
+它们都有一个共同的问题：Web 客户端向外部资源读写数据通常需要跨地域，这是花费网络时间的重要部分，也是很多 Web 应用的瓶颈。
+
+### Remix 与 Fly.io
+
+在 [Remix 与 Fly.io 的最佳实践](https://fly.io/docs/getting-started/remix/) 中我看到一些不同的设计：在 Remix 中每个组件中用于加载数据的网络请求并不是传统的 API，
+而是向当前组件的服务端部分自动请求，你可以使用默认的 `Get` 或是 HTML Form 提供的 `Post`、`Put` 等方法向组件自身请求数据 (你仍旧可以用传统数据加载方案)，
+组件的一部分 [Loader](https://remix.run/docs/en/v1/guides/data-loading) 被分割到服务端运行，用于查询外部数据提供给组件，整体数据的加载非常流畅和低粒度，而且有着非常高的开发体验。
+
+这样的架构设计屏蔽了 API 接口的概念 (不是阻止，如果你需要仍旧可以使用)，对于开发者来说只关心当前组件的渲染模型和数据查询，随后自动切割为服务端与客户端，
+单个子组件可以作为路由的一部分 (子路由) 加载，也可以有自身的错误处理等等，非常适合作为高性能同构方案。
+那么我们将 HTTP 请求拆分的如此细致，甚至按组件自动拆分请求与回复，又有什么优势呢？
+
+如果我们把整个 Remix 应用当做运行在用户终端中被隔离的一部分，只要每次请求与应答都足够快 (在客户端运行)，那么这个架构将会在用户体验、交互、速度上有非常大的优势，
+事实上，的确可以这样做，在 Edge 上：Remix 可以将捆绑包轻松地 [部署在 Workers](https://remix-cloudflare-demo.jacob-ebey.workers.dev/) 上，在最接近用户的端点上运行这套框架。
+
+这是一部分，但还不是全部。借助于 [fly-proxy](https://fly.io/docs/getting-started/multi-region-databases/) 对无状态容器分布式部署作出的努力，
+我们可以甚至可以将这样的应用部署在多个靠近用户节点上，并在无数个节点上运行读写分离的 PostgreSQL(或其他)，这样一来，大部分用户的读操作可以被分配到里用户最近地域的节点上。(这并不适用于 `Write-heavy` 类型的应用)
+
+当然，在一层云服务商或容器云上，我们也可以轻松地做到这点。如在 Heroku 中创建数十个最终一致的 [同步数据库](https://devcenter.heroku.com/articles/heroku-postgres-follower-databases) 用于读，并且将它们都链接到同一个 dyno 上即可。
+但我们也需要手动地配置穿透读取、查询同步数据、切换主从 (需要写入时)、优雅停机维护等多项工作。Fly.io 在开发者体验上做出了大量的工程优化，
+并证明与当代的 Web 架构整合是一个可行、低成本 (相对的)、高体验的设计，这是非常了不起的。
+
+SSR 或来自 HTTP 的数据读取只在用户的当前地域进行的分布式方案是应该得到推广和实践的，另外，
+能够将客户端同构、自动化分布式读取、缓存管理进行整合的云设施是下一代 Web 应用托管平台的重要目标。现在这些不同的架构设计能够带来性能的提升，但不是最重要的——
+能够在保持高级架构的同时带来高级的开发者体验是最后 Web 架构决胜的关键。
+
+## 是什么
+
+那么当代的 Web 架构是什么？我也不知道，可能还没有。
+
+在几年前几乎还没有人认为 Serverless 可以被大范围使用，我在非常积极的在推广 Serverless 在 Web 架构中的解决方案时，
+总是会被人抬杠：Serverless 有这样那样的问题、为什么不能直接用常驻容器解决、在各种极端场景下是失败的等等，
+现在 Serverless 已经成为主流的 Web App 解决方案之一，这些问题还在吗？是的，大部分都还存在。
+但是这不会阻碍其成为优秀架构中的一部分，因为在高速发展的 Web 架构世界里，一个设施、产品只要能解决 1 - 2 个重要问题，并且有较高开发者体验 (能够跟随高速发展的生态),
+那么就是有价值的，并且会存在很长一段时间。
+
+在面临新的技术变化时，让自己保持开放的心态，思考技术的变化与自身知识储备的冲突并作出客观的判断 —— 这是一件非常困难的事，
+它 (可能) 否定了我们所积累知识图谱中的一部分数据的价值，也可能是假性的，这项技术在一段时间被淘汰后。以下是可能对各位造成不适的总结：
+
+##### 未来的 Web 架构包含
+
+- Edge
+- Saas (with region sharing)
+- SSR (multi-region)
+
+##### 已有且仍旧会发展
+
+- SSG / DPR (multi-region)
+- Serverless
+
+##### 将会被抛弃的
+
+- SSR (full site)
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
