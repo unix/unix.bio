@@ -6,7 +6,7 @@ import useDomClean from 'lib/use-dom-clean'
 import { MDXProvider } from '@mdx-js/react'
 import { PrismBaseline } from '@geist-ui/prism'
 import { GeistProvider, CssBaseline, Image } from '@geist-ui/core'
-import { useCallback, useState, useEffect, useMemo } from 'react'
+import { useCallback, useState, useEffect, useMemo, useRef } from 'react'
 import { getDNSPrefetchValue } from 'lib/data-transform'
 import { BlogConfigsProvider } from 'lib/components'
 import { HybridLink, HybridCode } from 'lib/components/mdx'
@@ -14,15 +14,21 @@ import { HybridLink, HybridCode } from 'lib/components/mdx'
 const Application: NextPage<AppProps<unknown>> = ({ Component, pageProps }) => {
   const [themeType, setThemeType] = useState('light')
   const domain = useMemo(() => getDNSPrefetchValue(BLOG.domain), [])
+  const initializedRef = useRef(false);
+
+
   const changeHandle = useCallback(isDark => {
     const next = isDark ? 'light' : 'dark'
     setThemeType(next)
   }, [])
 
   useEffect(() => {
-    if (typeof localStorage !== 'object') return
-    setThemeType(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light')
-  }, [])
+    if (!initializedRef.current) {
+      if (typeof localStorage !== 'object') return
+      setThemeType(localStorage.getItem('theme') === 'dark' ? 'dark' : 'light')
+      initializedRef.current = true
+    }
+  }, []);
   useEffect(() => localStorage.setItem('theme', themeType), [themeType])
   useDomClean()
 
